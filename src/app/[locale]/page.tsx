@@ -1,0 +1,27 @@
+import { setRequestLocale } from "next-intl/server";
+import { EquipmentLineup } from "@/components/home/EquipmentLineup";
+import { FieldTested } from "@/components/home/FieldTested";
+import { Hero } from "@/components/home/Hero";
+import { Partners } from "@/components/home/Partners";
+import { StatsBar } from "@/components/home/StatsBar";
+import { SupportGrid } from "@/components/home/SupportGrid";
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return (
+    <>
+      <Hero />
+      <StatsBar />
+      <FieldTested />
+      <EquipmentLineup />
+      <SupportGrid />
+      <Partners />
+    </>
+  );
+}

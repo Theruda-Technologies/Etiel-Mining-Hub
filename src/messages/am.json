@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "siteName": "ኢቲየል ማይኒንግ ሃብ",
+    "tagline": "ኢንዱስትሪያል ትክክለኛነት።"
+  },
+  "nav": {
+    "home": "መነሻ",
+    "products": "ምርቶች",
+    "services": "አገልግሎቶች",
+    "contact": "ያግኙን",
+    "placeOrder": "ትዕዛዝ ያስገቡ"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "ኢንዱስትሪያል ትክክለኛነት።",
+      "titleLine2": "የማይታጠፍ ኃይል።",
+      "subtitle": "ለአለም አስቸጋሪ አካባቢዎች የተሰራ። የማውጣት ቴክኖሎጂን ቀጣይ ትውልድ ያግኙ።",
+      "browseProducts": "ምርቶችን ያስሱ",
+      "orderNow": "አሁን ይዘዙ"
+    },
+    "stats": {
+      "unitsValue": "150+",
+      "unitsLabel": "ንቁ ክፍሎች",
+      "recoveryValue": "98%",
+      "recoveryLabel": "የመልሶ ማግኛ መጠን",
+      "supportValue": "24/7",
+      "supportLabel": "ዓለም አቀፍ ድጋፍ",
+      "failuresValue": "ዜሮ",
+      "failuresLabel": "ከባድ ብልሽቶች"
+    },
+    "fieldTested": {
+      "title": "በመስክ የተፈተነ ብቃት",
+      "body": "የእኛ ፍላግሺፕ X-9 ተከታታይ ቁፋሮዎች በቀንና በሌሊት የከርሰ ምድር ስራ ላይ የማይተካ ጉልበት ይሰጣሉ፣ የዑደት ጊዜን በ40% ይቀንሳሉ።",
+      "cta": "አሁን ይዘዙ"
+    },
+    "equipment": {
+      "title": "የመሣሪያ መስመር",
+      "subtitle": "ለከባድ ማውጣት የተሰሩ ማሽኖች።",
+      "viewDetails": "ዝርዝር ይመልከቱ",
+      "featured": "ተለይቶ",
+      "items": {
+        "magnetar": {
+          "name": "MAGNETAR ቁፋሮ",
+          "series": "M-ተከታታይ",
+          "specs": "ከፍተኛ ጉልበት · 120ሜ ጥልቀት · ራስ-ሰር አሰሳ"
+        },
+        "titan": {
+          "name": "Titan ማጓጓዣ",
+          "series": "T-ተከታታይ",
+          "specs": "ሞዱላር ቀበቶ · 800 ቶን/ሰ · አቧራ-ታሽጎ ድራይቭ"
+        },
+        "aeroscout": {
+          "name": "AeroScout ድሮን",
+          "series": "A-ተከታታይ",
+          "specs": "LiDAR ካርታ · 45 ደቂቃ በረራ · ጠንካራ አካል"
+        }
+      }
+    },
+    "support": {
+      "title": "ሁለገብ ድጋፍ",
+      "subtitle": "ከመጀመሪያ ምክክር እስከ መስክ ማሰማራት — ከስራዎ ጋር እንቆያለን።",
+      "items": {
+        "sales": {
+          "title": "ሽያጭ እና ምክክር",
+          "body": "ለአካባቢያዊ ወርቅ እና ንግድ ስራዎች የመሣሪያ ምርጫ እና የጣቢያ ተስማሚነት መመሪያ።"
+        },
+        "global": {
+          "title": "ዓለም አቀፍ ድጋፍ",
+          "body": "መቆሚያ ጊዜ የማይቻል ሲሆን የመስክ ቴክኒሻኖች እና የርቀት ምርመራ።"
+        },
+        "financing": {
+          "title": "ፋይናንስ",
+          "body": "ለአነስተኛ ማዕድን አውጭዎች እና መካከለኛ መርከቦች ተለዋዋጭ የግዢ መንገዶች።"
+        },
+        "training": {
+          "title": "የአሽከርካሪ ስልጠና",
+          "body": "ቡድንዎ እያንዳንዱን ክፍል በከፍተኛ አቅም እንዲያንቀሳቅስ ተግባራዊ ሰርተፊኬት።"
+        }
+      }
+    },
+    "partners": {
+      "label": "በክልሉ የታመነ",
+      "names": ["Aurum Core", "Geo-Tech", "Titan Extract", "Valley Heavy"]
+    }
+  },
+  "footer": {
+    "privacy": "የግላዊነት ፖሊሲ",
+    "terms": "የአገልግሎት ውል",
+    "status": "የአገልግሎት ሁኔታ",
+    "locations": "ዓለም አቀፍ ቦታዎች",
+    "copyright": "© {year} ኢቲየል ማይኒንግ ሃብ። ኢንዱስትሪያል ትክክለኛነት።"
+  }
+}

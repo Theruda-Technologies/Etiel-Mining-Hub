@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "siteName": "Etiel Mining Hub",
+    "tagline": "Industrial Precision."
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "contact": "Contact",
+    "placeOrder": "Place Order"
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Industrial Precision.",
+      "titleLine2": "Unyielding Power.",
+      "subtitle": "Engineered for the world's most demanding environments. Discover the next generation of extraction technology.",
+      "browseProducts": "Browse Products",
+      "orderNow": "Order Now"
+    },
+    "stats": {
+      "unitsValue": "150+",
+      "unitsLabel": "Units Active",
+      "recoveryValue": "98%",
+      "recoveryLabel": "Recovery Rate",
+      "supportValue": "24/7",
+      "supportLabel": "Global Support",
+      "failuresValue": "Zero",
+      "failuresLabel": "Critical Failures"
+    },
+    "fieldTested": {
+      "title": "Field-Tested Excellence",
+      "body": "Our flagship X-9 Series drills deliver unmatched torque in 24/7 subterranean operations, reducing cycle times by 40%.",
+      "cta": "Order Now"
+    },
+    "equipment": {
+      "title": "Equipment Lineup",
+      "subtitle": "Purpose-built machinery for heavy-duty extraction.",
+      "viewDetails": "View Details",
+      "featured": "Featured",
+      "items": {
+        "magnetar": {
+          "name": "MAGNETAR Drill",
+          "series": "M-series",
+          "specs": "High-torque rotary · 120m depth · Auto-nav ready"
+        },
+        "titan": {
+          "name": "Titan Conveyor",
+          "series": "T-series",
+          "specs": "Modular belt · 800 t/h · Dust-sealed drive"
+        },
+        "aeroscout": {
+          "name": "AeroScout Drone",
+          "series": "A-series",
+          "specs": "LiDAR mapping · 45 min flight · Rugged chassis"
+        }
+      }
+    },
+    "support": {
+      "title": "Comprehensive Support",
+      "subtitle": "From first consultation to field deployment — we stay with your operation.",
+      "items": {
+        "sales": {
+          "title": "Sales & Consultation",
+          "body": "Device selection and site-fit guidance for local gold and commercial ops."
+        },
+        "global": {
+          "title": "Global Support",
+          "body": "Field technicians and remote diagnostics when downtime is not an option."
+        },
+        "financing": {
+          "title": "Financing",
+          "body": "Flexible procurement paths for artisanal crews and mid-tier fleets."
+        },
+        "training": {
+          "title": "Operator Training",
+          "body": "Hands-on certification so your team runs every unit at peak capability."
+        }
+      }
+    },
+    "partners": {
+      "label": "Trusted across the region",
+      "names": ["Aurum Core", "Geo-Tech", "Titan Extract", "Valley Heavy"]
+    }
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "status": "Service Status",
+    "locations": "Global Locations",
+    "copyright": "© {year} Etiel Mining Hub. Industrial Precision."
+  }
+}

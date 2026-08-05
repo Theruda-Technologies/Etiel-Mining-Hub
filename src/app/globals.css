@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --basalt: #2c2a26;
+  --basalt-deep: #0d0d0d;
+  --basalt-elevated: #1a1a1a;
+  --basalt-muted: #242424;
+  --bone: #f2efe6;
+  --amber: #e0a526;
+  --amber-bright: #ffb800;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --background: var(--basalt-deep);
+  --foreground: var(--text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: theme("fontFamily.sans");
+}
+
+body.locale-am {
+  font-family: theme("fontFamily.ethiopic");
+  line-height: 1.65;
+}
+
+body.locale-am h1,
+body.locale-am h2,
+body.locale-am h3 {
+  font-family: theme("fontFamily.ethiopic");
+  line-height: 1.35;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: theme("fontFamily.display");
+  }
+
+  .font-mono-tech {
+    font-family: theme("fontFamily.mono");
+  }
+
+  .vein-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--amber) 55%, transparent) 20%,
+      color-mix(in srgb, var(--bone) 35%, transparent) 50%,
+      color-mix(in srgb, var(--amber) 55%, transparent) 80%,
+      transparent 100%
+    );
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out both;
+  }
+
+  .animate-fade-up-delay {
+    animation: fade-up 0.8s ease-out 0.15s both;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fade-up 0.8s ease-out 0.3s both;
+  }
+
+  .equipment-scroll {
+    scrollbar-width: none;
+  }
+
+  .equipment-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

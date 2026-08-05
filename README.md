@@ -1,12 +1,16 @@
 # Etiel Mining Hub
 
-Industrial equipment ordering platform (customer store + admin ops). Backend: Supabase. Frontend: Next.js (upcoming).
+Industrial equipment ordering platform (customer store). Backend: Supabase. Frontend: Next.js.
 
-## Phase 1 — Supabase
-
-See [supabase/README.md](supabase/README.md) for schema, RLS, RPCs, and how to link/push migrations to the cloud project.
+## Develop
 
 ```bash
-supabase login
-./scripts/push_db.sh
+npm install
+npm run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) — redirects to `/en`. Amharic: `/am`.
+
+## Supabase
+
+See [supabase/README.md](supabase/README.md).
