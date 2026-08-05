@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart/store";
+import { useAuthGate } from "@/lib/auth/useAuthGate";
 import type { CatalogProduct } from "@/lib/catalog/products";
 
 export function ProductHeroActions({
@@ -14,12 +15,14 @@ export function ProductHeroActions({
 }) {
   const t = useTranslations("catalog");
   const { addItem } = useCart();
+  const { requireAuth } = useAuthGate();
 
   return (
     <div className="flex flex-wrap gap-3">
       <button
         type="button"
-        onClick={() =>
+        onClick={() => {
+          if (!requireAuth()) return;
           addItem({
             id: product.id,
             slug: product.slug,
@@ -28,8 +31,8 @@ export function ProductHeroActions({
             price: product.price,
             image: product.image,
             itemType: "product",
-          })
-        }
+          });
+        }}
         className="inline-flex items-center justify-center gap-2 rounded-sm bg-amber px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-basalt-deep transition-colors hover:bg-amber-bright"
       >
         <CartIcon />

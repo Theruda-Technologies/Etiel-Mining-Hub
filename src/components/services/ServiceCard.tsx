@@ -3,11 +3,13 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart/store";
+import { useAuthGate } from "@/lib/auth/useAuthGate";
 import type { CatalogService } from "@/lib/catalog/services";
 
 export function ServiceCard({ service }: { service: CatalogService }) {
   const t = useTranslations("services");
   const { addItem } = useCart();
+  const { requireAuth } = useAuthGate();
 
   const name = t(`items.${service.id}.name`);
   const href = `/services/${service.slug}`;
@@ -15,6 +17,7 @@ export function ServiceCard({ service }: { service: CatalogService }) {
   function handleAdd(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
+    if (!requireAuth()) return;
     addItem({
       id: service.id,
       slug: service.slug,

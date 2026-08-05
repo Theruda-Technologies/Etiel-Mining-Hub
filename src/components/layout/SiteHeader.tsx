@@ -2,20 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { useAuth } from "@/lib/auth/AuthProvider";
 import { useCart } from "@/lib/cart/store";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
   const tMeta = useTranslations("meta");
   const pathname = usePathname();
+  const router = useRouter();
   const { count } = useCart();
+  const { user, loading, signOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
 
   const isHome = pathname === "/";
+  const isAuthed = !!user;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -44,6 +49,14 @@ export function SiteHeader() {
   ] as const;
 
   const solid = !isHome || scrolled || open;
+
+  async function handleLogout() {
+    setSigningOut(true);
+    await signOut();
+    setSigningOut(false);
+    setOpen(false);
+    router.push("/");
+  }
 
   return (
     <header
@@ -82,9 +95,11 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageSwitcher />
-          <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
-            {t("myOrders")}
-          </Button>
+          {!loading && isAuthed ? (
+            <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
+              {t("myOrders")}
+            </Button>
+          ) : null}
           <Button href="/cart" className="!px-4 !py-2 text-[13px]">
             {t("placeOrder")}
             {count > 0 ? (
@@ -93,6 +108,19 @@ export function SiteHeader() {
               </span>
             ) : null}
           </Button>
+          {!loading && isAuthed ? (
+            <Button
+              variant="ghost"
+              className="!px-4 !py-2 text-[13px]"
+              onClick={handleLogout}
+            >
+              {signingOut ? "…" : t("logout")}
+            </Button>
+          ) : !loading ? (
+            <Button href="/login" variant="secondary" className="!px-4 !py-2 text-[13px]">
+              {t("login")}
+            </Button>
+          ) : null}
         </div>
 
         <button
@@ -134,13 +162,28 @@ export function SiteHeader() {
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
               <LanguageSwitcher />
               <div className="flex flex-wrap gap-2">
-                <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
-                  {t("myOrders")}
-                </Button>
+                {!loading && isAuthed ? (
+                  <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
+                    {t("myOrders")}
+                  </Button>
+                ) : null}
                 <Button href="/cart" className="!px-4 !py-2 text-[13px]">
                   {t("placeOrder")}
                   {count > 0 ? ` (${count})` : ""}
                 </Button>
+                {!loading && isAuthed ? (
+                  <Button
+                    variant="ghost"
+                    className="!px-4 !py-2 text-[13px]"
+                    onClick={handleLogout}
+                  >
+                    {signingOut ? "…" : t("logout")}
+                  </Button>
+                ) : !loading ? (
+                  <Button href="/login" variant="secondary" className="!px-4 !py-2 text-[13px]">
+                    {t("login")}
+                  </Button>
+                ) : null}
               </div>
             </div>
           </nav>

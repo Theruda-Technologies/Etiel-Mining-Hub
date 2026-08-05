@@ -9,7 +9,46 @@
     "services": "አገልግሎቶች",
     "contact": "ያግኙን",
     "placeOrder": "ትዕዛዝ ያስገቡ",
-    "myOrders": "ትዕዛዞቼ"
+    "myOrders": "ትዕዛዞቼ",
+    "login": "ግባ",
+    "logout": "ውጣ"
+  },
+  "auth": {
+    "email": "ኢሜይል አድራሻ",
+    "emailPlaceholder": "user@domain.com",
+    "password": "የይለፍ ቃል",
+    "forgot": "ረሳኽ?",
+    "fullName": "ሙሉ ስም",
+    "fullNamePlaceholder": "ለምሳሌ፡ አበበ ከበደ",
+    "signupEmailPlaceholder": "john.doe@company.com",
+    "phoneOptional": "ስልክ ቁጥር (አማራጭ)",
+    "phonePlaceholder": "+251 ...",
+    "resetSent": "የይለፍ ቃል ዳግም ማስጀመሪያ ኢሜይል ተልኳል። ሳጥንዎን ይመልከቱ።",
+    "login": {
+      "title": "ግባ",
+      "subtitle": "የኢንዱስትሪ ግዢ ስርዓት መዳረሻ",
+      "submit": "ግባ",
+      "submitting": "በመግባት ላይ…",
+      "newOperator": "አዲስ ኦፕሬተር?",
+      "createAccount": "መለያ ይፍጠሩ"
+    },
+    "signup": {
+      "title": "መለያ ፍጠር",
+      "subtitle": "የግዢ መገለጫዎን ያስጀምሩ።",
+      "submit": "መለያ ፍጠር",
+      "submitting": "በመፍጠር ላይ…",
+      "hasAccount": "ቀድሞ የተፈቀደ ተጠቃሚ?",
+      "signIn": "ግባ",
+      "confirmEmail": "መለያዎን ለማረጋገጥ ኢሜይልዎን ይመልከቱ፣ ከዚያ ይግቡ።",
+      "footerCopy": "© {year} ኢቲየል ማይኒንግ ሃብ። ኢንዱስትሪያል ደረጃ ግዢ።",
+      "support": "ቴክኒካል ድጋፍ"
+    },
+    "errors": {
+      "loginFailed": "መግባት አልተቻለም። ኢሜይል እና የይለፍ ቃልዎን ያረጋግጡ።",
+      "signupFailed": "መለያ መፍጠር አልተቻለም። ሌላ ኢሜይል ይሞክሩ።",
+      "emailRequired": "መጀመሪያ ኢሜይል አድራሻዎን ያስገቡ።",
+      "resetFailed": "ዳግም ማስጀመሪያ ኢሜይል መላክ አልተቻለም። እንደገና ይሞክሩ።"
+    }
   },
   "home": {
     "hero": {

@@ -31,8 +31,14 @@ supabase login
 
 In the Supabase Dashboard → Authentication → Providers / Settings:
 
-- Disable public sign-ups (invite-only).
-- Only `super_admin` should invite staff (via a future server route using the service role key).
+- **Storefront customers:** enable Email provider + allow public sign-ups (signup page uses `auth.signUp`; new users get `customer` via `handle_new_user`).
+- **Staff:** invite-only is still recommended for `admin` / `super_admin`. Promote staff with:
+
+```sql
+UPDATE public.profiles SET role = 'admin' WHERE email = 'staff@example.com';
+```
+
+Only `super_admin` can change roles or delete other `admin` profiles (via RLS).
 
 ## Bootstrap the first `super_admin`
 
@@ -43,8 +49,6 @@ UPDATE public.profiles
 SET role = 'super_admin'
 WHERE email = 'YOUR_EMAIL@example.com';
 ```
-
-New Auth users get `admin` via the `handle_new_user` trigger. Only `super_admin` can change roles or delete other `admin` profiles (via RLS).
 
 ## Public RPCs
 

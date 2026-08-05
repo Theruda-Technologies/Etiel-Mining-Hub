@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart/store";
+import { useAuthGate } from "@/lib/auth/useAuthGate";
 import type { CatalogProduct } from "@/lib/catalog/products";
 
 type ProductCardProps = {
@@ -13,6 +14,7 @@ type ProductCardProps = {
 export function ProductCard({ product }: ProductCardProps) {
   const t = useTranslations("catalog");
   const { addItem } = useCart();
+  const { requireAuth } = useAuthGate();
 
   const name = t(`products.${product.id}.name`);
   const categoryLabel = t(`categories.${product.category}`);
@@ -21,6 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
   function handleAdd(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
+    if (!requireAuth()) return;
     addItem({
       id: product.id,
       slug: product.slug,

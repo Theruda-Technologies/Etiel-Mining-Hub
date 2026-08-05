@@ -1,8 +1,9 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { useAuth } from "@/lib/auth/AuthProvider";
 import {
   getStoredOrders,
   lookupStoredOrder,
@@ -11,14 +12,26 @@ import {
 
 export function OrdersPageClient() {
   const t = useTranslations("store");
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const [query, setQuery] = useState({ order: "", contact: "" });
   const [result, setResult] = useState<PlacedOrder | null | undefined>(undefined);
   const localOrders = useMemo(() => getStoredOrders(), [result]);
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/login?next=/orders");
+    }
+  }, [loading, user, router]);
 
   function onLookup(e: FormEvent) {
     e.preventDefault();
     const found = lookupStoredOrder(query.order, query.contact);
     setResult(found);
+  }
+
+  if (loading || !user) {
+    return <div className="min-h-[50vh] bg-basalt-deep pt-24" />;
   }
 
   const rows = result ? [result] : localOrders;

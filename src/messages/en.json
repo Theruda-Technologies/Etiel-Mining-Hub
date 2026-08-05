@@ -9,7 +9,46 @@
     "services": "Services",
     "contact": "Contact",
     "placeOrder": "Place Order",
-    "myOrders": "My Orders"
+    "myOrders": "My Orders",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "auth": {
+    "email": "Email Address",
+    "emailPlaceholder": "user@domain.com",
+    "password": "Password",
+    "forgot": "Forgot?",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "e.g. John Doe",
+    "signupEmailPlaceholder": "john.doe@company.com",
+    "phoneOptional": "Phone Number (optional)",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "resetSent": "Password reset email sent. Check your inbox.",
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Access industrial procurement system",
+      "submit": "Login",
+      "submitting": "Signing in…",
+      "newOperator": "New operator?",
+      "createAccount": "Create an account"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Initialize your procurement profile.",
+      "submit": "Create Account",
+      "submitting": "Creating…",
+      "hasAccount": "Already an authorized user?",
+      "signIn": "Sign in",
+      "confirmEmail": "Check your email to confirm your account, then sign in.",
+      "footerCopy": "© {year} Etiel Mining Hub. Industrial Grade Procurement.",
+      "support": "Technical Support"
+    },
+    "errors": {
+      "loginFailed": "Could not sign in. Check your email and password.",
+      "signupFailed": "Could not create account. Try a different email.",
+      "emailRequired": "Enter your email address first.",
+      "resetFailed": "Could not send reset email. Try again."
+    }
   },
   "home": {
     "hero": {

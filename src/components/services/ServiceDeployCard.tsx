@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useCart } from "@/lib/cart/store";
+import { useAuthGate } from "@/lib/auth/useAuthGate";
 import type { CatalogService } from "@/lib/catalog/services";
 
 export function ServiceDeployCard({
@@ -13,6 +14,7 @@ export function ServiceDeployCard({
 }) {
   const t = useTranslations("services");
   const { addItem } = useCart();
+  const { requireAuth } = useAuthGate();
 
   return (
     <aside className="rounded-sm border border-white/15 bg-basalt-elevated p-6 md:p-7">
@@ -25,7 +27,8 @@ export function ServiceDeployCard({
 
       <button
         type="button"
-        onClick={() =>
+        onClick={() => {
+          if (!requireAuth()) return;
           addItem({
             id: service.id,
             slug: service.slug,
@@ -34,8 +37,8 @@ export function ServiceDeployCard({
             price: service.price,
             image: "/images/field-tunnel.jpg",
             itemType: "service",
-          })
-        }
+          });
+        }}
         className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-amber px-5 py-3.5 text-xs font-bold uppercase tracking-[0.1em] text-basalt-deep transition-colors hover:bg-amber-bright"
       >
         {t("addToCart")}

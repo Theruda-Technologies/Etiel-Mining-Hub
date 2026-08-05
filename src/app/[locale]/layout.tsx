@@ -4,8 +4,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { AppChrome } from "@/components/layout/AppChrome";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { AuthProvider } from "@/lib/auth/AuthProvider";
 import { CartProvider } from "@/lib/cart/store";
 import "../globals.css";
 
@@ -65,13 +67,13 @@ export default async function LocaleLayout({
         className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable} ${notoEthiopic.variable} locale-${locale} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <CartProvider>
-            <div className="flex min-h-screen flex-col bg-basalt-deep text-white">
-              <SiteHeader />
-              <main className="flex-1">{children}</main>
-              <SiteFooter />
-            </div>
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <AppChrome header={<SiteHeader />} footer={<SiteFooter />}>
+                {children}
+              </AppChrome>
+            </CartProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
