@@ -1,0 +1,17 @@
+-- Optional demo catalog seed (no auth users).
+-- Enable via: supabase db reset (local) or run manually.
+-- Cloud projects typically skip this; leave empty or uncomment samples below.
+
+-- Example (commented):
+-- INSERT INTO public.products (sku, name, slug, description, category, price, specs, is_active, sort_order)
+-- VALUES (
+--   'MD-GPZ7000',
+--   'Minelab GPZ 7000',
+--   'minelab-gpz-7000',
+--   'Flagship deep-seeking gold detector for serious prospectors.',
+--   'metal_detectors',
+--   0,
+--   '[{"label":"Depth","value":"Extreme"},{"label":"Technology","value":"ZVT"}]'::jsonb,
+--   true,
+--   1
+-- );
