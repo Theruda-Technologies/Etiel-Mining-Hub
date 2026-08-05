@@ -83,6 +83,255 @@
       "names": ["Aurum Core", "Geo-Tech", "Titan Extract", "Valley Heavy"]
     }
   },
+  "catalog": {
+    "title": "የመሣሪያ ካታሎግ",
+    "subtitle": "ለአስቸጋሪ የማዕድን አካባቢዎች ከፍተኛ ቅልጥፍናን ለማረጋገጥ የተሰሩ ከባድ ማሽኖችን እና ትክክለኛ መሣሪያዎችን ያስሱ።",
+    "addToCart": "ወደ ጋሪ ጨምር",
+    "addToOrder": "ወደ ትዕዛዝ ጨምር",
+    "viewDetails": "ዝርዝር ይመልከቱ",
+    "backToCatalog": "ወደ ካታሎግ ተመለስ",
+    "empty": "በዚህ ምድብ እስካሁን መሣሪያ የለም።",
+    "skuLabel": "SKU: {sku}",
+    "detail": {
+      "breadcrumbRoot": "ምርቶች እና አገልግሎቶች",
+      "contactSales": "ሽያጭን ያግኙ",
+      "specsTitle": "ቴክኒካዊ ዝርዝሮች",
+      "visualInspection": "የእይታ ምርመራ",
+      "capabilitiesTitle": "ዋና ችሎታዎች"
+    },
+    "categories": {
+      "all": "ሁሉም",
+      "excavators": "ቁፋሮዎች",
+      "drilling": "ቁፋሮ",
+      "material_handling": "የቁሳቁስ አያያዝ",
+      "drones": "ድሮኖች",
+      "safety_gear": "የደህንነት መሣሪያ"
+    },
+    "products": {
+      "magnetar": {
+        "name": "MAGNETAR ቁፋሮ X-9",
+        "titleLine1": "MAGNETAR",
+        "titleLine2": "ቁፋሮ X-9",
+        "tagline": "የሚቀጥለው ትውልድ ራስ-ሰር የማውጣት ስርዓት።",
+        "description": "ለጥልቅ ኮር ስራ የተሰራ ፍላግሺፕ ሮታሪ ቁፋሮ — በቀንና በሌሊት ለከርሰ ምድር እና ክፍት ጉድጓድ ስራ።",
+        "specLabels": { "power": "የኃይል ውጤት", "depth": "ከፍተኛ ጥልቀት" },
+        "specValues": { "power": "1,200 ኪ.ወ", "depth": "3,500 ሜ" },
+        "detailSpecLabels": {
+          "torque": "ከፍተኛ ጉልበት",
+          "bitLoad": "የቢት ጭነት",
+          "depthCap": "የጥልቀት አቅም",
+          "powerSource": "የኃይል ምንጭ"
+        },
+        "detailSpecValues": {
+          "torque": "120,000 Nm",
+          "bitLoad": "35,000 ኪ.ግ",
+          "depthCap": "42.5ሜ",
+          "powerSource": "ሃይብሪድ ኤሌክትሪክ-ዲዝል"
+        },
+        "capabilities": {
+          "nav": {
+            "title": "ራስ-ሰር አሰሳ",
+            "body": "የላቀ የቦታ ግንዛቤ ስልተ ቀመሮች X-9 ውስብስብ የከርሰ ምድር አካባቢዎችን ያለ ሰው ጣልቃ ገብነት እንዲያሰስ ያስችላሉ።"
+          },
+          "mapping": {
+            "title": "ጥልቅ የደም ስር ካርታ",
+            "body": "ከፍተኛ ድግግሞሽ ሶናር እና ኤሌክትሮማግኔቲክ ዳሳሾች የማዕድን ክምችቶችን በቅጽበት የ3D ቶፖግራፊ ካርታ ይሰጣሉ።"
+          },
+          "chassis": {
+            "title": "ሞዱላር ቻሲስ",
+            "body": "በጣቢያ ዝውውሮች መካከል የመቆሚያ ጊዜን ለመቀነስ በ4 ሰዓት ውስጥ በተከታተለ እና በጎማ አቀማመጦች መካከል ይቀያይሩ።"
+          }
+        }
+      },
+      "titan": {
+        "name": "Titan ማጓጓዣ C-400",
+        "titleLine1": "Titan",
+        "titleLine2": "ማጓጓዣ C-400",
+        "tagline": "ለአስቸጋሪ ጣቢያዎች ከፍተኛ የቁሳቁስ ዝውውር።",
+        "description": "በአስቸጋሪ ጣቢያ አቀማመጦች ላይ አስተማማኝ የቁሳቁስ ዝውውር ለማድረግ ሞዱላር ከፍተኛ አቅም ማጓጓዣ።",
+        "specLabels": { "capacity": "አቅም", "belt": "የቀበቶ ስፋት" },
+        "specValues": { "capacity": "400 ቶን/ሰ", "belt": "1,200 ሚሜ" },
+        "detailSpecLabels": {
+          "capacity": "አቅም",
+          "belt": "የቀበቶ ስፋት",
+          "drive": "የድራይቭ አይነት",
+          "seal": "የታሸገ ደረጃ"
+        },
+        "detailSpecValues": {
+          "capacity": "400 ቶን/ሰ",
+          "belt": "1,200 ሚሜ",
+          "drive": "ድርብ ኤሌክትሪክ",
+          "seal": "IP66 አቧራ-ታሽጎ"
+        },
+        "capabilities": {
+          "modular": {
+            "title": "ሞዱላር ርዝመቶች",
+            "body": "ከጉድጓድ ጂኦሜትሪ ጋር የሚጣጣሙ ተያያዥ ክፍሎችን በፍጥነት ያሰባስቡ።"
+          },
+          "throughput": {
+            "title": "የተረጋጋ ፍሰት",
+            "body": "ተለዋዋጭ ፍጥነት ድራይቮች በተለያዩ ጭነቶች ስር ቁሳቁስን በእኩል ያፈስሳሉ።"
+          },
+          "service": {
+            "title": "የመስክ አገልግሎት",
+            "body": "የጎን መዳረሻ ፓነሎች የርቀት ሰራተኞችን የጥገና ጊዜ ይቀንሳሉ።"
+          }
+        }
+      },
+      "aeroscout": {
+        "name": "AeroScout Pro-V",
+        "titleLine1": "AeroScout",
+        "titleLine2": "Pro-V",
+        "tagline": "ለጉድጓዶች እና ክምችቶች የLiDAR መረጃ።",
+        "description": "ለፈጣን ጉድጓድ እና የክምችት መረጃ LiDAR ካርታ ያለው ጠንካራ የዳሰሳ ድሮን።",
+        "specLabels": { "flight": "የበረራ ጊዜ", "scan": "የስካን ጥራት" },
+        "specValues": { "flight": "45 ደቂቃ", "scan": "LiDAR 4K" },
+        "detailSpecLabels": {
+          "flight": "የበረራ ጊዜ",
+          "scan": "የስካን ጥራት",
+          "range": "የሬዲዮ ክልል",
+          "payload": "ጭነት"
+        },
+        "detailSpecValues": {
+          "flight": "45 ደቂቃ",
+          "scan": "LiDAR 4K",
+          "range": "8 ኪ.ሜ",
+          "payload": "1.2 ኪ.ግ"
+        },
+        "capabilities": {
+          "lidar": {
+            "title": "LiDAR ካርታ",
+            "body": "ለመጠን ግምቶች እና የጉድጓድ ሞዴሎች ጥቅጥቅ ያሉ ነጥብ ደመናዎችን ይያዙ።"
+          },
+          "weather": {
+            "title": "የአየር ሁኔታ ጠንካራ",
+            "body": "በአቧራ እና ቀላል ዝናብ ውስጥ በታሸጉ ሞተሮች ይሰራል።"
+          },
+          "fleet": {
+            "title": "ለመርከብ ዝግጁ",
+            "body": "ተልዕኮዎችን በብዙ አውሮፕላኖች ላይ በጋራ ሶፍትዌር ያጋሩ።"
+          }
+        }
+      },
+      "goliath": {
+        "name": "Goliath ቁፋሮ ባልዲ 5T",
+        "titleLine1": "Goliath",
+        "titleLine2": "ቁፋሮ ባልዲ 5T",
+        "tagline": "ለከፍተኛ ዑደት መርከቦች የመበላሸት ዝግጁ ቁፋሮ።",
+        "description": "ለከፍተኛ ዑደት ቁፋሮ ከመበላሸት መከላከያ ሳህን የተሰራ ከባድ የቁፋሮ ባልዲ።",
+        "specLabels": { "capacity": "አቅም", "material": "ቁሳቁስ" },
+        "specValues": { "capacity": "5.2 ሜ³", "material": "Hardox 500" },
+        "detailSpecLabels": {
+          "capacity": "አቅም",
+          "material": "ቁሳቁስ",
+          "weight": "ክብደት",
+          "fitment": "ተስማሚነት"
+        },
+        "detailSpecValues": {
+          "capacity": "5.2 ሜ³",
+          "material": "Hardox 500",
+          "weight": "4.8 ቶን",
+          "fitment": "50–70 ቶን ክፍል"
+        },
+        "capabilities": {
+          "abrasion": {
+            "title": "የመበላሸት ጋሻ",
+            "body": "Hardox ሳህን እና የተጠናከረ ጫፎች ጠንካራ ማዕድንን ይቋቋማሉ።"
+          },
+          "cycle": {
+            "title": "ፈጣን ዑደት ቅርጽ",
+            "body": "የተሻሻሉ ማዕዘኖች የመሙላት ምክንያቶችን ያሻሽላሉ።"
+          },
+          "swap": {
+            "title": "ፈጣን ማያያዣ",
+            "body": "ለፈጣን ማያያዣ ለውጦች ከተለመዱ ፈጣን ማያያዣ ስርዓቶች ጋር ይጣጣማል።"
+          }
+        }
+      },
+      "sentinel": {
+        "name": "Sentinel ስማርት ሄልም",
+        "titleLine1": "Sentinel",
+        "titleLine2": "ስማርት ሄልም",
+        "tagline": "ለንቁ ሰራተኞች የተገናኘ ጥበቃ።",
+        "description": "የክፍል E ጥበቃ እና የተቀናጀ የሰራተኛ ግንኙነት ያለው የተገናኘ የደህንነት ራስ ቁር።",
+        "specLabels": { "rating": "ደረጃ", "comms": "ግንኙነት" },
+        "specValues": { "rating": "ክፍል E", "comms": "VHF / BT" },
+        "detailSpecLabels": {
+          "rating": "ደረጃ",
+          "comms": "ግንኙነት",
+          "battery": "የባትሪ ህይወት",
+          "weight": "ክብደት"
+        },
+        "detailSpecValues": {
+          "rating": "ክፍል E",
+          "comms": "VHF / BT",
+          "battery": "18 ሰዓት",
+          "weight": "480 ግ"
+        },
+        "capabilities": {
+          "alert": {
+            "title": "የቅርበት ማስጠንቀቂያዎች",
+            "body": "ከባድ መሣሪያ ወደ አደጋ ክልል ሲገባ ለለባሾች ያስጠነቅቃል።"
+          },
+          "audio": {
+            "title": "የሰራተኛ ኦዲዮ",
+            "body": "ግልጽ VHF እና ብሉቱዝ ኦዲዮ ተቆጣጣሪዎችን እና አሽከርካሪዎችን ያገናኛል።"
+          },
+          "comfort": {
+            "title": "የፈረቃ ምቾት",
+            "body": "ተመጣጣኝ አካል ለረጅም የምርት ፈረቃዎች ምቹ ነው።"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "title": "ኢንዱስትሪያል አገልግሎቶች",
+    "subtitle": "ለከባድ ማሽን ስራዎች ሁለገብ የመስክ ድጋፍ፣ ጥገና እና ስልጠና። በዓለም አቀፍ ጣቢያዎች ላይ ከፍተኛ አፈጻጸም እና አነስተኛ የመቆሚያ ጊዜ ማረጋገጥ።",
+    "addToCart": "ወደ ጋሪ ጨምር",
+    "viewDetails": "ዝርዝር ይመልከቱ",
+    "backToServices": "ወደ አገልግሎቶች ተመለስ",
+    "empty": "በዚህ ምድብ እስካሁን አገልግሎት የለም።",
+    "categories": {
+      "all": "ሁሉም",
+      "installation": "ጭነት",
+      "maintenance": "ጥገና",
+      "training": "ስልጠና",
+      "financing": "ፋይናንስ"
+    },
+    "items": {
+      "onsite_assembly": {
+        "name": "በጣቢያ ላይ ስብሰባ",
+        "description": "በፋብሪካ የሰለጠኑ ቴክኒሻኖች መሣሪያዎን በጉድጓድዎ ወይም በፋብሪካዎ ላይ ያሰማራሉ እና ያስጀምራሉ።",
+        "detailLabels": { "duration": "የተገመተ ጊዜ", "crew": "የሰራተኛ ብዛት" },
+        "detailValues": { "duration": "2–6 ሳምንታት", "crew": "4–8 ስፔሻሊስቶች" }
+      },
+      "field_support": {
+        "name": "24/7 የመስክ ድጋፍ",
+        "description": "ሁኔታዎች አስቸጋሪ ሲሆኑ ወሳኝ ንብረቶች ምርታማ እንዲቆዩ የቀንና የሌሊት የርቀት ምርመራ እና መላክ።",
+        "detailLabels": { "coverage": "ሽፋን", "response": "ምላሽ" },
+        "detailValues": { "coverage": "ዓለም አቀፍ ጣቢያዎች", "response": "< 4 ሰዓት" }
+      },
+      "operator_cert": {
+        "name": "የአሽከርካሪ ሰርተፊኬት",
+        "description": "ሰራተኞችን በኢቲየል መርከቦች ላይ ወደ ደህንነቱ የተጠበቀ ከፍተኛ አሠራር የሚያደርሱ ተግባራዊ የሰርተፊኬት ፕሮግራሞች።",
+        "detailLabels": { "duration": "የኮርስ ርዝመት", "cert": "ማረጋገጫ" },
+        "detailValues": { "duration": "5–10 ቀናት", "cert": "ኢቲየል የተረጋገጠ" }
+      },
+      "predictive": {
+        "name": "ትንበያ ምርመራ",
+        "description": "ያልታቀደ የመቆሚያ ጊዜ ከመሆኑ በፊት የመበላሸት ሁኔታዎችን የሚጠቁም በዳሳሽ የሚመራ የጤና ክትትል።",
+        "detailLabels": { "interval": "ሪፖርት", "channels": "ቻናሎች" },
+        "detailValues": { "interval": "ሳምንታዊ / ቀጥታ", "channels": "ንዝረት · ዘይት · ሙቀት" }
+      },
+      "leasing": {
+        "name": "የካፒታል መሣሪያ ኪራይ",
+        "description": "ሁሉንም ካፒታል አስቀድሞ ሳያስሩ ለአነስተኛ ቡድኖች እና መካከለኛ መርከቦች ተለዋዋጭ የግዢ መንገዶች።",
+        "detailLabels": { "term": "የጊዜ አማራጮች", "approval": "ማጽደቅ" },
+        "detailValues": { "term": "12–60 ወራት", "approval": "5–10 የስራ ቀናት" }
+      }
+    }
+  },
   "footer": {
     "privacy": "የግላዊነት ፖሊሲ",
     "terms": "የአገልግሎት ውል",

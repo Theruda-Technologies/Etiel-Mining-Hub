@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { CartProvider } from "@/lib/cart/store";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -64,11 +65,13 @@ export default async function LocaleLayout({
         className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable} ${notoEthiopic.variable} locale-${locale} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <div className="flex min-h-screen flex-col bg-basalt-deep text-white">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
+          <CartProvider>
+            <div className="flex min-h-screen flex-col bg-basalt-deep text-white">
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+            </div>
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

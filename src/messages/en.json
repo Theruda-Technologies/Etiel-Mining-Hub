@@ -83,6 +83,255 @@
       "names": ["Aurum Core", "Geo-Tech", "Titan Extract", "Valley Heavy"]
     }
   },
+  "catalog": {
+    "title": "Equipment Catalog",
+    "subtitle": "Explore our comprehensive range of heavy machinery and precision tools designed for maximum efficiency in harsh mining environments.",
+    "addToCart": "Add to Cart",
+    "addToOrder": "Add to Order",
+    "viewDetails": "View Details",
+    "backToCatalog": "Back to Catalog",
+    "empty": "No equipment in this category yet.",
+    "skuLabel": "SKU: {sku}",
+    "detail": {
+      "breadcrumbRoot": "Products & Services",
+      "contactSales": "Contact Sales",
+      "specsTitle": "Technical Specifications",
+      "visualInspection": "Visual Inspection",
+      "capabilitiesTitle": "Core Capabilities"
+    },
+    "categories": {
+      "all": "All",
+      "excavators": "Excavators",
+      "drilling": "Drilling",
+      "material_handling": "Material Handling",
+      "drones": "Drones",
+      "safety_gear": "Safety Gear"
+    },
+    "products": {
+      "magnetar": {
+        "name": "MAGNETAR Drill X-9",
+        "titleLine1": "MAGNETAR",
+        "titleLine2": "Drill X-9",
+        "tagline": "Next-gen autonomous extraction system.",
+        "description": "Flagship rotary drill engineered for deep core work in continuous subterranean and open-pit operations.",
+        "specLabels": { "power": "Power Output", "depth": "Max Depth" },
+        "specValues": { "power": "1,200 kW", "depth": "3,500 m" },
+        "detailSpecLabels": {
+          "torque": "Max Torque",
+          "bitLoad": "Bit Load",
+          "depthCap": "Depth Capacity",
+          "powerSource": "Power Source"
+        },
+        "detailSpecValues": {
+          "torque": "120,000 Nm",
+          "bitLoad": "35,000 kg",
+          "depthCap": "42.5m",
+          "powerSource": "Hybrid Electric-Diesel"
+        },
+        "capabilities": {
+          "nav": {
+            "title": "Autonomous Navigation",
+            "body": "Advanced spatial awareness algorithms allow the X-9 to navigate complex subterranean environments without human intervention."
+          },
+          "mapping": {
+            "title": "Deep Vein Mapping",
+            "body": "High-frequency sonar and electromagnetic sensors provide real-time 3D topographical mapping of mineral deposits."
+          },
+          "chassis": {
+            "title": "Modular Chassis",
+            "body": "Swap between tracked and wheeled configurations in under 4 hours to minimize downtime between site transfers."
+          }
+        }
+      },
+      "titan": {
+        "name": "Titan Conveyor C-400",
+        "titleLine1": "Titan",
+        "titleLine2": "Conveyor C-400",
+        "tagline": "High-throughput material transfer for rugged sites.",
+        "description": "Modular high-capacity conveyor for reliable material transfer across rugged site layouts.",
+        "specLabels": { "capacity": "Capacity", "belt": "Belt Width" },
+        "specValues": { "capacity": "400 t/h", "belt": "1,200 mm" },
+        "detailSpecLabels": {
+          "capacity": "Capacity",
+          "belt": "Belt Width",
+          "drive": "Drive Type",
+          "seal": "Seal Rating"
+        },
+        "detailSpecValues": {
+          "capacity": "400 t/h",
+          "belt": "1,200 mm",
+          "drive": "Dual electric",
+          "seal": "IP66 dust-sealed"
+        },
+        "capabilities": {
+          "modular": {
+            "title": "Modular Spans",
+            "body": "Assemble transfer lines quickly with interlocking spans that adapt to pit geometry and haul routes."
+          },
+          "throughput": {
+            "title": "Steady Throughput",
+            "body": "Variable-speed drives keep material flowing evenly under changing load and incline conditions."
+          },
+          "service": {
+            "title": "Field Service Access",
+            "body": "Side-access panels and sealed bearings cut routine maintenance time for remote crews."
+          }
+        }
+      },
+      "aeroscout": {
+        "name": "AeroScout Pro-V",
+        "titleLine1": "AeroScout",
+        "titleLine2": "Pro-V",
+        "tagline": "LiDAR intelligence for pits and stockpiles.",
+        "description": "Rugged survey drone with LiDAR mapping for rapid pit and stockpile intelligence.",
+        "specLabels": { "flight": "Flight Time", "scan": "Scan Res" },
+        "specValues": { "flight": "45 mins", "scan": "LiDAR 4K" },
+        "detailSpecLabels": {
+          "flight": "Flight Time",
+          "scan": "Scan Res",
+          "range": "Radio Range",
+          "payload": "Payload"
+        },
+        "detailSpecValues": {
+          "flight": "45 mins",
+          "scan": "LiDAR 4K",
+          "range": "8 km",
+          "payload": "1.2 kg"
+        },
+        "capabilities": {
+          "lidar": {
+            "title": "LiDAR Mapping",
+            "body": "Capture dense point clouds for volume estimates, bench profiles, and progressive pit models."
+          },
+          "weather": {
+            "title": "Weather Hardened",
+            "body": "Operates in dust and light rain with sealed motors and redundant IMU stabilization."
+          },
+          "fleet": {
+            "title": "Fleet Ready",
+            "body": "Share missions across multiple airframes with common planning software and battery packs."
+          }
+        }
+      },
+      "goliath": {
+        "name": "Goliath Exca-Bucket 5T",
+        "titleLine1": "Goliath",
+        "titleLine2": "Exca-Bucket 5T",
+        "tagline": "Abrasion-ready digging for high-cycle fleets.",
+        "description": "Heavy-duty excavator bucket built from abrasion-resistant plate for high-cycle digging.",
+        "specLabels": { "capacity": "Capacity", "material": "Material" },
+        "specValues": { "capacity": "5.2 m³", "material": "Hardox 500" },
+        "detailSpecLabels": {
+          "capacity": "Capacity",
+          "material": "Material",
+          "weight": "Weight",
+          "fitment": "Fitment"
+        },
+        "detailSpecValues": {
+          "capacity": "5.2 m³",
+          "material": "Hardox 500",
+          "weight": "4.8 t",
+          "fitment": "50–70 t class"
+        },
+        "capabilities": {
+          "abrasion": {
+            "title": "Abrasion Armor",
+            "body": "Hardox plate and reinforced edges stand up to abrasive ore and quarry rock."
+          },
+          "cycle": {
+            "title": "Fast Cycle Geometry",
+            "body": "Optimized lip and heel angles improve fill factors without sacrificing dump speed."
+          },
+          "swap": {
+            "title": "Quick Coupler Ready",
+            "body": "Compatible with common quick-coupler systems for rapid attachment changes."
+          }
+        }
+      },
+      "sentinel": {
+        "name": "Sentinel Smart Helm",
+        "titleLine1": "Sentinel",
+        "titleLine2": "Smart Helm",
+        "tagline": "Connected protection for active crews.",
+        "description": "Connected safety helmet with Class E protection and integrated crew communications.",
+        "specLabels": { "rating": "Rating", "comms": "Comms" },
+        "specValues": { "rating": "Class E", "comms": "VHF / BT" },
+        "detailSpecLabels": {
+          "rating": "Rating",
+          "comms": "Comms",
+          "battery": "Battery Life",
+          "weight": "Weight"
+        },
+        "detailSpecValues": {
+          "rating": "Class E",
+          "comms": "VHF / BT",
+          "battery": "18 hrs",
+          "weight": "480 g"
+        },
+        "capabilities": {
+          "alert": {
+            "title": "Proximity Alerts",
+            "body": "Warns wearers when heavy equipment enters a configured hazard radius on site."
+          },
+          "audio": {
+            "title": "Crew Audio",
+            "body": "Clear VHF and Bluetooth audio keeps supervisors and operators aligned underground."
+          },
+          "comfort": {
+            "title": "Shift Comfort",
+            "body": "Balanced shell and breathable liner stay wearable across long production shifts."
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "title": "Industrial Services",
+    "subtitle": "Comprehensive field support, maintenance, and training for heavy machinery operations. Ensuring peak performance and minimal downtime across global sites.",
+    "addToCart": "Add to Cart",
+    "viewDetails": "View Details",
+    "backToServices": "Back to Services",
+    "empty": "No services in this category yet.",
+    "categories": {
+      "all": "All",
+      "installation": "Installation",
+      "maintenance": "Maintenance",
+      "training": "Training",
+      "financing": "Financing"
+    },
+    "items": {
+      "onsite_assembly": {
+        "name": "On-Site Assembly",
+        "description": "Factory-trained technicians deploy and commission equipment at your pit or plant with full systems checks.",
+        "detailLabels": { "duration": "Est. Duration", "crew": "Crew Size" },
+        "detailValues": { "duration": "2–6 Weeks", "crew": "4–8 Specialists" }
+      },
+      "field_support": {
+        "name": "24/7 Field Support",
+        "description": "Round-the-clock remote diagnostics and dispatch so critical assets stay productive when conditions turn harsh.",
+        "detailLabels": { "coverage": "Coverage", "response": "Response" },
+        "detailValues": { "coverage": "Global Sites", "response": "< 4 Hours" }
+      },
+      "operator_cert": {
+        "name": "Operator Certification",
+        "description": "Hands-on certification programs that bring crews up to safe, peak operating standards on Etiel fleets.",
+        "detailLabels": { "duration": "Course Length", "cert": "Credential" },
+        "detailValues": { "duration": "5–10 Days", "cert": "Etiel Certified" }
+      },
+      "predictive": {
+        "name": "Predictive Diagnostics",
+        "description": "Sensor-driven health monitoring that flags wear patterns before they become unplanned downtime.",
+        "detailLabels": { "interval": "Reporting", "channels": "Channels" },
+        "detailValues": { "interval": "Weekly / Live", "channels": "Vibration · Oil · Temp" }
+      },
+      "leasing": {
+        "name": "Capital Equipment Leasing",
+        "description": "Flexible procurement paths for artisanal teams and mid-tier fleets without locking all capital upfront.",
+        "detailLabels": { "term": "Term Options", "approval": "Approval" },
+        "detailValues": { "term": "12–60 Months", "approval": "5–10 Business Days" }
+      }
+    }
+  },
   "footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
