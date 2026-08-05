@@ -49,6 +49,7 @@ export function CheckoutPageClient() {
           items: items.map((i) => ({
             itemType: i.itemType,
             itemId: i.id,
+            sku: i.sku,
             quantity: i.quantity,
           })),
         }),
@@ -56,7 +57,11 @@ export function CheckoutPageClient() {
 
       const data = await res.json();
       if (!res.ok) {
-        setError(t("checkout.errors.generic"));
+        setError(
+          data?.error === "catalog_not_seeded"
+            ? t("checkout.errors.catalog")
+            : t("checkout.errors.generic"),
+        );
         setSubmitting(false);
         return;
       }

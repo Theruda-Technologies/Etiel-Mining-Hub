@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { CATALOG_PRODUCTS } from "@/lib/catalog/products";
+import { CATALOG_SERVICES } from "@/lib/catalog/services";
 import { rateLimit } from "@/lib/rate-limit";
 
 type CheckoutItem = {
   itemType: "product" | "service";
   itemId: string;
+  sku?: string;
   quantity: number;
 };
 
@@ -17,12 +20,24 @@ type CheckoutBody = {
   items: CheckoutItem[];
 };
 
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 function clientIp(req: Request) {
   return (
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     req.headers.get("x-real-ip") ||
     "unknown"
   );
+}
+
+function resolveSku(item: CheckoutItem): string | null {
+  if (item.sku?.trim()) return item.sku.trim();
+  if (UUID_RE.test(item.itemId)) return null;
+  if (item.itemType === "product") {
+    return CATALOG_PRODUCTS.find((p) => p.id === item.itemId)?.sku ?? null;
+  }
+  return CATALOG_SERVICES.find((s) => s.id === item.itemId)?.sku ?? null;
 }
 
 export async function POST(req: Request) {
@@ -49,45 +64,99 @@ export async function POST(req: Request) {
 
     const supabase = createServerSupabase();
 
-    // Map static catalog IDs to UUID lookups isn't available without DB seed.
-    // Store order lines via RPC using item_id as UUID only when seeded.
-    // For the static frontend catalog we insert through RPC with service-side
-    // validation by resolving slug/sku against active catalog when present;
-    // otherwise create_order expects UUIDs — fall back to direct insert via RPC
-    // only for UUID-shaped ids, else return a clear error.
+    const productSkus = new Set<string>();
+    const serviceSkus = new Set<string>();
+    const uuidProducts = new Set<string>();
+    const uuidServices = new Set<string>();
 
-    const uuidRe =
-      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
-    const rpcItems = items.map((item) => {
-      if (!uuidRe.test(item.itemId)) {
-        // Static demo catalog uses string ids — create a local order receipt
-        // without DB when IDs aren't UUIDs.
-        return null;
+    for (const item of items) {
+      if (!item.itemType || !item.itemId || !item.quantity) {
+        return NextResponse.json({ error: "invalid_item" }, { status: 400 });
       }
-      return {
+      if (UUID_RE.test(item.itemId)) {
+        if (item.itemType === "product") uuidProducts.add(item.itemId);
+        else uuidServices.add(item.itemId);
+        continue;
+      }
+      const sku = resolveSku(item);
+      if (!sku) {
+        return NextResponse.json(
+          { error: "unknown_item", itemId: item.itemId },
+          { status: 400 },
+        );
+      }
+      if (item.itemType === "product") productSkus.add(sku);
+      else serviceSkus.add(sku);
+    }
+
+    const skuToProductId = new Map<string, string>();
+    const skuToServiceId = new Map<string, string>();
+
+    if (productSkus.size > 0) {
+      const { data, error } = await supabase
+        .from("products")
+        .select("id, sku")
+        .in("sku", [...productSkus])
+        .eq("is_active", true);
+      if (error) {
+        return NextResponse.json(
+          { error: "catalog_lookup_failed", message: error.message },
+          { status: 500 },
+        );
+      }
+      for (const row of data ?? []) {
+        skuToProductId.set(row.sku, row.id);
+      }
+    }
+
+    if (serviceSkus.size > 0) {
+      const { data, error } = await supabase
+        .from("services")
+        .select("id, sku")
+        .in("sku", [...serviceSkus])
+        .eq("is_active", true);
+      if (error) {
+        return NextResponse.json(
+          { error: "catalog_lookup_failed", message: error.message },
+          { status: 500 },
+        );
+      }
+      for (const row of data ?? []) {
+        skuToServiceId.set(row.sku, row.id);
+      }
+    }
+
+    const rpcItems: {
+      item_type: "product" | "service";
+      item_id: string;
+      quantity: number;
+    }[] = [];
+
+    for (const item of items) {
+      let itemId = item.itemId;
+      if (!UUID_RE.test(itemId)) {
+        const sku = resolveSku(item)!;
+        const resolved =
+          item.itemType === "product"
+            ? skuToProductId.get(sku)
+            : skuToServiceId.get(sku);
+        if (!resolved) {
+          return NextResponse.json(
+            {
+              error: "catalog_not_seeded",
+              message: `No active ${item.itemType} with SKU ${sku}. Seed the storefront catalog.`,
+              sku,
+            },
+            { status: 400 },
+          );
+        }
+        itemId = resolved;
+      }
+
+      rpcItems.push({
         item_type: item.itemType,
-        item_id: item.itemId,
+        item_id: itemId,
         quantity: item.quantity,
-      };
-    });
-
-    if (rpcItems.every((i) => i === null)) {
-      // Demo path: synthesize order number client-facing without Supabase UUIDs
-      const stamp = new Date();
-      const y = stamp.getUTCFullYear();
-      const m = String(stamp.getUTCMonth() + 1).padStart(2, "0");
-      const d = String(stamp.getUTCDate()).padStart(2, "0");
-      const seq = String(Math.floor(Math.random() * 9000) + 1000);
-      const orderNumber = `ORD-${y}${m}${d}-${seq}`;
-
-      return NextResponse.json({
-        id: crypto.randomUUID(),
-        order_number: orderNumber,
-        demo: true,
-        customer: { name, email, phone, address },
-        notes,
-        items,
       });
     }
 
@@ -97,7 +166,7 @@ export async function POST(req: Request) {
       p_customer_email: email,
       p_shipping_address: address,
       p_notes: notes,
-      p_items: rpcItems.filter(Boolean),
+      p_items: rpcItems,
     });
 
     if (error) {

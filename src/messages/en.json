@@ -639,7 +639,8 @@
       "placing": "Placing…",
       "terms": "By placing this order, you agree to the Etiel Terms of Fulfillment.",
       "errors": {
-        "generic": "We could not place your order. Please check your details and try again."
+        "generic": "We could not place your order. Please check your details and try again.",
+        "catalog": "Catalog items are not available in the database yet. Please contact support."
       }
     },
     "confirmed": {
