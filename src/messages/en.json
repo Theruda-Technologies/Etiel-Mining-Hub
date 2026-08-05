@@ -8,7 +8,8 @@
     "products": "Products",
     "services": "Services",
     "contact": "Contact",
-    "placeOrder": "Place Order"
+    "placeOrder": "Place Order",
+    "myOrders": "My Orders"
   },
   "home": {
     "hero": {
@@ -292,6 +293,22 @@
     "viewDetails": "View Details",
     "backToServices": "Back to Services",
     "empty": "No services in this category yet.",
+    "detail": {
+      "breadcrumbHome": "Home",
+      "breadcrumbServices": "Services",
+      "overviewTitle": "Service Overview",
+      "deployTitle": "Deploy Support Plan",
+      "deployBody": "Secure your operations with guaranteed response times and priority logistics.",
+      "capabilitiesTitle": "Core Capabilities",
+      "tiersTitle": "Service Tiers",
+      "feature": "Feature",
+      "standard": "Standard",
+      "premium": "Premium",
+      "badges": {
+        "certified": "Certified Technicians",
+        "logistics": "Global Logistics Network"
+      }
+    },
     "categories": {
       "all": "All",
       "installation": "Installation",
@@ -302,35 +319,354 @@
     "items": {
       "onsite_assembly": {
         "name": "On-Site Assembly",
+        "shortName": "On-Site Assembly",
+        "tagline": "Factory-trained crews commission heavy equipment at your pit or plant with full systems validation.",
         "description": "Factory-trained technicians deploy and commission equipment at your pit or plant with full systems checks.",
+        "overview1": "Our installation teams arrive with calibrated tooling, OEM procedures, and a commissioning checklist tailored to your model and site power profile.",
+        "overview2": "From unpacking through first-cut acceptance, we document every torque value and safety interlock so your operators inherit a ready, warranty-clean machine.",
         "detailLabels": { "duration": "Est. Duration", "crew": "Crew Size" },
-        "detailValues": { "duration": "2–6 Weeks", "crew": "4–8 Specialists" }
+        "detailValues": { "duration": "2–6 Weeks", "crew": "4–8 Specialists" },
+        "metrics": {
+          "duration": { "label": "Est. Duration", "value": "2–6 Weeks" },
+          "crew": { "label": "Crew Size", "value": "4–8" },
+          "handover": { "label": "Handover Pack", "value": "Included" }
+        },
+        "capabilities": {
+          "commission": {
+            "title": "Full Commissioning",
+            "body": "Power-on, calibration, and acceptance tests against Etiel factory baselines."
+          },
+          "integration": {
+            "title": "Site Integration",
+            "body": "Interface with local power, dust, and haul routes so the unit fits your operation from day one."
+          },
+          "training": {
+            "title": "Operator Handover",
+            "body": "On-console walkthroughs so your crew can run the asset safely after we demobilize."
+          }
+        },
+        "tiers": {
+          "leadTime": {
+            "label": "Mobilization",
+            "standard": "10–15 Days",
+            "premium": "5–7 Days"
+          },
+          "crew": {
+            "label": "Lead Technician",
+            "standard": "Shared Pool",
+            "premium": "Dedicated Lead"
+          },
+          "warranty": {
+            "label": "Commission Warranty",
+            "standard": "30 Days",
+            "premium": "90 Days"
+          }
+        }
       },
       "field_support": {
         "name": "24/7 Field Support",
+        "shortName": "Field Support",
+        "tagline": "Rapid-response technical support and emergency repair services to minimize operational downtime.",
         "description": "Round-the-clock remote diagnostics and dispatch so critical assets stay productive when conditions turn harsh.",
+        "overview1": "Our specialized response units are strategically positioned to provide rapid assistance. Equipped with advanced diagnostic tools and critical spare parts, they ensure that your machinery is back online with minimal delay.",
+        "overview2": "With a global network of certified engineers, we offer seamless support across all major mining regions. From remote troubleshooting to on-site overhauls, our team is dedicated to maximizing your fleet's uptime.",
         "detailLabels": { "coverage": "Coverage", "response": "Response" },
-        "detailValues": { "coverage": "Global Sites", "response": "< 4 Hours" }
+        "detailValues": { "coverage": "Global Sites", "response": "< 4 Hours" },
+        "metrics": {
+          "sla": { "label": "SLA Response", "value": "< 4 Hours" },
+          "coverage": { "label": "Coverage", "value": "Global" },
+          "parts": { "label": "Parts Avail", "value": "Immediate" }
+        },
+        "capabilities": {
+          "repairs": {
+            "title": "Emergency Repairs",
+            "body": "On-site mechanical and electrical interventions to restore critical production assets fast."
+          },
+          "remote": {
+            "title": "Remote Diagnostics",
+            "body": "Live telemetry review and guided troubleshooting before a crew rolls to site."
+          },
+          "scheduled": {
+            "title": "Scheduled Maintenance",
+            "body": "Planned service windows that keep fleets within OEM intervals without surprise downtime."
+          }
+        },
+        "tiers": {
+          "response": {
+            "label": "Response Time",
+            "standard": "Within 24 Hours",
+            "premium": "< 4 Hours"
+          },
+          "parts": {
+            "label": "Parts Prioritization",
+            "standard": "Standard Queue",
+            "premium": "Immediate Dispatch"
+          },
+          "engineer": {
+            "label": "Dedicated Engineer",
+            "standard": "no",
+            "premium": "yes"
+          }
+        }
       },
       "operator_cert": {
         "name": "Operator Certification",
+        "shortName": "Certification",
+        "tagline": "Hands-on programs that bring crews to safe, peak operating standards on Etiel fleets.",
         "description": "Hands-on certification programs that bring crews up to safe, peak operating standards on Etiel fleets.",
+        "overview1": "Training blends classroom fundamentals with supervised seat time on the exact models in your yard, covering start-up, load cycles, and emergency procedures.",
+        "overview2": "Graduates leave with Etiel credentials and site-specific checklists your supervisors can audit against every shift.",
         "detailLabels": { "duration": "Course Length", "cert": "Credential" },
-        "detailValues": { "duration": "5–10 Days", "cert": "Etiel Certified" }
+        "detailValues": { "duration": "5–10 Days", "cert": "Etiel Certified" },
+        "metrics": {
+          "duration": { "label": "Course Length", "value": "5–10 Days" },
+          "classSize": { "label": "Class Size", "value": "6–12" },
+          "credential": { "label": "Credential", "value": "Etiel Cert" }
+        },
+        "capabilities": {
+          "classroom": {
+            "title": "Classroom Modules",
+            "body": "Systems theory, safety culture, and fault recognition tailored to your fleet mix."
+          },
+          "field": {
+            "title": "Field Seat Time",
+            "body": "Supervised operation on production machines under realistic site conditions."
+          },
+          "assessment": {
+            "title": "Skills Assessment",
+            "body": "Practical exams and written checks before certification is issued."
+          }
+        },
+        "tiers": {
+          "hours": {
+            "label": "Instruction Hours",
+            "standard": "40 Hours",
+            "premium": "80 Hours"
+          },
+          "ratio": {
+            "label": "Trainer Ratio",
+            "standard": "1:8",
+            "premium": "1:4"
+          },
+          "credential": {
+            "label": "Recertification",
+            "standard": "24 Months",
+            "premium": "12 Months + Coaching"
+          }
+        }
       },
       "predictive": {
         "name": "Predictive Diagnostics",
+        "shortName": "Diagnostics",
+        "tagline": "Sensor-driven health monitoring that flags wear before it becomes downtime.",
         "description": "Sensor-driven health monitoring that flags wear patterns before they become unplanned downtime.",
+        "overview1": "We instrument critical drivetrains and hydraulics, then trend vibration, oil, and temperature signals against Etiel baselines for your model family.",
+        "overview2": "When thresholds trip, your team gets actionable alerts—and optional auto-dispatch into Field Support—so small issues never become lost shifts.",
         "detailLabels": { "interval": "Reporting", "channels": "Channels" },
-        "detailValues": { "interval": "Weekly / Live", "channels": "Vibration · Oil · Temp" }
+        "detailValues": { "interval": "Weekly / Live", "channels": "Vibration · Oil · Temp" },
+        "metrics": {
+          "interval": { "label": "Reporting", "value": "Live / Weekly" },
+          "channels": { "label": "Channels", "value": "3+" },
+          "alerts": { "label": "Alert SLA", "value": "< 1 Hour" }
+        },
+        "capabilities": {
+          "sensors": {
+            "title": "Sensor Suite",
+            "body": "Retrofittable packs for vibration, oil condition, and thermal hotspots."
+          },
+          "analytics": {
+            "title": "Trend Analytics",
+            "body": "Model-aware thresholds that learn your duty cycle instead of generic alarms."
+          },
+          "dispatch": {
+            "title": "Linked Dispatch",
+            "body": "Escalate straight into Field Support with fault context already attached."
+          }
+        },
+        "tiers": {
+          "sampling": {
+            "label": "Data Cadence",
+            "standard": "Daily Batch",
+            "premium": "Live Stream"
+          },
+          "channels": {
+            "label": "Sensor Channels",
+            "standard": "Core 3",
+            "premium": "Expanded Suite"
+          },
+          "escalation": {
+            "label": "Auto Dispatch",
+            "standard": "no",
+            "premium": "yes"
+          }
+        }
       },
       "leasing": {
         "name": "Capital Equipment Leasing",
+        "shortName": "Leasing",
+        "tagline": "Flexible procurement paths that keep capital free while your fleet stays current.",
         "description": "Flexible procurement paths for artisanal teams and mid-tier fleets without locking all capital upfront.",
+        "overview1": "Structure terms around production seasons and ore cycles—lease what you need now, with clear upgrade and buyout options as the operation grows.",
+        "overview2": "Etiel coordinates equipment, insurance guidance, and service attachments so financing never strands you without support coverage.",
         "detailLabels": { "term": "Term Options", "approval": "Approval" },
-        "detailValues": { "term": "12–60 Months", "approval": "5–10 Business Days" }
+        "detailValues": { "term": "12–60 Months", "approval": "5–10 Business Days" },
+        "metrics": {
+          "term": { "label": "Term Options", "value": "12–60 Mo" },
+          "approval": { "label": "Approval", "value": "5–10 Days" },
+          "down": { "label": "Down Payment", "value": "Flexible" }
+        },
+        "capabilities": {
+          "flexible": {
+            "title": "Flexible Terms",
+            "body": "Seasonal payment profiles matched to your production calendar."
+          },
+          "upgrade": {
+            "title": "Upgrade Paths",
+            "body": "Swap into newer models mid-term when output targets rise."
+          },
+          "support": {
+            "title": "Bundled Support",
+            "body": "Attach Field Support or diagnostics packages to the same agreement."
+          }
+        },
+        "tiers": {
+          "term": {
+            "label": "Max Term",
+            "standard": "36 Months",
+            "premium": "60 Months"
+          },
+          "rate": {
+            "label": "Rate Structure",
+            "standard": "Fixed",
+            "premium": "Fixed + Seasonal"
+          },
+          "buyout": {
+            "label": "Early Buyout",
+            "standard": "Standard Fee",
+            "premium": "Preferred Fee"
+          }
+        }
       }
     }
+  },
+  "store": {
+    "steps": {
+      "selection": "Selection",
+      "details": "Details",
+      "review": "Review"
+    },
+    "review": {
+      "title": "Review Order",
+      "manifest": "Equipment Manifest",
+      "empty": "Your manifest is empty. Add equipment or services to continue.",
+      "addMore": "Add More Equipment",
+      "remove": "Remove item",
+      "qty": "Qty",
+      "summaryTitle": "Order Summary",
+      "units": "Units",
+      "payment": "Payment",
+      "pendingInvoice": "Pending Invoice",
+      "continue": "Continue to Details",
+      "secure": "Order process is secure and encrypted."
+    },
+    "checkout": {
+      "title": "Finalize Order",
+      "subtitle": "Please provide your contact and delivery details to secure your equipment requisition. No payment is required at this stage; an invoice will be generated upon confirmation.",
+      "returnToCart": "Return to Cart",
+      "emptyTitle": "Nothing to check out",
+      "browse": "Browse Products",
+      "contactTitle": "Contact Details",
+      "deliveryTitle": "Delivery Location",
+      "notesTitle": "Operational Notes",
+      "fullName": "Full Name",
+      "company": "Company Organization",
+      "email": "Corporate Email",
+      "phone": "Direct Phone",
+      "siteAddress": "Site Address / PO Box",
+      "city": "City / Municipality",
+      "region": "State / Region",
+      "postal": "Postal Code",
+      "notesLabel": "Special Instructions (Optional)",
+      "notesPlaceholder": "Enter specific voltage requirements, delivery constraints, etc.",
+      "summaryTitle": "Requisition Summary",
+      "summaryHint": "Review your manifest before placing the order.",
+      "subtotalItems": "Subtotal Items",
+      "units": "units",
+      "fulfillment": "Fulfillment SLA",
+      "sla": "Standard (3–5 Days)",
+      "payment": "Payment Status",
+      "pendingInvoice": "Pending Invoice",
+      "placeOrder": "Place Order",
+      "placing": "Placing…",
+      "terms": "By placing this order, you agree to the Etiel Terms of Fulfillment.",
+      "errors": {
+        "generic": "We could not place your order. Please check your details and try again."
+      }
+    },
+    "confirmed": {
+      "title": "Order Received",
+      "subtitle": "Our logistics team is processing your order manifest. A specialist will contact you within 24 hours to confirm delivery schedules and technical specifications.",
+      "orderNumber": "Order Number",
+      "manifest": "Manifest Summary",
+      "qty": "Qty",
+      "continueShopping": "Continue Shopping",
+      "print": "Print Summary",
+      "trackOrders": "Track / look up orders",
+      "steps": {
+        "placed": "Order Placed",
+        "reviewing": "Reviewing",
+        "confirmed": "Confirmed"
+      }
+    },
+    "orders": {
+      "title": "My Orders",
+      "orderNumber": "Order Number",
+      "contact": "Email or Phone",
+      "contactPlaceholder": "Used at checkout",
+      "lookup": "Look Up",
+      "notFound": "No order matched that number and contact.",
+      "empty": "No local orders yet.",
+      "shop": "Browse the catalog",
+      "colOrder": "Order #",
+      "colDate": "Date / Time",
+      "colManifest": "Manifest Summary",
+      "colItems": "Items",
+      "colStatus": "Status",
+      "statusPending": "Pending"
+    }
+  },
+  "contactPage": {
+    "title": "Contact Our Engineering Team",
+    "subtitle": "Connect with our global technical specialists for equipment inquiries, fleet support, or custom engineering solutions. We provide industrial-grade precision in every interaction.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your name",
+    "email": "Corporate Email",
+    "emailPlaceholder": "name@company.com",
+    "subject": "Order Subject",
+    "subjectPlaceholder": "Select an area of interest...",
+    "subjects": {
+      "equipment": "Equipment Inquiry",
+      "fleet": "Fleet Support",
+      "engineering": "Custom Engineering",
+      "logistics": "Global Logistics",
+      "other": "Other"
+    },
+    "specs": "Order Specifications",
+    "specsPlaceholder": "Provide details regarding your operational requirements...",
+    "submit": "Place Order Now",
+    "submitting": "Sending…",
+    "successTitle": "Inquiry received",
+    "successBody": "Our engineering team will respond within one business day.",
+    "sendAnother": "Send another inquiry",
+    "hqTitle": "Global Headquarters",
+    "hqLabel": "Australia HQ",
+    "hqAddress": "Level 42, 120 Collins Street, Melbourne, VIC 3000, Australia",
+    "phoneLabel": "Main Switchboard",
+    "phone": "+61 3 9900 1234",
+    "emailLabel": "General Inquiries",
+    "emailValue": "operations@etielmining.com",
+    "mapLabel": "HQ Location",
+    "mapCaption": "Etiel Mining Hub — Contact Us"
   },
   "footer": {
     "privacy": "Privacy Policy",

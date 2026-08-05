@@ -31,7 +31,7 @@ export async function Hero() {
             <Button href="/products" className="uppercase tracking-[0.08em]">
               {t("browseProducts")}
             </Button>
-            <Button href="/checkout" variant="secondary">
+            <Button href="/cart" variant="secondary">
               {t("orderNow")}
             </Button>
           </div>

@@ -1,12 +1,12 @@
 import { setRequestLocale } from "next-intl/server";
-import { CheckoutPageClient } from "@/components/store/CheckoutPageClient";
+import { CartPageClient } from "@/components/store/CartPageClient";
 
-export default async function CheckoutPage({
+export default async function CartPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <CheckoutPageClient />;
+  return <CartPageClient />;
 }

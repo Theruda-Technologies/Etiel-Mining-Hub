@@ -82,7 +82,10 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageSwitcher />
-          <Button href="/checkout" className="!px-4 !py-2 text-[13px]">
+          <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
+            {t("myOrders")}
+          </Button>
+          <Button href="/cart" className="!px-4 !py-2 text-[13px]">
             {t("placeOrder")}
             {count > 0 ? (
               <span className="ml-1.5 rounded-full bg-basalt-deep/20 px-1.5 text-[11px]">
@@ -128,12 +131,17 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <div className="flex items-center justify-between gap-3 pt-2">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
               <LanguageSwitcher />
-              <Button href="/checkout" className="!px-4 !py-2 text-[13px]">
-                {t("placeOrder")}
-                {count > 0 ? ` (${count})` : ""}
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button href="/orders" variant="secondary" className="!px-4 !py-2 text-[13px]">
+                  {t("myOrders")}
+                </Button>
+                <Button href="/cart" className="!px-4 !py-2 text-[13px]">
+                  {t("placeOrder")}
+                  {count > 0 ? ` (${count})` : ""}
+                </Button>
+              </div>
             </div>
           </nav>
         </div>

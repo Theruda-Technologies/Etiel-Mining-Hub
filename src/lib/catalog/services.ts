@@ -11,8 +11,16 @@ export type CatalogService = {
   sku: string;
   category: Exclude<ServiceCategory, "all">;
   price: number;
-  /** Detail row keys resolved via i18n */
+  /** Catalog card detail rows */
   detailKeys: [string, string] | [string, string, string];
+  /** Detail page metric bar (3) */
+  metricKeys: [string, string, string];
+  /** Detail page capability cards (3) */
+  capabilityKeys: [string, string, string];
+  /** Tier comparison row keys */
+  tierKeys: [string, string, string];
+  /** Sidebar trust badges */
+  sidebarBadges: [string, string];
   icon: "wrench" | "headset" | "cap" | "pulse" | "building";
 };
 
@@ -32,6 +40,10 @@ export const CATALOG_SERVICES: CatalogService[] = [
     category: "installation",
     price: 4500,
     detailKeys: ["duration", "crew"],
+    metricKeys: ["duration", "crew", "handover"],
+    capabilityKeys: ["commission", "integration", "training"],
+    tierKeys: ["leadTime", "crew", "warranty"],
+    sidebarBadges: ["certified", "logistics"],
     icon: "wrench",
   },
   {
@@ -41,6 +53,10 @@ export const CATALOG_SERVICES: CatalogService[] = [
     category: "maintenance",
     price: 2800,
     detailKeys: ["coverage", "response"],
+    metricKeys: ["sla", "coverage", "parts"],
+    capabilityKeys: ["repairs", "remote", "scheduled"],
+    tierKeys: ["response", "parts", "engineer"],
+    sidebarBadges: ["certified", "logistics"],
     icon: "headset",
   },
   {
@@ -50,6 +66,10 @@ export const CATALOG_SERVICES: CatalogService[] = [
     category: "training",
     price: 1200,
     detailKeys: ["duration", "cert"],
+    metricKeys: ["duration", "classSize", "credential"],
+    capabilityKeys: ["classroom", "field", "assessment"],
+    tierKeys: ["hours", "ratio", "credential"],
+    sidebarBadges: ["certified", "logistics"],
     icon: "cap",
   },
   {
@@ -59,6 +79,10 @@ export const CATALOG_SERVICES: CatalogService[] = [
     category: "maintenance",
     price: 1900,
     detailKeys: ["interval", "channels"],
+    metricKeys: ["interval", "channels", "alerts"],
+    capabilityKeys: ["sensors", "analytics", "dispatch"],
+    tierKeys: ["sampling", "channels", "escalation"],
+    sidebarBadges: ["certified", "logistics"],
     icon: "pulse",
   },
   {
@@ -68,6 +92,10 @@ export const CATALOG_SERVICES: CatalogService[] = [
     category: "financing",
     price: 0,
     detailKeys: ["term", "approval"],
+    metricKeys: ["term", "approval", "down"],
+    capabilityKeys: ["flexible", "upgrade", "support"],
+    tierKeys: ["term", "rate", "buyout"],
+    sidebarBadges: ["certified", "logistics"],
     icon: "building",
   },
 ];

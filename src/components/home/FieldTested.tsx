@@ -26,7 +26,7 @@ export async function FieldTested() {
             {t("body")}
           </p>
           <div className="mt-8">
-            <Button href="/checkout" className="uppercase tracking-[0.08em]">
+            <Button href="/cart" className="uppercase tracking-[0.08em]">
               {t("cta")}
             </Button>
           </div>

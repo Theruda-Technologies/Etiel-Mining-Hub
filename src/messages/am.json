@@ -8,7 +8,8 @@
     "products": "ምርቶች",
     "services": "አገልግሎቶች",
     "contact": "ያግኙን",
-    "placeOrder": "ትዕዛዝ ያስገቡ"
+    "placeOrder": "ትዕዛዝ ያስገቡ",
+    "myOrders": "ትዕዛዞቼ"
   },
   "home": {
     "hero": {
@@ -292,6 +293,22 @@
     "viewDetails": "ዝርዝር ይመልከቱ",
     "backToServices": "ወደ አገልግሎቶች ተመለስ",
     "empty": "በዚህ ምድብ እስካሁን አገልግሎት የለም።",
+    "detail": {
+      "breadcrumbHome": "መነሻ",
+      "breadcrumbServices": "አገልግሎቶች",
+      "overviewTitle": "የአገልግሎት አጠቃላይ እይታ",
+      "deployTitle": "የድጋፍ እቅድ ማሰማራት",
+      "deployBody": "በተረጋገጠ የምላሽ ጊዜ እና ቅድሚያ ሎጂስቲክስ ስራዎችዎን ያስጠብቁ።",
+      "capabilitiesTitle": "ዋና ችሎታዎች",
+      "tiersTitle": "የአገልግሎት ደረጃዎች",
+      "feature": "ባህሪ",
+      "standard": "መደበኛ",
+      "premium": "ፕሪሚየም",
+      "badges": {
+        "certified": "የተረጋገጡ ቴክኒሻኖች",
+        "logistics": "ዓለም አቀፍ ሎጂስቲክስ ኔትወርክ"
+      }
+    },
     "categories": {
       "all": "ሁሉም",
       "installation": "ጭነት",
@@ -302,35 +319,249 @@
     "items": {
       "onsite_assembly": {
         "name": "በጣቢያ ላይ ስብሰባ",
-        "description": "በፋብሪካ የሰለጠኑ ቴክኒሻኖች መሣሪያዎን በጉድጓድዎ ወይም በፋብሪካዎ ላይ ያሰማራሉ እና ያስጀምራሉ።",
+        "shortName": "በጣቢያ ስብሰባ",
+        "tagline": "በፋብሪካ የሰለጠኑ ቡድኖች ከባድ መሣሪያን በጉድጓድዎ ወይም በፋብሪካዎ ላይ ያስጀምራሉ።",
+        "description": "በፋብሪካ የሰለጠኑ ቴክኒሻኖች መሣሪያዎን በጣቢያዎ ላይ ያሰማራሉ እና ያስጀምራሉ።",
+        "overview1": "የጭነት ቡድኖቻችን በተስተካከሉ መሣሪያዎች እና የኦኢኤም ሂደቶች ይመጣሉ።",
+        "overview2": "ከመክፈት እስከ የመጀመሪያ ተቀባይነት ድረስ እያንዳንዱን ዋጋ እና የደህንነት መቆለፊያ እንመዘግባለን።",
         "detailLabels": { "duration": "የተገመተ ጊዜ", "crew": "የሰራተኛ ብዛት" },
-        "detailValues": { "duration": "2–6 ሳምንታት", "crew": "4–8 ስፔሻሊስቶች" }
+        "detailValues": { "duration": "2–6 ሳምንታት", "crew": "4–8 ስፔሻሊስቶች" },
+        "metrics": {
+          "duration": { "label": "የተገመተ ጊዜ", "value": "2–6 ሳምንታት" },
+          "crew": { "label": "የሰራተኛ ብዛት", "value": "4–8" },
+          "handover": { "label": "የማስረከብ ጥቅል", "value": "ተካቷል" }
+        },
+        "capabilities": {
+          "commission": { "title": "ሙሉ ኮሚሽን", "body": "ኃይል ማብራት፣ ማስተካከል እና የተቀባይነት ሙከራዎች።" },
+          "integration": { "title": "የጣቢያ ውህደት", "body": "ከአካባቢያዊ ኃይል እና የጭነት መስመሮች ጋር ማገናኘት።" },
+          "training": { "title": "የአሽከርካሪ ማስረከብ", "body": "ቡድንዎ በደህንነት እንዲያንቀሳቅስ የኮንሶል ስልጠና።" }
+        },
+        "tiers": {
+          "leadTime": { "label": "ማንቀሳቀስ", "standard": "10–15 ቀናት", "premium": "5–7 ቀናት" },
+          "crew": { "label": "ዋና ቴክኒሻን", "standard": "ጋራ ገንዳ", "premium": "የተመደበ መሪ" },
+          "warranty": { "label": "የኮሚሽን ዋስትና", "standard": "30 ቀናት", "premium": "90 ቀናት" }
+        }
       },
       "field_support": {
         "name": "24/7 የመስክ ድጋፍ",
-        "description": "ሁኔታዎች አስቸጋሪ ሲሆኑ ወሳኝ ንብረቶች ምርታማ እንዲቆዩ የቀንና የሌሊት የርቀት ምርመራ እና መላክ።",
+        "shortName": "የመስክ ድጋፍ",
+        "tagline": "የአሰራር የመቆሚያ ጊዜን ለመቀነስ ፈጣን ምላሽ ቴክኒካዊ ድጋፍ እና የአደጋ ጥገና አገልግሎቶች።",
+        "description": "ሁኔታዎች አስቸጋሪ ሲሆኑ ወሳኝ ንብረቶች ምርታማ እንዲቆዩ የቀንና የሌሊት ድጋፍ።",
+        "overview1": "ልዩ የምላሽ ክፍሎቻችን ፈጣን እርዳታ ለመስጠት በስትራቴጂያዊ ሁኔታ ተቀምጠዋል። በላቁ የምርመራ መሣሪያዎች እና ወሳኝ መለዋወጫዎች የታጠቁ ናቸው።",
+        "overview2": "በዓለም አቀፍ የተረጋገጡ መሐንዲሶች ኔትወርክ፣ በሁሉም ዋና የማዕድን ክልሎች ላይ እንከን የለሽ ድጋፍ እንሰጣለን።",
         "detailLabels": { "coverage": "ሽፋን", "response": "ምላሽ" },
-        "detailValues": { "coverage": "ዓለም አቀፍ ጣቢያዎች", "response": "< 4 ሰዓት" }
+        "detailValues": { "coverage": "ዓለም አቀፍ ጣቢያዎች", "response": "< 4 ሰዓት" },
+        "metrics": {
+          "sla": { "label": "የSLA ምላሽ", "value": "< 4 ሰዓት" },
+          "coverage": { "label": "ሽፋን", "value": "ዓለም አቀፍ" },
+          "parts": { "label": "መለዋወጫ", "value": "ወዲያውኑ" }
+        },
+        "capabilities": {
+          "repairs": { "title": "የአደጋ ጥገናዎች", "body": "ወሳኝ የምርት ንብረቶችን በፍጥነት ለመመለስ በጣቢያ ላይ ጥገና።" },
+          "remote": { "title": "የርቀት ምርመራ", "body": "ቡድን ከመድረሱ በፊት የቀጥታ ቴሌሜትሪ ግምገማ።" },
+          "scheduled": { "title": "የታቀደ ጥገና", "body": "መርከቦችን በኦኢኤም ክፍተቶች ውስጥ የሚያቆይ የታቀደ አገልግሎት።" }
+        },
+        "tiers": {
+          "response": { "label": "የምላሽ ጊዜ", "standard": "በ24 ሰዓት ውስጥ", "premium": "< 4 ሰዓት" },
+          "parts": { "label": "የመለዋወጫ ቅድሚያ", "standard": "መደበኛ ወረፋ", "premium": "ወዲያውኑ መላክ" },
+          "engineer": { "label": "የተመደበ መሐንዲስ", "standard": "no", "premium": "yes" }
+        }
       },
       "operator_cert": {
         "name": "የአሽከርካሪ ሰርተፊኬት",
-        "description": "ሰራተኞችን በኢቲየል መርከቦች ላይ ወደ ደህንነቱ የተጠበቀ ከፍተኛ አሠራር የሚያደርሱ ተግባራዊ የሰርተፊኬት ፕሮግራሞች።",
+        "shortName": "ሰርተፊኬት",
+        "tagline": "ሰራተኞችን በኢቲየል መርከቦች ላይ ወደ ደህንነቱ የተጠበቀ ከፍተኛ አሠራር የሚያደርሱ ፕሮግራሞች።",
+        "description": "ተግባራዊ የሰርተፊኬት ፕሮግራሞች ሰራተኞችን ወደ ደህንነቱ የተጠበቀ አሠራር ያደርሳሉ።",
+        "overview1": "ስልጠና የክፍል መሰረታዊ ነገሮችን ከተቆጣጠረ የመቀመጫ ጊዜ ጋር ያጣምራል።",
+        "overview2": "ተመራቂዎች የኢቲየል ማረጋገጫ እና ተቆጣጣሪዎች ሊከታተሉ የሚችሉ የጣቢያ ልዩ የፍተሻ ዝርዝሮችን ይዘው ይሄዳሉ።",
         "detailLabels": { "duration": "የኮርስ ርዝመት", "cert": "ማረጋገጫ" },
-        "detailValues": { "duration": "5–10 ቀናት", "cert": "ኢቲየል የተረጋገጠ" }
+        "detailValues": { "duration": "5–10 ቀናት", "cert": "ኢቲየል የተረጋገጠ" },
+        "metrics": {
+          "duration": { "label": "የኮርስ ርዝመት", "value": "5–10 ቀናት" },
+          "classSize": { "label": "የክፍል መጠን", "value": "6–12" },
+          "credential": { "label": "ማረጋገጫ", "value": "ኢቲየል" }
+        },
+        "capabilities": {
+          "classroom": { "title": "የክፍል ሞጁሎች", "body": "የስርዓት ንድፈ ሃሳብ እና የደህንነት ባህል።" },
+          "field": { "title": "የመስክ መቀመጫ ጊዜ", "body": "በምርት ማሽኖች ላይ የተቆጣጠረ አሠራር።" },
+          "assessment": { "title": "የክህሎት ግምገማ", "body": "ሰርተፊኬት ከመሰጠቱ በፊት ተግባራዊ ፈተናዎች።" }
+        },
+        "tiers": {
+          "hours": { "label": "የመመሪያ ሰዓታት", "standard": "40 ሰዓት", "premium": "80 ሰዓት" },
+          "ratio": { "label": "የአሰልጣኝ ጥምርታ", "standard": "1:8", "premium": "1:4" },
+          "credential": { "label": "እንደገና ማረጋገጥ", "standard": "24 ወራት", "premium": "12 ወራት + አጋዥነት" }
+        }
       },
       "predictive": {
         "name": "ትንበያ ምርመራ",
-        "description": "ያልታቀደ የመቆሚያ ጊዜ ከመሆኑ በፊት የመበላሸት ሁኔታዎችን የሚጠቁም በዳሳሽ የሚመራ የጤና ክትትል።",
+        "shortName": "ምርመራ",
+        "tagline": "የመቆሚያ ጊዜ ከመሆኑ በፊት የመበላሸት ሁኔታዎችን የሚጠቁም ክትትል።",
+        "description": "በዳሳሽ የሚመራ የጤና ክትትል ያልታቀደ የመቆሚያ ጊዜን ይከላከላል።",
+        "overview1": "ወሳኝ የድራይቭ ትሬኖችን እና ሃይድሮሊክስን እናሳጥራለን፣ ከዚያ ምልክቶችን ከኢቲየል መሰረቶች ጋር እናወዳድራለን።",
+        "overview2": "ገደቦች ሲነኩ ቡድንዎ ተግባራዊ ማስጠንቀቂያዎችን ያገኛል።",
         "detailLabels": { "interval": "ሪፖርት", "channels": "ቻናሎች" },
-        "detailValues": { "interval": "ሳምንታዊ / ቀጥታ", "channels": "ንዝረት · ዘይት · ሙቀት" }
+        "detailValues": { "interval": "ሳምንታዊ / ቀጥታ", "channels": "ንዝረት · ዘይት · ሙቀት" },
+        "metrics": {
+          "interval": { "label": "ሪፖርት", "value": "ቀጥታ / ሳምንታዊ" },
+          "channels": { "label": "ቻናሎች", "value": "3+" },
+          "alerts": { "label": "የማስጠንቀቂያ SLA", "value": "< 1 ሰዓት" }
+        },
+        "capabilities": {
+          "sensors": { "title": "የዳሳሽ ስብስብ", "body": "ለንዝረት፣ ዘይት እና ሙቀት የሚጨመሩ ጥቅሎች።" },
+          "analytics": { "title": "የአዝማሚያ ትንተና", "body": "የእርስዎን የስራ ዑደት የሚማሩ ገደቦች።" },
+          "dispatch": { "title": "ተያያዥ መላክ", "body": "በቀጥታ ወደ የመስክ ድጋፍ ከፍ ማድረግ።" }
+        },
+        "tiers": {
+          "sampling": { "label": "የውሂብ ምት", "standard": "ዕለታዊ ባች", "premium": "ቀጥታ ዥረት" },
+          "channels": { "label": "የዳሳሽ ቻናሎች", "standard": "ዋና 3", "premium": "የተስፋፋ ስብስብ" },
+          "escalation": { "label": "ራስ-ሰር መላክ", "standard": "no", "premium": "yes" }
+        }
       },
       "leasing": {
         "name": "የካፒታል መሣሪያ ኪራይ",
-        "description": "ሁሉንም ካፒታል አስቀድሞ ሳያስሩ ለአነስተኛ ቡድኖች እና መካከለኛ መርከቦች ተለዋዋጭ የግዢ መንገዶች።",
+        "shortName": "ኪራይ",
+        "tagline": "ካፒታልን ነፃ እያቆዩ መርከብዎን የአሁን እንዲሆን የሚያደርጉ ተለዋዋጭ የግዢ መንገዶች።",
+        "description": "ሁሉንም ካፒታል አስቀድሞ ሳያስሩ ተለዋዋጭ የግዢ መንገዶች።",
+        "overview1": "ውሎችን በምርት ወቅቶች ዙሪያ ያዋቅሩ — አሁን የሚያስፈልግዎትን ይከራዩ።",
+        "overview2": "ኢቲየል መሣሪያን፣ የኢንሹራንስ መመሪያን እና የአገልግሎት አባሪዎችን ያስተባብራል።",
         "detailLabels": { "term": "የጊዜ አማራጮች", "approval": "ማጽደቅ" },
-        "detailValues": { "term": "12–60 ወራት", "approval": "5–10 የስራ ቀናት" }
+        "detailValues": { "term": "12–60 ወራት", "approval": "5–10 የስራ ቀናት" },
+        "metrics": {
+          "term": { "label": "የጊዜ አማራጮች", "value": "12–60 ወር" },
+          "approval": { "label": "ማጽደቅ", "value": "5–10 ቀናት" },
+          "down": { "label": "ቅድመ ክፍያ", "value": "ተለዋዋጭ" }
+        },
+        "capabilities": {
+          "flexible": { "title": "ተለዋዋጭ ውሎች", "body": "ከምርት የቀን መቁጠሪያ ጋር የተጣጣሙ ክፍያዎች።" },
+          "upgrade": { "title": "የማሻሻያ መንገዶች", "body": "ግቦች ሲያድጉ ወደ አዲስ ሞዴሎች ይቀይሩ።" },
+          "support": { "title": "የተጠቃለለ ድጋፍ", "body": "የመስክ ድጋፍ ወይም ምርመራ ጥቅሎችን ያያይዙ።" }
+        },
+        "tiers": {
+          "term": { "label": "ከፍተኛ ጊዜ", "standard": "36 ወራት", "premium": "60 ወራት" },
+          "rate": { "label": "የተመን መዋቅር", "standard": "ቋሚ", "premium": "ቋሚ + ወቅታዊ" },
+          "buyout": { "label": "ቀደምት ግዢ", "standard": "መደበኛ ክፍያ", "premium": "ተመራጭ ክፍያ" }
+        }
       }
     }
+  },
+  "store": {
+    "steps": {
+      "selection": "ምርጫ",
+      "details": "ዝርዝሮች",
+      "review": "ግምገማ"
+    },
+    "review": {
+      "title": "ትዕዛዝ ይገምግሙ",
+      "manifest": "የመሣሪያ ማኒፌስት",
+      "empty": "ማኒፌስትዎ ባዶ ነው። ለመቀጠል መሣሪያ ወይም አገልግሎት ይጨምሩ።",
+      "addMore": "ተጨማሪ መሣሪያ ጨምር",
+      "remove": "ንጥል አስወግድ",
+      "qty": "ብዛት",
+      "summaryTitle": "የትዕዛዝ ማጠቃለያ",
+      "units": "ክፍሎች",
+      "payment": "ክፍያ",
+      "pendingInvoice": "በመጠባበቅ ላይ ያለ ደረሰኝ",
+      "continue": "ወደ ዝርዝሮች ቀጥል",
+      "secure": "የትዕዛዝ ሂደቱ ደህንነቱ የተጠበቀ እና የተመሰጠረ ነው።"
+    },
+    "checkout": {
+      "title": "ትዕዛዝ ያጠናቁ",
+      "subtitle": "የመሣሪያ ጥያቄዎን ለማረጋገጥ የእውቂያ እና የመላኪያ ዝርዝሮችዎን ያቅርቡ። በዚህ ደረጃ ክፍያ አያስፈልግም።",
+      "returnToCart": "ወደ ጋሪ ተመለስ",
+      "emptyTitle": "ለመክፈል ምንም የለም",
+      "browse": "ምርቶችን ያስሱ",
+      "contactTitle": "የእውቂያ ዝርዝሮች",
+      "deliveryTitle": "የመላኪያ ቦታ",
+      "notesTitle": "የአሰራር ማስታወሻዎች",
+      "fullName": "ሙሉ ስም",
+      "company": "ድርጅት",
+      "email": "የስራ ኢሜይል",
+      "phone": "ቀጥተኛ ስልክ",
+      "siteAddress": "የጣቢያ አድራሻ",
+      "city": "ከተማ",
+      "region": "ክልል",
+      "postal": "የፖስታ ኮድ",
+      "notesLabel": "ልዩ መመሪያዎች (አማራጭ)",
+      "notesPlaceholder": "የቮልቴጅ መስፈርቶች፣ የመላኪያ ገደቦች፣ ወዘተ ያስገቡ።",
+      "summaryTitle": "የጥያቄ ማጠቃለያ",
+      "summaryHint": "ትዕዛዝ ከማስገባትዎ በፊት ማኒፌስትዎን ይገምግሙ።",
+      "subtotalItems": "ጠቅላላ ንጥሎች",
+      "units": "ክፍሎች",
+      "fulfillment": "የመሟላት SLA",
+      "sla": "መደበኛ (3–5 ቀናት)",
+      "payment": "የክፍያ ሁኔታ",
+      "pendingInvoice": "በመጠባበቅ ላይ ያለ ደረሰኝ",
+      "placeOrder": "ትዕዛዝ ያስገቡ",
+      "placing": "በማስገባት ላይ…",
+      "terms": "ይህን ትዕዛዝ በማስገባት የኢቲየል የመሟላት ውሎችን ይስማማሉ።",
+      "errors": {
+        "generic": "ትዕዛዝዎን ማስገባት አልተቻለም። ዝርዝሮችዎን ይመልከቱና እንደገና ይሞክሩ።"
+      }
+    },
+    "confirmed": {
+      "title": "ትዕዛዝ ተቀብሏል",
+      "subtitle": "የሎጂስቲክስ ቡድናችን ማኒፌስትዎን በማስኬድ ላይ ነው። ስፔሻሊስት በ24 ሰዓት ውስጥ ያገኝዎታል።",
+      "orderNumber": "የትዕዛዝ ቁጥር",
+      "manifest": "የማኒፌስት ማጠቃለያ",
+      "qty": "ብዛት",
+      "continueShopping": "ግዢን ቀጥል",
+      "print": "ማጠቃለያ አትም",
+      "trackOrders": "ትዕዛዞችን ይከታተሉ",
+      "steps": {
+        "placed": "ትዕዛዝ ገብቷል",
+        "reviewing": "በግምገማ ላይ",
+        "confirmed": "ተረጋግጧል"
+      }
+    },
+    "orders": {
+      "title": "ትዕዛዞቼ",
+      "orderNumber": "የትዕዛዝ ቁጥር",
+      "contact": "ኢሜይል ወይም ስልክ",
+      "contactPlaceholder": "በቼክአውት ጊዜ ጥቅም ላይ የዋለ",
+      "lookup": "ፈልግ",
+      "notFound": "ከዚያ ቁጥር እና እውቂያ ጋር የሚዛመድ ትዕዛዝ አልተገኘም።",
+      "empty": "እስካሁን ምንም የአካባቢ ትዕዛዞች የሉም።",
+      "shop": "ካታሎጉን ያስሱ",
+      "colOrder": "ትዕዛዝ #",
+      "colDate": "ቀን / ሰዓት",
+      "colManifest": "የማኒፌስት ማጠቃለያ",
+      "colItems": "ንጥሎች",
+      "colStatus": "ሁኔታ",
+      "statusPending": "በመጠባበቅ ላይ"
+    }
+  },
+  "contactPage": {
+    "title": "ከምህንድስና ቡድናችን ጋር ያግኙ",
+    "subtitle": "ለመሣሪያ ጥያቄዎች፣ የመርከብ ድጋፍ ወይም ብጁ የምህንድስና መፍትሄዎች ከዓለም አቀፍ ቴክኒካል ስፔሻሊስቶቻችን ጋር ይገናኙ። በእያንዳንዱ ግንኙነት ኢንዱስትሪያል ደረጃ ትክክለኛነት እናቀርባለን።",
+    "fullName": "ሙሉ ስም",
+    "fullNamePlaceholder": "ስምዎን ያስገቡ",
+    "email": "የኮርፖሬት ኢሜይል",
+    "emailPlaceholder": "name@company.com",
+    "subject": "የትዕዛዝ ርዕስ",
+    "subjectPlaceholder": "የፍላጎት አካባቢ ይምረጡ...",
+    "subjects": {
+      "equipment": "የመሣሪያ ጥያቄ",
+      "fleet": "የመርከብ ድጋፍ",
+      "engineering": "ብጁ ምህንድስና",
+      "logistics": "ዓለም አቀፍ ሎጂስቲክስ",
+      "other": "ሌላ"
+    },
+    "specs": "የትዕዛዝ ዝርዝሮች",
+    "specsPlaceholder": "ስለ የአሠራር መስፈርቶችዎ ዝርዝሮችን ያቅርቡ...",
+    "submit": "አሁን ትዕዛዝ ያስገቡ",
+    "submitting": "በመላክ ላይ…",
+    "successTitle": "ጥያቄ ተቀብሏል",
+    "successBody": "የምህንድስና ቡድናችን በአንድ የስራ ቀን ውስጥ ይመልሳል።",
+    "sendAnother": "ሌላ ጥያቄ ይላኩ",
+    "hqTitle": "ዓለም አቀፍ ዋና መሥሪያ ቤት",
+    "hqLabel": "አውስትራሊያ HQ",
+    "hqAddress": "Level 42, 120 Collins Street, Melbourne, VIC 3000, Australia",
+    "phoneLabel": "ዋና መስመር",
+    "phone": "+61 3 9900 1234",
+    "emailLabel": "አጠቃላይ ጥያቄዎች",
+    "emailValue": "operations@etielmining.com",
+    "mapLabel": "HQ ቦታ",
+    "mapCaption": "ኢቲየል ማይኒንግ ሃብ — ያግኙን"
   },
   "footer": {
     "privacy": "የግላዊነት ፖሊሲ",
