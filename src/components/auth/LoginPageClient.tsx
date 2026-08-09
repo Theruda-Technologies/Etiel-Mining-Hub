@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth/AuthProvider";
+import { SiteLogo } from "@/components/layout/SiteLogo";
 
 export function LoginPageClient() {
   const t = useTranslations("auth");
-  const tMeta = useTranslations("meta");
   const { signIn, resetPassword } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -54,12 +54,9 @@ export function LoginPageClient() {
 
   return (
     <div className="flex min-h-screen flex-col bg-basalt-deep px-5 py-10 md:py-14">
-      <Link
-        href="/"
-        className="mx-auto font-display text-xl font-bold tracking-tight text-amber md:text-2xl"
-      >
-        {tMeta("siteName")}
-      </Link>
+      <div className="mx-auto">
+        <SiteLogo height={96} priority />
+      </div>
 
       <div className="mx-auto mt-12 w-full max-w-[420px] flex-1 md:mt-16">
         <div className="relative border border-white/20 bg-basalt-elevated px-7 py-9 md:px-9 md:py-10">

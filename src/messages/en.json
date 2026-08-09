@@ -52,75 +52,97 @@
   },
   "home": {
     "hero": {
-      "titleLine1": "Industrial Precision.",
-      "titleLine2": "Unyielding Power.",
-      "subtitle": "Engineered for the world's most demanding environments. Discover the next generation of extraction technology.",
+      "titleLine1": "Mining Equipment & Detection.",
+      "titleLine2": "Rooted in Addis Ababa.",
+      "subtitle": "Etiel Mining Hub supplies high-performance metal detectors, ground scanners, and field-ready mining hardware for gold prospectors, commercial operators, and geological exploration across Ethiopia with expert device selection and local technical counseling.",
       "browseProducts": "Browse Products",
-      "orderNow": "Order Now"
+      "orderNow": "Order Now",
+      "slideIndicators": "Hero slideshow",
+      "goToSlide": "Go to slide {n}"
     },
     "stats": {
-      "unitsValue": "150+",
-      "unitsLabel": "Units Active",
-      "recoveryValue": "98%",
-      "recoveryLabel": "Recovery Rate",
-      "supportValue": "24/7",
-      "supportLabel": "Global Support",
-      "failuresValue": "Zero",
-      "failuresLabel": "Critical Failures"
+      "unitsValue": "10+",
+      "unitsLabel": "Years in Addis Ababa",
+      "recoveryValue": "650+",
+      "recoveryLabel": "Detectors Supplied",
+      "supportValue": "5",
+      "supportLabel": "Regions Served",
+      "failuresValue": "Same Day",
+      "failuresLabel": "Device Counseling"
     },
     "fieldTested": {
-      "title": "Field-Tested Excellence",
-      "body": "Our flagship X-9 Series drills deliver unmatched torque in 24/7 subterranean operations, reducing cycle times by 40%.",
-      "cta": "Order Now"
+      "eyebrow": "Featured Detector",
+      "title": "Nokta Magnetar 9000",
+      "body": "A professional pulse induction gold detector built for deep gold and micro nuggets in mineralized ground. Dual Receiver Coil (DRC) technology with the MG37 search coil balances extreme depth and fine sensitivity in one platform. Fully waterproof to 3 meters, with Easy and Expert menus for both first-time and advanced prospectors. Available through Etiel Mining Hub in Addis Ababa with local device selection and field guidance.",
+      "point1": "Advanced pulse induction for mineralized soil",
+      "point2": "MG37 DRC coil for depth and small gold",
+      "point3": "IP68 waterproof, up to 3 m submersion",
+      "cta": "Browse Detectors",
+      "imageAlt": "Nokta Magnetar 9000 with MG37 DRC search coil"
     },
     "equipment": {
-      "title": "Equipment Lineup",
-      "subtitle": "Purpose-built machinery for heavy-duty extraction.",
+      "title": "Products and Services",
+      "subtitle": "Metal detectors, gold wash plants, and processing equipment for Ethiopian prospectors and commercial operators.",
       "viewDetails": "View Details",
       "featured": "Featured",
       "items": {
-        "magnetar": {
-          "name": "MAGNETAR Drill",
-          "series": "M-series",
-          "specs": "High-torque rotary · 120m depth · Auto-nav ready"
+        "magnetar9000": {
+          "name": "Nokta Magnetar 9000",
+          "series": "Pulse Induction Detector",
+          "specs": "DRC dual-receiver coil · Deep gold and micro nuggets · IP68 to 3 m"
         },
-        "titan": {
-          "name": "Titan Conveyor",
-          "series": "T-series",
-          "specs": "Modular belt · 800 t/h · Dust-sealed drive"
+        "goldWasher": {
+          "name": "Gold Wash Plant",
+          "series": "Alluvial Processing",
+          "specs": "Trommel scrub and screen · Clay breakup · Placer gold recovery"
         },
-        "aeroscout": {
-          "name": "AeroScout Drone",
-          "series": "A-series",
-          "specs": "LiDAR mapping · 45 min flight · Rugged chassis"
+        "goldWasherMobile": {
+          "name": "Mobile Gold Washer",
+          "series": "Field Portable",
+          "specs": "Trailer-ready wash plant · Hopper to sluice flow · Artisanal sites"
+        },
+        "goldWasherMini": {
+          "name": "Mini Gold Washer",
+          "series": "Compact Recovery",
+          "specs": "Small-crew wash unit · Low water demand · Rapid setup"
+        },
+        "jawCrusher": {
+          "name": "Jaw Crusher",
+          "series": "Primary Crushing",
+          "specs": "Hard rock feed reduction · High-force jaws · Rock gold prep"
+        },
+        "ballMill": {
+          "name": "Ball Mill",
+          "series": "Fine Grinding",
+          "specs": "Ore to powder liberate gold · Closed-circuit grind · Mid-tier plants"
         }
       }
     },
     "support": {
-      "title": "Comprehensive Support",
-      "subtitle": "From first consultation to field deployment — we stay with your operation.",
+      "title": "Support Built for Ethiopian Operations",
+      "subtitle": "From device selection in Addis Ababa to setup guidance in the field, Etiel stays with prospectors and commercial crews.",
       "items": {
         "sales": {
-          "title": "Sales & Consultation",
-          "body": "Device selection and site-fit guidance for local gold and commercial ops."
+          "title": "Device Selection",
+          "body": "Match detectors, wash plants, and crushers to your ground type, budget, and crew size before you buy."
         },
         "global": {
-          "title": "Global Support",
-          "body": "Field technicians and remote diagnostics when downtime is not an option."
+          "title": "Local Technical Counseling",
+          "body": "Addis-based advice on settings, coils, wash circuits, and what works in Ethiopian mineralized soil."
         },
         "financing": {
-          "title": "Financing",
-          "body": "Flexible procurement paths for artisanal crews and mid-tier fleets."
+          "title": "Flexible Procurement",
+          "body": "Order paths for artisanal miners and mid-tier operators, with clear quotes and delivery coordination."
         },
         "training": {
-          "title": "Operator Training",
-          "body": "Hands-on certification so your team runs every unit at peak capability."
+          "title": "Field Setup Guidance",
+          "body": "Hands-on orientation so your team can run Magnetar detectors, washers, crushers, and mills with confidence."
         }
       }
     },
     "partners": {
-      "label": "Trusted across the region",
-      "names": ["Aurum Core", "Geo-Tech", "Titan Extract", "Valley Heavy"]
+      "label": "Detection and processing brands we supply",
+      "names": ["Nokta", "Minelab", "Akuda Engineering", "Etiel Field Network"]
     }
   },
   "catalog": {

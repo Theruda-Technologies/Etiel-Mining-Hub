@@ -7,22 +7,46 @@ import { Link } from "@/i18n/navigation";
 
 const ITEMS = [
   {
-    key: "magnetar" as const,
-    image: "/images/equipment-drill.jpg",
+    key: "magnetar9000" as const,
+    image: "/images/etiel-site-images/Nokta-9000.png",
     href: "/products",
     featured: true,
+    fit: "contain" as const,
   },
   {
-    key: "titan" as const,
-    image: "/images/equipment-conveyor.jpg",
+    key: "goldWasher" as const,
+    image: "/images/etiel-site-images/Gold-washer-green.jpeg",
     href: "/products",
     featured: false,
+    fit: "cover" as const,
   },
   {
-    key: "aeroscout" as const,
-    image: "/images/equipment-drone.jpg",
+    key: "goldWasherMobile" as const,
+    image: "/images/etiel-site-images/Gold-washer-yellow.jpeg",
     href: "/products",
     featured: false,
+    fit: "cover" as const,
+  },
+  {
+    key: "goldWasherMini" as const,
+    image: "/images/etiel-site-images/Gold-Washer-mini-cyan.jpeg",
+    href: "/products",
+    featured: false,
+    fit: "cover" as const,
+  },
+  {
+    key: "jawCrusher" as const,
+    image: "/images/etiel-site-images/Jaw-crusher.jpeg",
+    href: "/products",
+    featured: false,
+    fit: "contain" as const,
+  },
+  {
+    key: "ballMill" as const,
+    image: "/images/etiel-site-images/Ball-mill.jpeg",
+    href: "/products",
+    featured: false,
+    fit: "contain" as const,
   },
 ];
 
@@ -44,7 +68,7 @@ export function EquipmentLineup() {
             <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
               {t("title")}
             </h2>
-            <p className="mt-2 max-w-lg text-sm text-text-secondary md:text-base">
+            <p className="mt-2 max-w-xl text-sm text-text-secondary md:text-base">
               {t("subtitle")}
             </p>
           </div>
@@ -75,15 +99,19 @@ export function EquipmentLineup() {
           {ITEMS.map((item) => (
             <article
               key={item.key}
-              className="relative w-[min(85vw,320px)] shrink-0 snap-start overflow-hidden rounded-sm border border-white/8 bg-basalt-elevated"
+              className="relative w-[min(85vw,300px)] shrink-0 snap-start overflow-hidden rounded-sm border border-white/8 bg-basalt-elevated"
             >
               <div className="relative aspect-[4/3] bg-basalt-muted">
                 <Image
                   src={item.image}
-                  alt=""
+                  alt={t(`items.${item.key}.name`)}
                   fill
-                  className="object-cover"
-                  sizes="320px"
+                  className={
+                    item.fit === "contain"
+                      ? "object-contain object-center p-3"
+                      : "object-cover object-center"
+                  }
+                  sizes="300px"
                 />
                 {item.featured ? (
                   <span className="absolute left-3 top-3 rounded-sm bg-amber px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-basalt-deep">

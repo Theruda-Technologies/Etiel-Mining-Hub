@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth/AuthProvider";
+import { SiteLogo } from "@/components/layout/SiteLogo";
 
 export function SignupPageClient() {
   const t = useTranslations("auth");
-  const tMeta = useTranslations("meta");
   const tFooter = useTranslations("footer");
   const { signUp } = useAuth();
   const router = useRouter();
@@ -69,12 +69,9 @@ export function SignupPageClient() {
       />
 
       <div className="relative z-10 flex flex-1 flex-col px-5 py-10 md:py-14">
-        <Link
-          href="/"
-          className="mx-auto font-display text-xl font-bold tracking-tight text-amber md:text-2xl"
-        >
-          {tMeta("siteName")}
-        </Link>
+        <div className="mx-auto">
+          <SiteLogo height={96} priority />
+        </div>
 
         <div className="mx-auto mt-10 w-full max-w-[440px] flex-1 md:mt-14">
           <div className="overflow-hidden rounded-sm border border-white/20 bg-basalt-elevated">
@@ -165,10 +162,8 @@ export function SignupPageClient() {
 
       <footer className="relative z-10 border-t border-white/10 bg-basalt-elevated px-5 py-8 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:gap-8">
-            <p className="font-display text-lg font-bold text-white">
-              {tMeta("siteName")}
-            </p>
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-8">
+            <SiteLogo height={64} />
             <p className="font-mono-tech text-[11px] text-text-secondary">
               {t("signup.footerCopy", { year })}
             </p>

@@ -5,12 +5,12 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { SiteLogo } from "@/components/layout/SiteLogo";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { useCart } from "@/lib/cart/store";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
-  const tMeta = useTranslations("meta");
   const pathname = usePathname();
   const router = useRouter();
   const { count } = useCart();
@@ -66,13 +66,8 @@ export function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 md:h-[4.5rem] md:px-8">
-        <Link
-          href="/"
-          className="font-display text-base font-bold tracking-tight text-white md:text-lg"
-        >
-          {tMeta("siteName")}
-        </Link>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 md:h-24 md:px-8">
+        <SiteLogo height={72} priority />
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => {

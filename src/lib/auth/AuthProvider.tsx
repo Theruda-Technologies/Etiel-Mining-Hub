@@ -90,7 +90,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const supabase = createClient();
     const redirectTo =
       typeof window !== "undefined"
-        ? `${window.location.origin}/en/login`
+        ? (() => {
+            const segment = window.location.pathname.split("/")[1];
+            const locale = segment === "en" || segment === "am" ? segment : "am";
+            return `${window.location.origin}/${locale}/login`;
+          })()
         : undefined;
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo,
