@@ -3,13 +3,10 @@
 import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 
-const SUBJECT_KEYS = [
-  "equipment",
-  "fleet",
-  "engineering",
-  "logistics",
-  "other",
-] as const;
+const MAP_EMBED_SRC =
+  "https://www.google.com/maps?q=2PJW%2B895%2C+Gobena+Aba+Tigu+St%2C+Addis+Ababa&hl=en&z=17&output=embed";
+
+const PHONES = ["+251922056074", "+251968360000", "+251910575554"] as const;
 
 export function ContactPageClient() {
   const t = useTranslations("contactPage");
@@ -19,7 +16,6 @@ export function ContactPageClient() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    // Demo: no backend endpoint yet — acknowledge the inquiry locally.
     await new Promise((r) => setTimeout(r, 600));
     setSubmitting(false);
     setSent(true);
@@ -39,7 +35,6 @@ export function ContactPageClient() {
         </header>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.35fr_0.9fr] lg:gap-10 animate-fade-up-delay">
-          {/* Form */}
           <section className="rounded-sm border border-white/15 p-6 md:p-8">
             {sent ? (
               <div className="flex min-h-[280px] flex-col justify-center">
@@ -65,44 +60,25 @@ export function ContactPageClient() {
                     label={t("fullName")}
                     placeholder={t("fullNamePlaceholder")}
                     required
+                    autoComplete="name"
                   />
                   <UnderlineField
-                    name="email"
-                    label={t("email")}
-                    type="email"
-                    placeholder={t("emailPlaceholder")}
+                    name="phone"
+                    label={t("phone")}
+                    type="tel"
+                    placeholder={t("phonePlaceholder")}
                     required
+                    autoComplete="tel"
                   />
                 </div>
 
-                <label className="block">
-                  <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-text-secondary">
-                    {t("subject")}
-                  </span>
-                  <div className="relative mt-3">
-                    <select
-                      name="subject"
-                      required
-                      defaultValue=""
-                      className="w-full appearance-none border-0 border-b border-white/25 bg-transparent pb-2.5 pr-8 text-sm text-white outline-none transition-colors focus:border-amber [&>option]:bg-basalt-elevated [&>option]:text-white"
-                    >
-                      <option value="" disabled>
-                        {t("subjectPlaceholder")}
-                      </option>
-                      {SUBJECT_KEYS.map((key) => (
-                        <option key={key} value={key}>
-                          {t(`subjects.${key}`)}
-                        </option>
-                      ))}
-                    </select>
-                    <span
-                      className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-text-secondary"
-                      aria-hidden
-                    >
-                      ▾
-                    </span>
-                  </div>
-                </label>
+                <UnderlineField
+                  name="email"
+                  label={t("email")}
+                  type="email"
+                  placeholder={t("emailPlaceholder")}
+                  autoComplete="email"
+                />
 
                 <label className="block">
                   <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-text-secondary">
@@ -111,7 +87,6 @@ export function ContactPageClient() {
                   <textarea
                     name="specs"
                     rows={6}
-                    required
                     placeholder={t("specsPlaceholder")}
                     className="mt-3 w-full resize-y rounded-sm border border-white/20 bg-transparent px-3 py-3 text-sm text-white placeholder:text-white/35 outline-none transition-colors focus:border-amber"
                   />
@@ -129,7 +104,6 @@ export function ContactPageClient() {
             )}
           </section>
 
-          {/* HQ + map */}
           <aside className="flex flex-col gap-6">
             <div className="rounded-sm border border-white/15 p-6 md:p-7">
               <h2 className="font-display text-xl font-bold text-white md:text-2xl">
@@ -140,18 +114,25 @@ export function ContactPageClient() {
                 <InfoRow
                   icon={<PinIcon />}
                   label={t("hqLabel")}
-                  value={t("hqAddress")}
+                  value={
+                    <span className="whitespace-pre-line">{t("hqAddress")}</span>
+                  }
                 />
                 <InfoRow
                   icon={<PhoneIcon />}
                   label={t("phoneLabel")}
                   value={
-                    <a
-                      href={`tel:${t("phone").replace(/\s/g, "")}`}
-                      className="transition-colors hover:text-amber"
-                    >
-                      {t("phone")}
-                    </a>
+                    <span className="flex flex-col gap-1.5">
+                      {PHONES.map((phone) => (
+                        <a
+                          key={phone}
+                          href={`tel:${phone}`}
+                          className="transition-colors hover:text-amber"
+                        >
+                          {phone}
+                        </a>
+                      ))}
+                    </span>
                   }
                 />
                 <InfoRow
@@ -169,8 +150,15 @@ export function ContactPageClient() {
               </ul>
             </div>
 
-            <div className="relative min-h-[260px] flex-1 overflow-hidden rounded-sm border border-white/15 md:min-h-[300px]">
-              <MapPanel caption={t("mapCaption")} label={t("mapLabel")} />
+            <div className="relative min-h-[280px] flex-1 overflow-hidden rounded-sm border border-white/15 md:min-h-[320px]">
+              <iframe
+                title={t("mapCaption")}
+                src={MAP_EMBED_SRC}
+                className="absolute inset-0 h-full w-full border-0 grayscale-[20%] contrast-[1.05]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </aside>
         </div>
@@ -185,23 +173,31 @@ function UnderlineField({
   placeholder,
   required,
   type = "text",
+  autoComplete,
 }: {
   name: string;
   label: string;
   placeholder?: string;
   required?: boolean;
   type?: string;
+  autoComplete?: string;
 }) {
   return (
     <label className="block">
       <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-text-secondary">
         {label}
+        {required ? (
+          <span className="ml-1 text-amber" aria-hidden>
+            *
+          </span>
+        ) : null}
       </span>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         className="mt-3 w-full border-0 border-b border-white/25 bg-transparent pb-2.5 text-sm text-white placeholder:text-white/35 outline-none transition-colors focus:border-amber"
       />
     </label>
@@ -224,120 +220,9 @@ function InfoRow({
         <p className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-amber">
           {label}
         </p>
-        <p className="mt-1.5 text-sm leading-relaxed text-white/80">{value}</p>
+        <div className="mt-1.5 text-sm leading-relaxed text-white/80">{value}</div>
       </div>
     </li>
-  );
-}
-
-function MapPanel({ caption, label }: { caption: string; label: string }) {
-  return (
-    <div className="absolute inset-0 bg-[#121410]">
-      <p className="absolute left-3 top-2 z-10 font-mono-tech text-[9px] uppercase tracking-[0.14em] text-white/45">
-        {caption}
-      </p>
-
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 400 300"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        <defs>
-          <pattern
-            id="map-grid"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 20 0 L 0 0 0 20"
-              fill="none"
-              stroke="rgba(255,255,255,0.04)"
-              strokeWidth="0.5"
-            />
-          </pattern>
-          <radialGradient id="terrain" cx="45%" cy="40%" r="55%">
-            <stop offset="0%" stopColor="#2a3220" />
-            <stop offset="45%" stopColor="#1a1e14" />
-            <stop offset="100%" stopColor="#0e100c" />
-          </radialGradient>
-        </defs>
-        <rect width="400" height="300" fill="url(#terrain)" />
-        <rect width="400" height="300" fill="url(#map-grid)" />
-
-        {/* Contour / ridge lines */}
-        <path
-          d="M0 80 Q80 60 140 90 T280 70 T400 100"
-          fill="none"
-          stroke="rgba(180,160,100,0.15)"
-          strokeWidth="1"
-        />
-        <path
-          d="M0 130 Q100 110 180 140 T340 120 T400 150"
-          fill="none"
-          stroke="rgba(180,160,100,0.12)"
-          strokeWidth="1"
-        />
-        <path
-          d="M0 190 Q90 170 160 200 T300 180 T400 210"
-          fill="none"
-          stroke="rgba(140,160,120,0.1)"
-          strokeWidth="1"
-        />
-        <path
-          d="M40 40 L90 90 L70 140 L120 180 L100 240"
-          fill="none"
-          stroke="rgba(255,255,255,0.06)"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M200 20 L240 80 L220 140 L280 200 L260 280"
-          fill="none"
-          stroke="rgba(255,255,255,0.05)"
-          strokeWidth="1.5"
-        />
-        <ellipse
-          cx="210"
-          cy="145"
-          rx="70"
-          ry="45"
-          fill="none"
-          stroke="rgba(224,165,38,0.12)"
-          strokeWidth="1"
-        />
-        <ellipse
-          cx="210"
-          cy="145"
-          rx="40"
-          ry="25"
-          fill="none"
-          stroke="rgba(224,165,38,0.18)"
-          strokeWidth="1"
-        />
-
-        {/* Terrain patches */}
-        <path
-          d="M250 200 Q300 180 360 220 L380 280 L240 270 Z"
-          fill="rgba(60,70,45,0.35)"
-        />
-        <path
-          d="M20 200 Q80 220 60 260 L30 280 Z"
-          fill="rgba(50,55,40,0.4)"
-        />
-      </svg>
-
-      {/* HQ pin */}
-      <div className="absolute left-[48%] top-[42%] -translate-x-1/2 -translate-y-1/2">
-        <div className="relative flex flex-col items-center">
-          <span className="absolute h-10 w-10 animate-ping rounded-full bg-amber/25" />
-          <span className="relative h-3.5 w-3.5 rounded-full border-2 border-basalt-deep bg-amber shadow-[0_0_12px_rgba(224,165,38,0.7)]" />
-          <span className="mt-2 whitespace-nowrap rounded-sm bg-basalt-deep/80 px-2 py-0.5 font-mono-tech text-[10px] font-semibold uppercase tracking-[0.14em] text-amber">
-            {label}
-          </span>
-        </div>
-      </div>
-    </div>
   );
 }
 
