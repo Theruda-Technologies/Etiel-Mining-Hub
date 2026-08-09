@@ -1,5 +1,11 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceCatalog } from "@/components/services/ServiceCatalog";
+import {
+  fetchActiveServices,
+  serviceCategories,
+} from "@/lib/catalog/fetch-services";
+
+export const dynamic = "force-dynamic";
 
 export default async function ServicesPage({
   params,
@@ -9,6 +15,8 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
+  const services = await fetchActiveServices(locale);
+  const categories = serviceCategories(services);
 
   return (
     <div className="bg-basalt-deep pt-24 md:pt-28">
@@ -17,13 +25,14 @@ export default async function ServicesPage({
           <h1 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             {t("title")}
           </h1>
+          <div className="vein-line mt-5" />
           <p className="mt-5 text-base leading-relaxed text-text-secondary md:text-lg">
             {t("subtitle")}
           </p>
         </header>
 
         <div className="mt-10 md:mt-12">
-          <ServiceCatalog />
+          <ServiceCatalog services={services} categories={categories} />
         </div>
       </div>
     </div>

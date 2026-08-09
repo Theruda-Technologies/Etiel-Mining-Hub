@@ -3,25 +3,44 @@
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ServiceCard } from "@/components/services/ServiceCard";
-import {
-  CATALOG_SERVICES,
-  SERVICE_CATEGORIES,
-  type ServiceCategory,
-} from "@/lib/catalog/services";
+import type { StoreService } from "@/lib/catalog/types";
 
-export function ServiceCatalog() {
+type ServiceCatalogProps = {
+  services: StoreService[];
+  categories: string[];
+};
+
+function categoryLabel(t: ReturnType<typeof useTranslations<"services">>, key: string) {
+  const known = [
+    "all",
+    "consulting",
+    "on_site_assembly",
+    "installation",
+    "field_support",
+    "maintenance",
+    "training",
+    "financing",
+  ];
+  if (known.includes(key)) return t(`categories.${key}` as "categories.all");
+  return key.replace(/_/g, " ");
+}
+
+export function ServiceCatalog({
+  services = [],
+  categories = ["all"],
+}: ServiceCatalogProps) {
   const t = useTranslations("services");
-  const [category, setCategory] = useState<ServiceCategory>("all");
+  const [category, setCategory] = useState("all");
 
-  const services = useMemo(() => {
-    if (category === "all") return CATALOG_SERVICES;
-    return CATALOG_SERVICES.filter((s) => s.category === category);
-  }, [category]);
+  const filtered = useMemo(() => {
+    if (category === "all") return services;
+    return services.filter((s) => s.category === category);
+  }, [category, services]);
 
   return (
     <div>
       <div className="flex gap-1 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {SERVICE_CATEGORIES.map((key) => {
+        {categories.map((key) => {
           const active = category === key;
           return (
             <button
@@ -34,19 +53,19 @@ export function ServiceCatalog() {
                   : "border-transparent text-white/55 hover:text-white"
               }`}
             >
-              {t(`categories.${key}`)}
+              {categoryLabel(t, key)}
             </button>
           );
         })}
       </div>
 
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
+        {filtered.map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}
       </div>
 
-      {services.length === 0 ? (
+      {filtered.length === 0 ? (
         <p className="mt-12 text-center text-text-secondary">{t("empty")}</p>
       ) : null}
     </div>

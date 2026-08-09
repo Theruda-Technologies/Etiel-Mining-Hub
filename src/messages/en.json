@@ -347,31 +347,35 @@
     }
   },
   "services": {
-    "title": "Industrial Services",
-    "subtitle": "Comprehensive field support, maintenance, and training for heavy machinery operations. Ensuring peak performance and minimal downtime across global sites.",
+    "title": "Services",
+    "subtitle": "Mining counseling, field support, training, and financing guidance for detectors, wash plants, crushers, and mills — from Etiel Mining Hub in Addis Ababa.",
     "addToCart": "Add to Cart",
     "viewDetails": "View Details",
     "backToServices": "Back to Services",
+    "skuLabel": "SKU: {sku}",
     "empty": "No services in this category yet.",
     "detail": {
       "breadcrumbHome": "Home",
       "breadcrumbServices": "Services",
-      "overviewTitle": "Service Overview",
-      "deployTitle": "Deploy Support Plan",
-      "deployBody": "Secure your operations with guaranteed response times and priority logistics.",
+      "overviewTitle": "Service Details",
+      "deployTitle": "Request This Service",
+      "deployBody": "Add to cart and check out — Etiel will follow up from Addis Ababa with scheduling and next steps.",
       "capabilitiesTitle": "Core Capabilities",
       "tiersTitle": "Service Tiers",
       "feature": "Feature",
       "standard": "Standard",
       "premium": "Premium",
       "badges": {
-        "certified": "Certified Technicians",
-        "logistics": "Global Logistics Network"
+        "certified": "Local Technical Counseling",
+        "logistics": "Addis Ababa Support Base"
       }
     },
     "categories": {
       "all": "All",
+      "consulting": "Consulting",
+      "on_site_assembly": "On-Site Assembly",
       "installation": "Installation",
+      "field_support": "Field Support",
       "maintenance": "Maintenance",
       "training": "Training",
       "financing": "Financing"

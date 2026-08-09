@@ -1,0 +1,995 @@
+{
+  "_meta": {
+    "purpose": "Bilingual service seed for Etiel Mining Hub Supabase public.services",
+    "table": "public.services",
+    "schema_fields": [
+      "id",
+      "sku",
+      "name",
+      "slug",
+      "description",
+      "category",
+      "specs",
+      "image_paths",
+      "is_active",
+      "sort_order",
+      "is_advertisement"
+    ],
+    "allowed_categories": [
+      "consulting",
+      "on_site_assembly",
+      "installation",
+      "field_support",
+      "maintenance",
+      "training",
+      "financing"
+    ],
+    "sources": [
+      {
+        "name": "911Metallurgist",
+        "url": "https://www.911metallurgist.com/",
+        "mapped_to": [
+          "SVC-FLOW-EQUIP",
+          "SVC-PLANT-AUDIT",
+          "SVC-TRAIN-OP",
+          "SVC-FIELD-24"
+        ]
+      },
+      {
+        "name": "The Impact Facility — LV2030",
+        "url": "https://www.theimpactfacility.com/commodities/gold/the-lake-victoria-gold-programme/",
+        "mapped_to": [
+          "SVC-LEASE-GUIDE"
+        ]
+      },
+      {
+        "name": "Orion Gold SARL",
+        "url": "https://orioncil.gold/",
+        "mapped_to": [
+          "SVC-ASSAY-SUP",
+          "SVC-MELT-SETUP"
+        ]
+      },
+      {
+        "name": "planetGOLD",
+        "url": "https://www.planetgold.org/",
+        "mapped_to": [
+          "SVC-HG-FREE",
+          "SVC-OSH-TRAIN",
+          "SVC-MARKET-ACCESS",
+          "SVC-FORMALIZE"
+        ]
+      },
+      {
+        "name": "Artisanal Gold Council",
+        "url": "https://www.artisanalgold.org/our-work",
+        "mapped_to": [
+          "SVC-OSH-TRAIN",
+          "SVC-HG-FREE",
+          "SVC-MARKET-ACCESS",
+          "SVC-FORMALIZE"
+        ]
+      },
+      {
+        "name": "Etiel Mining Hub (own)",
+        "url": null,
+        "mapped_to": [
+          "SVC-MINE-COUNSEL",
+          "SVC-DEVICE-SELECT",
+          "SVC-ASM-ON",
+          "SVC-WASH-SETUP",
+          "SVC-MAINT-PLAN"
+        ]
+      }
+    ],
+    "notes": [
+      "Offerings are adapted for Etiel Mining Hub in Addis Ababa (device counseling, detectors, wash plants, crushers/mills, and field support) — not a copy of third-party brand names.",
+      "Insert name/description/specs from the en object into Supabase (primary catalog language).",
+      "Keep am for next-intl / storefront localization.",
+      "specs must be a JSON array of {label, value} objects.",
+      "Category consulting is required for mining counseling; add it to services_category_check before seeding if missing.",
+      "Do not send price; DB column defaults to 0 and is unused by the storefront.",
+      "Set is_advertisement true on at most one product OR one service for the homepage ad.",
+      "Service images live under public/images/service-stock/ (free stock). Do not reuse product catalog photos.",
+      "When a service image includes people, subjects are dark-skinned / Black professionals or field workers."
+    ]
+  },
+  "services": [
+    {
+      "id": "d1000001-0001-4000-8000-000000000001",
+      "sku": "SVC-MINE-COUNSEL",
+      "slug": "mining-counseling",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 10,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/black-meeting.jpg"
+      ],
+      "en": {
+        "name": "Mining Counseling",
+        "description": "Same-day technical counseling for prospectors and commercial operators in Ethiopia. Bring your ground type, target mineral, crew size, and budget — Etiel helps you choose detectors, wash circuits, crushers, and mills, then maps a practical recovery plan from Addis Ababa.",
+        "specs": [
+          {
+            "label": "Format",
+            "value": "In-person or phone"
+          },
+          {
+            "label": "Focus",
+            "value": "Device + process fit"
+          },
+          {
+            "label": "Location",
+            "value": "Addis Ababa / remote"
+          },
+          {
+            "label": "Outcome",
+            "value": "Clear equipment plan"
+          }
+        ]
+      },
+      "am": {
+        "name": "የማዕድን ምክክር",
+        "description": "ለኢትዮጵያ ፕሮስፔክተሮች እና ንግድ ኦፕሬተሮች በተመሳሳይ ቀን የቴክኒክ ምክክር። የመሬት አይነትዎን፣ የሚፈልጉትን ማዕድን፣ የቡድን መጠን እና በጀትዎን ያምጡ — ኢቲየል መለያዎችን፣ የወርቅ ማጠቢያ ዑደቶችን፣ ክሬሸሮችን እና ሚሎችን እንዲመርጡ ይረዳዎታል፣ ከአዲስ አበባ ተግባራዊ የመልሶ ማግኛ እቅድም ያቀርባል።",
+        "specs": [
+          {
+            "label": "ቅርጸት",
+            "value": "በአካል ወይም በስልክ"
+          },
+          {
+            "label": "ትኩረት",
+            "value": "መሳሪያ + ሂደት ተስማሚነት"
+          },
+          {
+            "label": "ቦታ",
+            "value": "አዲስ አበባ / ሩቅ"
+          },
+          {
+            "label": "ውጤት",
+            "value": "ግልጽ የመሳሪያ እቅድ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000002",
+      "sku": "SVC-DEVICE-SELECT",
+      "slug": "device-selection-counseling",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 20,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/black-woman-biz.jpg"
+      ],
+      "en": {
+        "name": "Detector & Device Selection Counseling",
+        "description": "Guided comparison of metal detectors, pinpointers, and related field tools for Ethiopian mineralized ground. We match coil type, depth needs, waterproofing, and crew skill so you leave with a shortlist — not a guess.",
+        "specs": [
+          {
+            "label": "Covers",
+            "value": "Detectors & pinpointers"
+          },
+          {
+            "label": "Inputs",
+            "value": "Ground + target type"
+          },
+          {
+            "label": "Deliverable",
+            "value": "Ranked shortlist"
+          },
+          {
+            "label": "Follow-up",
+            "value": "Purchase guidance"
+          }
+        ]
+      },
+      "am": {
+        "name": "የመለያ እና መሳሪያ ምርጫ ምክክር",
+        "description": "ለኢትዮጵያ የማዕድን መሬት የብረት መለያዎችን፣ ፒንፖይንተሮችን እና ተዛማጅ የመስክ መሳሪያዎችን በመምራት ማነፃፀር። የኮይል አይነት፣ የጥልቀት ፍላጎት፣ የውሃ መከላከያ እና የቡድን ችሎታ እናገናኛለን — በግምት ሳይሆን በአጭር ዝርዝር ይወጣሉ።",
+        "specs": [
+          {
+            "label": "ይሸፍናል",
+            "value": "መለያዎች እና ፒንፖይንተሮች"
+          },
+          {
+            "label": "ግብዓቶች",
+            "value": "መሬት + የዒላማ አይነት"
+          },
+          {
+            "label": "ውጤት",
+            "value": "ደረጃ የተሰጠ አጭር ዝርዝር"
+          },
+          {
+            "label": "ክትትል",
+            "value": "የግዢ መመሪያ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000003",
+      "sku": "SVC-FLOW-EQUIP",
+      "slug": "flowsheet-equipment-selection",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 30,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/flowsheet.jpg",
+        "/images/service-stock/industrial-pipes.jpg"
+      ],
+      "en": {
+        "name": "Process Flowsheet & Equipment Selection",
+        "description": "Practical flowsheet guidance for small and mid-scale gold circuits: crush → grind → wash/concentrate → melt. Inspired by mineral-processing engineering practice (equipment selection, unit-operation fit, and capital prioritization) adapted to Ethiopian artisanal and commercial sites.",
+        "specs": [
+          {
+            "label": "Scope",
+            "value": "Crush to concentrate"
+          },
+          {
+            "label": "Deliverable",
+            "value": "Equipment shortlist"
+          },
+          {
+            "label": "Scale",
+            "value": "ASM to mid-tier"
+          },
+          {
+            "label": "Basis",
+            "value": "Ore + throughput"
+          }
+        ]
+      },
+      "am": {
+        "name": "የሂደት ፍሎውሺት እና የመሳሪያ ምርጫ",
+        "description": "ለትንሽ እና መካከለኛ የወርቅ ዑደቶች ተግባራዊ የፍሎውሺት መመሪያ፡ መፍጨት → መፍጨት/መፍጨት → ማጠብ/ማጎልበት → ማቅለጥ። የማዕድን ማቀነባበሪያ ምህንድስና ልምድን (የመሳሪያ ምርጫ፣ የክፍል ስራ ተስማሚነት እና የካፒታል ቅድሚያ) ለኢትዮጵያ አርቲሳናል እና ንግድ ቦታዎች ተስማሚ አድርገን እናቀርባለን።",
+        "specs": [
+          {
+            "label": "ወሰን",
+            "value": "ከመፍጨት እስከ ማጎልበት"
+          },
+          {
+            "label": "ውጤት",
+            "value": "የመሳሪያ አጭር ዝርዝር"
+          },
+          {
+            "label": "መጠን",
+            "value": "ASM እስከ መካከለኛ"
+          },
+          {
+            "label": "መሰረት",
+            "value": "ኦር + ማለፍ አቅም"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000004",
+      "sku": "SVC-PLANT-AUDIT",
+      "slug": "plant-audit-troubleshooting",
+      "category": "field_support",
+      "is_active": true,
+      "sort_order": 40,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/plant-audit.jpg"
+      ],
+      "en": {
+        "name": "Plant Audit, Stability & Troubleshooting",
+        "description": "On-site or remote review of wash plants, crushers, and mill circuits to find recovery losses, unstable stages, and mechanical bottlenecks. We prioritize one change at a time so crews regain process stability instead of living with chronic downtime.",
+        "specs": [
+          {
+            "label": "Mode",
+            "value": "Site or remote"
+          },
+          {
+            "label": "Focus",
+            "value": "Stability + recovery"
+          },
+          {
+            "label": "Method",
+            "value": "Incremental fixes"
+          },
+          {
+            "label": "Report",
+            "value": "Action checklist"
+          }
+        ]
+      },
+      "am": {
+        "name": "የፕላንት ኦዲት፣ መረጋጋት እና ችግር መፍታት",
+        "description": "የመልሶ ማግኛ ኪሳራዎችን፣ ያልተረጋጉ ደረጃዎችን እና ሜካኒካል ጠባሳዎችን ለማግኘት የወርቅ ማጠቢያ ፕላንቶችን፣ ክሬሸሮችን እና ሚል ዑደቶችን በቦታ ወይም በርቀት መገምገም። ቡድኖች ሥር የሰደደ መቆም ከመቀበል ይልቅ የሂደት መረጋጋት እንዲያገኙ በአንድ ጊዜ አንድ ለውጥ እናስቀድማለን።",
+        "specs": [
+          {
+            "label": "ሁነታ",
+            "value": "ቦታ ወይም ሩቅ"
+          },
+          {
+            "label": "ትኩረት",
+            "value": "መረጋጋት + መልሶ ማግኛ"
+          },
+          {
+            "label": "ዘዴ",
+            "value": "ደረጃ በደረጃ እርማት"
+          },
+          {
+            "label": "ሪፖርት",
+            "value": "የእርምጃ ዝርዝር"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000005",
+      "sku": "SVC-ASM-ON",
+      "slug": "on-site-assembly-commissioning",
+      "category": "on_site_assembly",
+      "is_active": true,
+      "sort_order": 50,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/african-miner.jpg"
+      ],
+      "en": {
+        "name": "On-Site Assembly & Commissioning",
+        "description": "Assembly, alignment, and first-run commissioning for wash plants, pumps, crushers, and detector kits at Ethiopian field sites. Crews leave with a working circuit and a short operating checklist.",
+        "specs": [
+          {
+            "label": "Covers",
+            "value": "Plant + pump + mill"
+          },
+          {
+            "label": "Includes",
+            "value": "First-run checks"
+          },
+          {
+            "label": "Crew",
+            "value": "Etiel + client team"
+          },
+          {
+            "label": "Handover",
+            "value": "Operating checklist"
+          }
+        ]
+      },
+      "am": {
+        "name": "በቦታ ላይ መሰብሰብ እና ማስጀመር",
+        "description": "በኢትዮጵያ የመስክ ቦታዎች ለወርቅ ማጠቢያ ፕላንቶች፣ ፓምፖች፣ ክሬሸሮች እና የመለያ ኪቶች መሰብሰብ፣ ማስተካከል እና የመጀመሪያ ሩጫ ማስጀመር። ቡድኖች በሚሰራ ዑደት እና አጭር የአሰራር ዝርዝር ይወጣሉ።",
+        "specs": [
+          {
+            "label": "ይሸፍናል",
+            "value": "ፕላንት + ፓምፕ + ሚል"
+          },
+          {
+            "label": "ያካትታል",
+            "value": "የመጀመሪያ ሩጫ ፍተሻ"
+          },
+          {
+            "label": "ቡድን",
+            "value": "ኢቲየል + ደንበኛ"
+          },
+          {
+            "label": "ማስረከብ",
+            "value": "የአሰራር ዝርዝር"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000006",
+      "sku": "SVC-WASH-SETUP",
+      "slug": "wash-plant-setup-optimization",
+      "category": "installation",
+      "is_active": true,
+      "sort_order": 60,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/wash-setup.jpg"
+      ],
+      "en": {
+        "name": "Wash Plant Setup & Recovery Optimization",
+        "description": "Layout and tuning for mobile and stationary gold wash circuits, including mats, sluices, and water supply. Focused on higher concentrate capture with less water waste for artisanal and commercial crews.",
+        "specs": [
+          {
+            "label": "Systems",
+            "value": "Wash + mat + pump"
+          },
+          {
+            "label": "Goal",
+            "value": "Higher recovery"
+          },
+          {
+            "label": "Water",
+            "value": "Use reduction tips"
+          },
+          {
+            "label": "Scale",
+            "value": "Mini to plant"
+          }
+        ]
+      },
+      "am": {
+        "name": "የወርቅ ማጠቢያ ማዋቀር እና የመልሶ ማግኛ ማሻሻል",
+        "description": "ለሞባይል እና ቋሚ የወርቅ ማጠቢያ ዑደቶች አቀማመጥ እና ማስተካከያ፣ ማት፣ ስሉይስ እና የውሃ አቅርቦትን ጨምሮ። ለአርቲሳናል እና ንግድ ቡድኖች ያነሰ የውሃ ብክነት ጋር ከፍ ያለ የኮንሰንትሬት መያዝ ላይ ያተኮረ።",
+        "specs": [
+          {
+            "label": "ስርዓቶች",
+            "value": "ማጠቢያ + ማት + ፓምፕ"
+          },
+          {
+            "label": "ግብ",
+            "value": "ከፍተኛ መልሶ ማግኛ"
+          },
+          {
+            "label": "ውሃ",
+            "value": "የአጠቃቀም ቅነሳ ምክሮች"
+          },
+          {
+            "label": "መጠን",
+            "value": "ሚኒ እስከ ፕላንት"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000007",
+      "sku": "SVC-FIELD-24",
+      "slug": "field-support-troubleshooting",
+      "category": "field_support",
+      "is_active": true,
+      "sort_order": 70,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/african-miner.jpg"
+      ],
+      "en": {
+        "name": "Field Support & Emergency Troubleshooting",
+        "description": "Rapid phone and on-call support for detectors, wash plants, pumps, and grinding gear when something fails in the field. Prioritize safe restart steps, spare-part identification, and when to pull equipment back to Addis.",
+        "specs": [
+          {
+            "label": "Channels",
+            "value": "Phone + WhatsApp"
+          },
+          {
+            "label": "Priority",
+            "value": "Safe restart"
+          },
+          {
+            "label": "Coverage",
+            "value": "Etiel-supplied gear"
+          },
+          {
+            "label": "Escalation",
+            "value": "Workshop return"
+          }
+        ]
+      },
+      "am": {
+        "name": "የመስክ ድጋፍ እና አስቸኳይ ችግር መፍታት",
+        "description": "በመስክ ላይ አንድ ነገር ሲበላሽ ለመለያዎች፣ ማጠቢያ ፕላንቶች፣ ፓምፖች እና የመፍጨት መሳሪያዎች ፈጣን የስልክ እና የጥሪ ድጋፍ። ደህንነቱ የተጠበቀ እንደገና ማስጀመር፣ የመለዋወጫ ክፍል መለየት እና መሳሪያውን ወደ አዲስ አበባ መመለስ መቼ እንደሚያስፈልግ እናስቀድማለን።",
+        "specs": [
+          {
+            "label": "ቻናሎች",
+            "value": "ስልክ + WhatsApp"
+          },
+          {
+            "label": "ቅድሚያ",
+            "value": "ደህንነቱ የተጠበቀ ማስጀመር"
+          },
+          {
+            "label": "ሽፋን",
+            "value": "በኢቲየል የተሰጠ መሳሪያ"
+          },
+          {
+            "label": "ማሳደግ",
+            "value": "ወደ ወርክሾፕ መመለስ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000008",
+      "sku": "SVC-MAINT-PLAN",
+      "slug": "preventive-maintenance-plans",
+      "category": "maintenance",
+      "is_active": true,
+      "sort_order": 80,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/maintenance.jpg"
+      ],
+      "en": {
+        "name": "Preventive Maintenance Plans",
+        "description": "Scheduled inspection and service plans for detectors, wash plants, crushers, mills, and pump sets. Reduce unplanned downtime with clear intervals, consumables lists, and workshop booking windows in Addis Ababa.",
+        "specs": [
+          {
+            "label": "Cadence",
+            "value": "Monthly / seasonal"
+          },
+          {
+            "label": "Assets",
+            "value": "Detector to mill"
+          },
+          {
+            "label": "Includes",
+            "value": "Parts checklist"
+          },
+          {
+            "label": "Base",
+            "value": "Addis workshop"
+          }
+        ]
+      },
+      "am": {
+        "name": "የመከላከያ ጥገና እቅዶች",
+        "description": "ለመለያዎች፣ ማጠቢያ ፕላንቶች፣ ክሬሸሮች፣ ሚሎች እና የፓምፕ ስብስቦች የታቀደ ፍተሻ እና አገልግሎት እቅዶች። በግልጽ ክፍተቶች፣ የፍጆታ ዝርዝሮች እና በአዲስ አበባ የወርክሾፕ ቀጠሮ መስኮቶች ያልታቀደ መቆምን ይቀንሱ።",
+        "specs": [
+          {
+            "label": "ድግግሞሽ",
+            "value": "ወርሃዊ / ወቅታዊ"
+          },
+          {
+            "label": "ንብረቶች",
+            "value": "ከመለያ እስከ ሚል"
+          },
+          {
+            "label": "ያካትታል",
+            "value": "የመለዋወጫ ዝርዝር"
+          },
+          {
+            "label": "መሰረት",
+            "value": "የአዲስ አበባ ወርክሾፕ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000009",
+      "sku": "SVC-TRAIN-OP",
+      "slug": "operator-certification-training",
+      "category": "training",
+      "is_active": true,
+      "sort_order": 90,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/training.jpg"
+      ],
+      "en": {
+        "name": "Operator Certification Training",
+        "description": "Classroom and field training for detector operators, wash-plant crews, and crusher/mill attendants. Emphasizes safe startup/shutdown, daily checks, and thinking through problems before changing multiple settings at once.",
+        "specs": [
+          {
+            "label": "Format",
+            "value": "Class + field"
+          },
+          {
+            "label": "Audience",
+            "value": "Operators & leads"
+          },
+          {
+            "label": "Language",
+            "value": "Amharic / English"
+          },
+          {
+            "label": "Certificate",
+            "value": "Attendance record"
+          }
+        ]
+      },
+      "am": {
+        "name": "የኦፕሬተር ማረጋገጫ ስልጠና",
+        "description": "ለመለያ ኦፕሬተሮች፣ የማጠቢያ ፕላንት ቡድኖች እና የክሬሸር/ሚል አስተናጋጆች የክፍል እና የመስክ ስልጠና። ደህንነቱ የተጠበቀ ማስጀመር/ማቆም፣ ዕለታዊ ፍተሻዎች እና በአንድ ጊዜ ብዙ ቅንብሮችን ከመቀየር በፊት ችግሮችን ማሰብ ላይ ያተኩራል።",
+        "specs": [
+          {
+            "label": "ቅርጸት",
+            "value": "ክፍል + መስክ"
+          },
+          {
+            "label": "ታዳሚ",
+            "value": "ኦፕሬተሮች እና መሪዎች"
+          },
+          {
+            "label": "ቋንቋ",
+            "value": "አማርኛ / እንግሊዝኛ"
+          },
+          {
+            "label": "ሰርተፊኬት",
+            "value": "የተሳትፎ መዝገብ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000010",
+      "sku": "SVC-OSH-TRAIN",
+      "slug": "occupational-health-safety-training",
+      "category": "training",
+      "is_active": true,
+      "sort_order": 100,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/counseling.jpg"
+      ],
+      "en": {
+        "name": "Occupational Health & Safety Training",
+        "description": "Practical OSH training for ASGM and small commercial crews: dust control, wet milling awareness, PPE use, chemical handling around leaching/melting, and safer dig-and-wash habits aligned with responsible small-scale mining practice.",
+        "specs": [
+          {
+            "label": "Topics",
+            "value": "Dust, PPE, chemicals"
+          },
+          {
+            "label": "Audience",
+            "value": "Miners & processors"
+          },
+          {
+            "label": "Style",
+            "value": "Hands-on briefings"
+          },
+          {
+            "label": "Goal",
+            "value": "Fewer injuries"
+          }
+        ]
+      },
+      "am": {
+        "name": "የሙያ ጤና እና ደህንነት ስልጠና",
+        "description": "ለASGM እና ትንንሽ ንግድ ቡድኖች ተግባራዊ የOSH ስልጠና፡ የአቧራ ቁጥጥር፣ የእርጥብ መፍጨት ግንዛቤ፣ የPPE አጠቃቀም፣ በሌቺንግ/ማቅለጥ ዙሪያ ኬሚካል አያያዝ፣ እና ከኃላፊነት ጋር የተጣጣመ ደህንነቱ የተጠበቀ የመቆፈር እና ማጠብ ልማዶች።",
+        "specs": [
+          {
+            "label": "ርዕሶች",
+            "value": "አቧራ፣ PPE፣ ኬሚካሎች"
+          },
+          {
+            "label": "ታዳሚ",
+            "value": "ማዕድን አውጪዎች እና ማቀነባበሪያዎች"
+          },
+          {
+            "label": "ቅጥ",
+            "value": "በተግባር አጫጭር ስልጠናዎች"
+          },
+          {
+            "label": "ግብ",
+            "value": "ያነሱ ጉዳቶች"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000011",
+      "sku": "SVC-HG-FREE",
+      "slug": "mercury-free-recovery-advisory",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 110,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/mercury-free.jpg"
+      ],
+      "en": {
+        "name": "Mercury-Free Recovery Advisory",
+        "description": "Counseling to replace mercury-based amalgamation with gravity, mats, wash plants, and cleaner finishing steps. Helps crews improve recovery while reducing health and environmental harm — aligned with mercury-free ASGM transition goals.",
+        "specs": [
+          {
+            "label": "Focus",
+            "value": "Mercury alternatives"
+          },
+          {
+            "label": "Tools",
+            "value": "Gravity + wash"
+          },
+          {
+            "label": "Benefit",
+            "value": "Health + recovery"
+          },
+          {
+            "label": "Support",
+            "value": "Equipment roadmap"
+          }
+        ]
+      },
+      "am": {
+        "name": "ከሜርኩሪ ነፃ የመልሶ ማግኛ ምክክር",
+        "description": "በሜርኩሪ ላይ የተመሰረተ አማልጋሜሽንን በስበት፣ ማቶች፣ ማጠቢያ ፕላንቶች እና ንጹህ የማጠናቀቂያ ደረጃዎች ለመተካት ምክክር። ቡድኖች የጤና እና የአካባቢ ጉዳትን በመቀነስ መልሶ ማግኛን እንዲያሻሽሉ ይረዳል — ከሜርኩሪ-ነፃ ASGM ሽግግር ግቦች ጋር የተጣጣመ።",
+        "specs": [
+          {
+            "label": "ትኩረት",
+            "value": "የሜርኩሪ አማራጮች"
+          },
+          {
+            "label": "መሳሪያዎች",
+            "value": "ስበት + ማጠቢያ"
+          },
+          {
+            "label": "ጥቅም",
+            "value": "ጤና + መልሶ ማግኛ"
+          },
+          {
+            "label": "ድጋፍ",
+            "value": "የመሳሪያ የመንገድ ካርታ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000012",
+      "sku": "SVC-LEASE-GUIDE",
+      "slug": "equipment-lease-to-purchase-guidance",
+      "category": "financing",
+      "is_active": true,
+      "sort_order": 120,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/counseling.jpg"
+      ],
+      "en": {
+        "name": "Equipment Lease-to-Purchase Guidance",
+        "description": "Transparent guidance on structuring equipment access with market-rate style lease-to-purchase thinking: grace periods, payment breaks, and ownership over time. Helps Ethiopian operators plan detector and plant upgrades without opaque terms.",
+        "specs": [
+          {
+            "label": "Model",
+            "value": "Lease-to-purchase"
+          },
+          {
+            "label": "Focus",
+            "value": "Clear terms"
+          },
+          {
+            "label": "Assets",
+            "value": "Detectors to plants"
+          },
+          {
+            "label": "Outcome",
+            "value": "Ownership path"
+          }
+        ]
+      },
+      "am": {
+        "name": "የመሳሪያ ኪራይ-ወደ-ግዢ መመሪያ",
+        "description": "በገበያ ተመን አይነት ኪራይ-ወደ-ግዢ አስተሳሰብ መሳሪያ ማግኘትን ስለመዋቀር ግልጽ መመሪያ፡ የጸጋ ጊዜያት፣ የክፍያ እረፍቶች እና በጊዜ ሂደት ባለቤትነት። የኢትዮጵያ ኦፕሬተሮች ያልተገለጹ ውሎች ሳይኖሩ የመለያ እና የፕላንት ማሻሻያዎችን እንዲያቅዱ ይረዳል።",
+        "specs": [
+          {
+            "label": "ሞዴል",
+            "value": "ኪራይ-ወደ-ግዢ"
+          },
+          {
+            "label": "ትኩረት",
+            "value": "ግልጽ ውሎች"
+          },
+          {
+            "label": "ንብረቶች",
+            "value": "ከመለያ እስከ ፕላንት"
+          },
+          {
+            "label": "ውጤት",
+            "value": "የባለቤትነት መንገድ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000013",
+      "sku": "SVC-ASSAY-SUP",
+      "slug": "assay-grade-analysis-support",
+      "category": "field_support",
+      "is_active": true,
+      "sort_order": 130,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/black-phone.jpg"
+      ],
+      "en": {
+        "name": "Assay & Grade Analysis Support",
+        "description": "Help interpreting sample results and planning what to crush, wash, or discard. Complements laboratory-grade analysis workflows so miners understand ore quality and optimize recovery decisions before large spend.",
+        "specs": [
+          {
+            "label": "Input",
+            "value": "Sample results"
+          },
+          {
+            "label": "Output",
+            "value": "Process decision"
+          },
+          {
+            "label": "Pairs with",
+            "value": "Lab / AAS reports"
+          },
+          {
+            "label": "Goal",
+            "value": "Smarter spend"
+          }
+        ]
+      },
+      "am": {
+        "name": "የአሳይ እና የደረጃ ትንተና ድጋፍ",
+        "description": "የናሙና ውጤቶችን በመተርጎም ምን መፍጨት፣ ማጠብ ወይም መጣል እንዳለበት በማቀድ እገዛ። ማዕድን አውጪዎች የኦር ጥራትን እንዲረዱ እና ከትልቅ ወጪ በፊት የመልሶ ማግኛ ውሳኔዎችን እንዲያሻሽሉ ከላብራቶሪ-ደረጃ ትንተና ስራዎች ጋር ይጣጣማል።",
+        "specs": [
+          {
+            "label": "ግብዓት",
+            "value": "የናሙና ውጤቶች"
+          },
+          {
+            "label": "ውጤት",
+            "value": "የሂደት ውሳኔ"
+          },
+          {
+            "label": "ከጋር",
+            "value": "ላብ / AAS ሪፖርቶች"
+          },
+          {
+            "label": "ግብ",
+            "value": "ብልህ ወጪ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000014",
+      "sku": "SVC-MELT-SETUP",
+      "slug": "melting-smelting-setup-support",
+      "category": "installation",
+      "is_active": true,
+      "sort_order": 140,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/industrial-pipes.jpg"
+      ],
+      "en": {
+        "name": "Melting & Smelting Setup Support",
+        "description": "Setup and safe-use coaching for crucibles, molds, and induction or furnace melting of recovered concentrates. Emphasizes purity, weight verification, and minimal metal loss for small refining and assay finishing.",
+        "specs": [
+          {
+            "label": "Gear",
+            "value": "Crucibles + molds"
+          },
+          {
+            "label": "Focus",
+            "value": "Purity + safety"
+          },
+          {
+            "label": "Scale",
+            "value": "Workshop / field"
+          },
+          {
+            "label": "Includes",
+            "value": "Pour practice"
+          }
+        ]
+      },
+      "am": {
+        "name": "የማቅለጥ እና ስሜልቲንግ ማዋቀር ድጋፍ",
+        "description": "ለክሩሲብሎች፣ ሻጋታዎች እና የተገኘ ኮንሰንትሬት ኢንዳክሽን ወይም ፈርናስ ማቅለጥ ማዋቀር እና ደህንነቱ የተጠበቀ አጠቃቀም አሰልጥኖ ማስተማር። ለትንሽ ማጣሪያ እና አሳይ ማጠናቀቂያ ንፅህና፣ የክብደት ማረጋገጫ እና ያነሰ የብረት ኪሳራ ላይ ያተኩራል።",
+        "specs": [
+          {
+            "label": "መሳሪያ",
+            "value": "ክሩሲብሎች + ሻጋታዎች"
+          },
+          {
+            "label": "ትኩረት",
+            "value": "ንፅህና + ደህንነት"
+          },
+          {
+            "label": "መጠን",
+            "value": "ወርክሾፕ / መስክ"
+          },
+          {
+            "label": "ያካትታል",
+            "value": "የማፍሰስ ልምምድ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000015",
+      "sku": "SVC-MARKET-ACCESS",
+      "slug": "responsible-market-access-advisory",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 150,
+      "is_advertisement": false,
+      "image_paths": [
+        "/images/service-stock/black-warehouse.jpg",
+        "/images/service-stock/market.jpg"
+      ],
+      "en": {
+        "name": "Responsible Market Access Advisory",
+        "description": "Counseling on documenting origin, improving buyer trust, and connecting responsible artisanal production to fairer offtake conversations. Helps crews understand what buyers and investors look for beyond raw ounces.",
+        "specs": [
+          {
+            "label": "Focus",
+            "value": "Traceability basics"
+          },
+          {
+            "label": "Audience",
+            "value": "ASM & traders"
+          },
+          {
+            "label": "Outcome",
+            "value": "Buyer-ready story"
+          },
+          {
+            "label": "Extras",
+            "value": "Doc checklist"
+          }
+        ]
+      },
+      "am": {
+        "name": "ኃላፊነት ያለው የገበያ መዳረሻ ምክክር",
+        "description": "ምንጭን ስለመመዝገብ፣ የገዢ እምነትን ስለማሻሻል እና ኃላፊነት ያለው አርቲሳናል ምርትን ከፍትሐዊ የመሸጥ ውይይቶች ጋር ስለማገናኘት ምክክር። ቡድኖች ገዢዎች እና ባለሀብቶች ከጥሬ ኦውንስ በላይ ምን እንደሚፈልጉ እንዲረዱ ይረዳል።",
+        "specs": [
+          {
+            "label": "ትኩረት",
+            "value": "የመከታተያ መሰረታዊ ነገሮች"
+          },
+          {
+            "label": "ታዳሚ",
+            "value": "ASM እና ነጋዴዎች"
+          },
+          {
+            "label": "ውጤት",
+            "value": "ለገዢ ዝግጁ ታሪክ"
+          },
+          {
+            "label": "ተጨማሪ",
+            "value": "የሰነድ ዝርዝር"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1000001-0001-4000-8000-000000000016",
+      "sku": "SVC-FORMALIZE",
+      "slug": "formalization-compliance-counseling",
+      "category": "consulting",
+      "is_active": true,
+      "sort_order": 160,
+      "is_advertisement": false,
+      "image_paths": ["/images/service-stock/black-meeting.jpg"],
+      "en": {
+        "name": "Formalization & Compliance Counseling",
+        "description": "Practical orientation for operators moving toward clearer licensing, safer practices, and documentation habits. Complements national formalization and responsible-mining agendas with field-level checklists — not legal representation.",
+        "specs": [
+          {
+            "label": "Focus",
+            "value": "Docs + safer ops"
+          },
+          {
+            "label": "Audience",
+            "value": "Site leads"
+          },
+          {
+            "label": "Note",
+            "value": "Not legal counsel"
+          },
+          {
+            "label": "Deliverable",
+            "value": "Compliance checklist"
+          }
+        ]
+      },
+      "am": {
+        "name": "መደበኛ ማድረግ እና ተገዢነት ምክክር",
+        "description": "ወደ ግልጽ ፈቃድ፣ ደህንነቱ የተጠበቀ ልምዶች እና የሰነድ ልማዶች ለሚሄዱ ኦፕሬተሮች ተግባራዊ አቀራረብ። የብሔራዊ መደበኛ ማድረግ እና ኃላፊነት ያለው ማዕድን አጀንዳዎችን በመስክ-ደረጃ ዝርዝሮች ያሟላል — የህግ ውክልና አይደለም።",
+        "specs": [
+          {
+            "label": "ትኩረት",
+            "value": "ሰነዶች + ደህንነቱ የተጠበቀ ስራ"
+          },
+          {
+            "label": "ታዳሚ",
+            "value": "የቦታ መሪዎች"
+          },
+          {
+            "label": "ማስታወሻ",
+            "value": "የህግ አማካሪ አይደለም"
+          },
+          {
+            "label": "ውጤት",
+            "value": "የተገዢነት ዝርዝር"
+          }
+        ]
+      }
+    }
+  ]
+}

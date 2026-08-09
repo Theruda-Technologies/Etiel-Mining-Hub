@@ -347,31 +347,35 @@
     }
   },
   "services": {
-    "title": "ኢንዱስትሪያል አገልግሎቶች",
-    "subtitle": "ለከባድ ማሽን ስራዎች ሁለገብ የመስክ ድጋፍ፣ ጥገና እና ስልጠና። በዓለም አቀፍ ጣቢያዎች ላይ ከፍተኛ አፈጻጸም እና አነስተኛ የመቆሚያ ጊዜ ማረጋገጥ።",
+    "title": "አገልግሎቶች",
+    "subtitle": "ለመለያዎች፣ ማጠቢያ ፕላንቶች፣ ክሬሸሮች እና ሚሎች የማዕድን ምክክር፣ የመስክ ድጋፍ፣ ስልጠና እና የፋይናንስ መመሪያ — ከአዲስ አበባ ኢቲየል ማይኒንግ ሃብ።",
     "addToCart": "ወደ ጋሪ ጨምር",
     "viewDetails": "ዝርዝር ይመልከቱ",
     "backToServices": "ወደ አገልግሎቶች ተመለስ",
+    "skuLabel": "SKU: {sku}",
     "empty": "በዚህ ምድብ እስካሁን አገልግሎት የለም።",
     "detail": {
       "breadcrumbHome": "መነሻ",
       "breadcrumbServices": "አገልግሎቶች",
-      "overviewTitle": "የአገልግሎት አጠቃላይ እይታ",
-      "deployTitle": "የድጋፍ እቅድ ማሰማራት",
-      "deployBody": "በተረጋገጠ የምላሽ ጊዜ እና ቅድሚያ ሎጂስቲክስ ስራዎችዎን ያስጠብቁ።",
+      "overviewTitle": "የአገልግሎት ዝርዝሮች",
+      "deployTitle": "ይህን አገልግሎት ይጠይቁ",
+      "deployBody": "ወደ ጋሪ ጨምረው ይውጡ — ኢቲየል ከአዲስ አበባ የቀጠሮ እና ቀጣይ እርምጃዎችን ይከታተላል።",
       "capabilitiesTitle": "ዋና ችሎታዎች",
       "tiersTitle": "የአገልግሎት ደረጃዎች",
       "feature": "ባህሪ",
       "standard": "መደበኛ",
       "premium": "ፕሪሚየም",
       "badges": {
-        "certified": "የተረጋገጡ ቴክኒሻኖች",
-        "logistics": "ዓለም አቀፍ ሎጂስቲክስ ኔትወርክ"
+        "certified": "አካባቢያዊ የቴክኒክ ምክክር",
+        "logistics": "የአዲስ አበባ ድጋፍ መሰረት"
       }
     },
     "categories": {
       "all": "ሁሉም",
+      "consulting": "ምክክር",
+      "on_site_assembly": "በቦታ ላይ መሰብሰብ",
       "installation": "ጭነት",
+      "field_support": "የመስክ ድጋፍ",
       "maintenance": "ጥገና",
       "training": "ስልጠና",
       "financing": "ፋይናንስ"

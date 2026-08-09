@@ -3,21 +3,16 @@
 import { useTranslations } from "next-intl";
 import { useCart } from "@/lib/cart/store";
 import { useAuthGate } from "@/lib/auth/useAuthGate";
-import type { CatalogService } from "@/lib/catalog/services";
+import { primaryImage, type StoreService } from "@/lib/catalog/types";
 
-export function ServiceDeployCard({
-  service,
-  name,
-}: {
-  service: CatalogService;
-  name: string;
-}) {
+export function ServiceDeployCard({ service }: { service: StoreService }) {
   const t = useTranslations("services");
   const { addItem } = useCart();
   const { requireAuth } = useAuthGate();
+  const image = primaryImage(service);
 
   return (
-    <aside className="rounded-sm border border-white/15 bg-basalt-elevated p-6 md:p-7">
+    <aside className="h-fit rounded-sm border border-white/15 bg-basalt-elevated p-6 md:p-7 lg:sticky lg:top-28">
       <h2 className="font-display text-xl font-bold text-white">
         {t("detail.deployTitle")}
       </h2>
@@ -32,10 +27,10 @@ export function ServiceDeployCard({
           addItem({
             id: service.id,
             slug: service.slug,
-            name,
+            name: service.name,
             sku: service.sku,
-            price: service.price,
-            image: "/images/field-tunnel.jpg",
+            price: 0,
+            image,
             itemType: "service",
           });
         }}
@@ -46,7 +41,7 @@ export function ServiceDeployCard({
       </button>
 
       <ul className="mt-6 space-y-3 border-t border-white/10 pt-5">
-        {service.sidebarBadges.map((badge) => (
+        {(["certified", "logistics"] as const).map((badge) => (
           <li
             key={badge}
             className="flex items-center gap-3 font-mono-tech text-[11px] uppercase tracking-[0.12em] text-white/80"

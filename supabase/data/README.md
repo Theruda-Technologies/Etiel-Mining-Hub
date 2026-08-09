@@ -46,4 +46,15 @@ The homepage ad section loads the first active product or service with `is_adver
 
 ## Services
 
-Use the same pattern with bucket `service-images` when seeding services (`scripts/seed-catalog.mjs` uploads local files the same way when present).
+Source file: [`services.bilingual.json`](./services.bilingual.json)
+
+Sixteen Etiel-adapted services synthesized from:
+
+- [911Metallurgist](https://www.911metallurgist.com/) — plant audit, flowsheet/equipment selection, operator training, field troubleshooting
+- [Impact Facility LV2030](https://www.theimpactfacility.com/commodities/gold/the-lake-victoria-gold-programme/) — lease-to-purchase equipment guidance
+- [Orion Gold](https://orioncil.gold/) — assay support, melting/smelting setup
+- [planetGOLD](https://www.planetgold.org/) — mercury-free advisory, OSH, market access, formalization
+- [Artisanal Gold Council](https://www.artisanalgold.org/our-work) — OSH, environment/mercury, markets, formalization
+- Etiel own — **Mining Counseling**, device selection, assembly, wash-plant setup, maintenance plans
+
+Seed with the same Storage pattern (`service-images` bucket). Category `consulting` must be allowed on `public.services` before upsert (see JSON `_meta.notes`).
