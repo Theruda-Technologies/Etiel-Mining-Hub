@@ -170,10 +170,10 @@ export function SignupPageClient() {
           </div>
           <nav className="flex flex-col gap-2 font-mono-tech text-[11px] text-text-secondary md:items-end">
             <div className="flex flex-wrap gap-x-5 gap-y-1">
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/terms" className="hover:text-white">
                 {tFooter("terms")}
               </Link>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/privacy" className="hover:text-white">
                 {tFooter("privacy")}
               </Link>
             </div>

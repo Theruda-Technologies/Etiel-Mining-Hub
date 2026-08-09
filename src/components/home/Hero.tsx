@@ -50,7 +50,7 @@ export function Hero() {
           alt={slide.alt}
           fill
           priority={index === 0}
-          className={`object-cover object-center transition-opacity duration-700 ease-in-out ${
+          className={`object-cover object-center transition-opacity duration-[1600ms] ease-in ${
             index === active ? "opacity-100" : "opacity-0"
           }`}
           sizes="100vw"

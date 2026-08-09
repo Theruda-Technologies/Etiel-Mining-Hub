@@ -718,7 +718,7 @@
     "sendAnother": "Send another inquiry",
     "hqTitle": "Our Offices",
     "hqLabel": "Addis Ababa",
-    "hqAddress": "2PJW+895, Gobena Aba Tigu St, Addis Ababa\nNudo Market Center, 3rd floor",
+    "hqAddress": "2PJW+895, Gobena Aba Tigu St, Addis Ababa\nNudo Market Center, 6th floor, Office No. 106",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "emailValue": "etielmining@gmail.com",
@@ -727,8 +727,142 @@
   "footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "status": "Service Status",
-    "locations": "Global Locations",
     "copyright": "© {year} Etiel Mining Hub. Industrial Precision."
+  },
+  "legal": {
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "updated": "Last updated: August 9, 2026",
+      "intro": "Etiel Mining Hub (“Etiel,” “we,” “us”) respects your privacy. This policy explains what information we collect when you use our Addis Ababa storefront, website, and related services, how we use it, and the choices available to you.",
+      "contactNote": "Questions about privacy: etielmining@gmail.com · Nudo Market Center, 6th floor, Office No. 106, Gobena Aba Tigu St, Addis Ababa.",
+      "sections": [
+        {
+          "heading": "1. Who we are",
+          "body": [
+            "Etiel Mining Hub supplies metal detectors, gold wash plants, crushers, mills, and related equipment, plus technical counseling and field support from Addis Ababa, Ethiopia.",
+            "This policy applies to etielmininghub.com (or any successor domain), our order and account flows, and inquiries submitted through contact forms or phone."
+          ]
+        },
+        {
+          "heading": "2. Information we collect",
+          "body": [
+            "Account and order data: name, phone, email, shipping or site address, order contents, and payment-related status we receive from our processors (we do not store full card numbers on our servers).",
+            "Communications: messages you send via contact forms, WhatsApp, email, or in-person counseling notes needed to respond to your request.",
+            "Technical data: basic device, browser, and log information needed to operate and secure the site (for example IP address, timestamps, and error logs).",
+            "We do not knowingly collect personal data from children under 13. If you believe a child has provided data, contact us and we will delete it."
+          ]
+        },
+        {
+          "heading": "3. How we use information",
+          "body": [
+            "To create and manage accounts, fulfill orders, schedule services, and provide device or process counseling.",
+            "To respond to support requests, send order updates, and improve our catalog and local support experience.",
+            "To protect against fraud, abuse, and security incidents, and to meet Ethiopian legal or regulatory obligations when required."
+          ]
+        },
+        {
+          "heading": "4. Sharing",
+          "body": [
+            "We share data only as needed with trusted providers who help us run the storefront (hosting, authentication, database, email/SMS delivery) under confidentiality obligations.",
+            "We may share information with logistics partners to deliver equipment, or with authorities when required by law.",
+            "We do not sell your personal information."
+          ]
+        },
+        {
+          "heading": "5. Retention and security",
+          "body": [
+            "We keep account and order records for as long as needed to fulfill contracts, provide warranty or service history, and meet legal retention needs, then delete or anonymize when no longer required.",
+            "We use industry-standard safeguards appropriate to a small commercial site. No method of transmission or storage is completely secure; please use strong passwords and protect your login."
+          ]
+        },
+        {
+          "heading": "6. Your choices",
+          "body": [
+            "You may request access, correction, or deletion of personal data we hold about you, subject to legal exceptions (for example completed order records we must retain).",
+            "You may opt out of non-essential marketing messages. Transactional messages about orders or safety recalls may still be sent.",
+            "Contact etielmining@gmail.com or visit our Addis Ababa office to make a privacy request."
+          ]
+        },
+        {
+          "heading": "7. Changes",
+          "body": [
+            "We may update this policy from time to time. The “Last updated” date above will change when we do. Continued use of the site after an update means you accept the revised policy."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "title": "Terms of Service",
+      "updated": "Last updated: August 9, 2026",
+      "intro": "These Terms of Service (“Terms”) govern your use of the Etiel Mining Hub website and purchases of products or services from Etiel Mining Hub in Addis Ababa, Ethiopia. By creating an account, placing an order, or using our site, you agree to these Terms.",
+      "contactNote": "Questions about these Terms: etielmining@gmail.com · Nudo Market Center, 6th floor, Office No. 106, Gobena Aba Tigu St, Addis Ababa.",
+      "sections": [
+        {
+          "heading": "1. About Etiel",
+          "body": [
+            "Etiel Mining Hub sells mining and prospecting equipment (including detectors, wash plants, crushers, and mills) and offers related services such as counseling, assembly, training, and field support.",
+            "Prices, availability, and lead times may change. Quotes and catalog pages are invitations to order, not binding offers until we confirm your order."
+          ]
+        },
+        {
+          "heading": "2. Accounts",
+          "body": [
+            "You must provide accurate registration details and keep your password confidential. You are responsible for activity under your account.",
+            "We may suspend or close accounts that appear fraudulent, abusive, or in breach of these Terms."
+          ]
+        },
+        {
+          "heading": "3. Orders and payment",
+          "body": [
+            "Orders are accepted when we confirm them. We may refuse or cancel an order for stock, pricing error, compliance, or delivery constraints.",
+            "Payment terms shown at checkout or on an invoice apply. Title to goods transfers according to the delivery method agreed; risk of loss passes on delivery to you or your carrier unless otherwise stated.",
+            "Import duties, local taxes, and site-access costs outside our quoted scope are your responsibility unless we agree otherwise in writing."
+          ]
+        },
+        {
+          "heading": "4. Products and services",
+          "body": [
+            "Product descriptions and images are for guidance. Specifications may vary by manufacturer revision; we will note material changes when we know them.",
+            "Services (counseling, installation, training, maintenance, and similar) are performed with reasonable professional care. Outcomes such as recovery rates depend on ore, ground, crew practice, and conditions outside our control.",
+            "Counseling and compliance guidance are informational and not legal advice or a guarantee of permits or regulatory approval."
+          ]
+        },
+        {
+          "heading": "5. Returns and warranties",
+          "body": [
+            "Manufacturer warranties apply where provided. Contact us promptly with serial numbers and photos for warranty claims.",
+            "Returns of unused, resalable stock may be accepted at our discretion within a window we communicate at purchase, subject to restocking fees and shipping costs. Custom or special-order items are generally non-returnable.",
+            "To the fullest extent permitted by Ethiopian law, Etiel’s liability for any claim related to a product or service is limited to the amount you paid for that item."
+          ]
+        },
+        {
+          "heading": "6. Acceptable use",
+          "body": [
+            "You may not misuse the site (scraping at abusive rates, attempting unauthorized access, distributing malware, or posting unlawful content).",
+            "You are responsible for lawful use of equipment we supply, including local mining, environmental, and safety rules."
+          ]
+        },
+        {
+          "heading": "7. Intellectual property",
+          "body": [
+            "Site content, branding, and materials are owned by Etiel or our licensors. You may not copy or reuse them commercially without permission."
+          ]
+        },
+        {
+          "heading": "8. Governing law",
+          "body": [
+            "These Terms are governed by the laws of Ethiopia. Disputes will first be addressed in good faith; if unresolved, courts in Addis Ababa have jurisdiction, unless mandatory consumer protections say otherwise."
+          ]
+        },
+        {
+          "heading": "9. Changes",
+          "body": [
+            "We may update these Terms by posting a new version on this page. Material changes apply to new orders after the update date. Continued use of the site after changes constitutes acceptance."
+          ]
+        }
+      ]
+    }
   }
 }

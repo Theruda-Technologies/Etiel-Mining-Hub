@@ -7,10 +7,8 @@ export async function SiteFooter() {
   const year = new Date().getFullYear();
 
   const links = [
-    { href: "/contact", label: t("privacy") },
-    { href: "/contact", label: t("terms") },
-    { href: "/contact", label: t("status") },
-    { href: "/contact", label: t("locations") },
+    { href: "/privacy", label: t("privacy") },
+    { href: "/terms", label: t("terms") },
   ];
 
   return (
