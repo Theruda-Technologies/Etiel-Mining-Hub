@@ -17,6 +17,8 @@
     "email": "ኢሜይል አድራሻ",
     "emailPlaceholder": "user@domain.com",
     "password": "የይለፍ ቃል",
+    "showPassword": "የይለፍ ቃል አሳይ",
+    "hidePassword": "የይለፍ ቃል ደብቅ",
     "forgot": "ረሳኽ?",
     "fullName": "ሙሉ ስም",
     "fullNamePlaceholder": "ለምሳሌ፡ አበበ ከበደ",

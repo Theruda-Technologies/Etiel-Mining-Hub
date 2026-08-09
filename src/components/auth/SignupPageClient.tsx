@@ -6,6 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { SiteLogo } from "@/components/layout/SiteLogo";
+import { PasswordInput } from "@/components/auth/PasswordInput";
 
 export function SignupPageClient() {
   const t = useTranslations("auth");
@@ -104,17 +105,20 @@ export function SignupPageClient() {
                   required
                   icon={<MailIcon />}
                 />
-                <IconField
-                  label={t("password")}
-                  type="password"
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={setPassword}
-                  autoComplete="new-password"
-                  required
-                  minLength={6}
-                  icon={<LockIcon />}
-                />
+                <label className="block">
+                  <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-text-secondary">
+                    {t("password")}
+                  </span>
+                  <PasswordInput
+                    required
+                    minLength={6}
+                    autoComplete="new-password"
+                    value={password}
+                    onChange={setPassword}
+                    placeholder="••••••••"
+                    trailingSlot={<LockIcon />}
+                  />
+                </label>
                 <IconField
                   label={t("phoneOptional")}
                   type="tel"

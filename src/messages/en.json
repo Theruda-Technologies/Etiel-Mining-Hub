@@ -17,6 +17,8 @@
     "email": "Email Address",
     "emailPlaceholder": "user@domain.com",
     "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "forgot": "Forgot?",
     "fullName": "Full Name",
     "fullNamePlaceholder": "e.g. John Doe",

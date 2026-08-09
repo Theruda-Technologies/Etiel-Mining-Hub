@@ -6,6 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { SiteLogo } from "@/components/layout/SiteLogo";
+import { PasswordInput } from "@/components/auth/PasswordInput";
 
 export function LoginPageClient() {
   const t = useTranslations("auth");
@@ -101,14 +102,12 @@ export function LoginPageClient() {
                   {t("forgot")}
                 </button>
               </span>
-              <input
-                type="password"
+              <PasswordInput
                 required
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={setPassword}
                 placeholder="••••••••"
-                className="mt-2 w-full rounded-sm border border-white/20 bg-basalt-deep px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-amber"
               />
             </label>
 
