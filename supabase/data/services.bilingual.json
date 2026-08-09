@@ -104,7 +104,7 @@
       "sort_order": 10,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/black-meeting.jpg"
+        "/images/service-stock/counselling.jpg"
       ],
       "en": {
         "name": "Mining Counseling",
@@ -160,7 +160,7 @@
       "sort_order": 20,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/black-woman-biz.jpg"
+        "/images/etiel-site-images/Nokta-9000.png"
       ],
       "en": {
         "name": "Detector & Device Selection Counseling",
@@ -329,7 +329,7 @@
       "sort_order": 50,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/african-miner.jpg"
+        "/images/service-stock/onsite-assembly.jpg"
       ],
       "en": {
         "name": "On-Site Assembly & Commissioning",
@@ -385,7 +385,7 @@
       "sort_order": 60,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/wash-setup.jpg"
+        "/images/service-stock/mining-plant.jpg"
       ],
       "en": {
         "name": "Wash Plant Setup & Recovery Optimization",
@@ -441,7 +441,7 @@
       "sort_order": 70,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/african-miner.jpg"
+        "/images/service-stock/field-support.jpg"
       ],
       "en": {
         "name": "Field Support & Emergency Troubleshooting",
@@ -721,7 +721,7 @@
       "sort_order": 120,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/counseling.jpg"
+        "/images/service-stock/lease-to-purchase-guidance.jpg"
       ],
       "en": {
         "name": "Equipment Lease-to-Purchase Guidance",
@@ -777,7 +777,7 @@
       "sort_order": 130,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/black-phone.jpg"
+        "/images/service-stock/assay-and-grade-analysis-support.jpg"
       ],
       "en": {
         "name": "Assay & Grade Analysis Support",
@@ -833,7 +833,7 @@
       "sort_order": 140,
       "is_advertisement": false,
       "image_paths": [
-        "/images/service-stock/industrial-pipes.jpg"
+        "/images/service-stock/gold-melting-setup.jpg"
       ],
       "en": {
         "name": "Melting & Smelting Setup Support",
@@ -945,7 +945,9 @@
       "is_active": true,
       "sort_order": 160,
       "is_advertisement": false,
-      "image_paths": ["/images/service-stock/black-meeting.jpg"],
+      "image_paths": [
+        "/images/service-stock/black-meeting.jpg"
+      ],
       "en": {
         "name": "Formalization & Compliance Counseling",
         "description": "Practical orientation for operators moving toward clearer licensing, safer practices, and documentation habits. Complements national formalization and responsible-mining agendas with field-level checklists — not legal representation.",
