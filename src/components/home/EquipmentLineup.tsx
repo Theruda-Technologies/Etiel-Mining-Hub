@@ -4,54 +4,53 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import type { LineupItem } from "@/lib/catalog/types";
 
-const ITEMS = [
-  {
-    key: "magnetar9000" as const,
-    image: "/images/etiel-site-images/Nokta-9000.png",
-    href: "/products",
-    featured: true,
-    fit: "contain" as const,
-  },
-  {
-    key: "goldWasher" as const,
-    image: "/images/etiel-site-images/Gold-washer-green.jpeg",
-    href: "/products",
-    featured: false,
-    fit: "cover" as const,
-  },
-  {
-    key: "goldWasherMobile" as const,
-    image: "/images/etiel-site-images/Gold-washer-yellow.jpeg",
-    href: "/products",
-    featured: false,
-    fit: "cover" as const,
-  },
-  {
-    key: "goldWasherMini" as const,
-    image: "/images/etiel-site-images/Gold-Washer-mini-cyan.jpeg",
-    href: "/products",
-    featured: false,
-    fit: "cover" as const,
-  },
-  {
-    key: "jawCrusher" as const,
-    image: "/images/etiel-site-images/Jaw-crusher.jpeg",
-    href: "/products",
-    featured: false,
-    fit: "contain" as const,
-  },
-  {
-    key: "ballMill" as const,
-    image: "/images/etiel-site-images/Ball-mill.jpeg",
-    href: "/products",
-    featured: false,
-    fit: "contain" as const,
-  },
-];
+type EquipmentLineupProps = {
+  items: LineupItem[];
+};
 
-export function EquipmentLineup() {
+function categoryLabel(
+  tCatalog: ReturnType<typeof useTranslations<"catalog">>,
+  tServices: ReturnType<typeof useTranslations<"services">>,
+  kind: LineupItem["kind"],
+  category: string,
+): string {
+  if (kind === "product") {
+    const known = [
+      "metal_detectors",
+      "mining_supplies",
+      "ground_scanners",
+      "excavators",
+      "drilling",
+      "material_handling",
+      "drones",
+      "safety_gear",
+    ];
+    if (known.includes(category)) {
+      return tCatalog(`categories.${category}` as "categories.metal_detectors");
+    }
+  } else {
+    const known = [
+      "consulting",
+      "on_site_assembly",
+      "installation",
+      "field_support",
+      "maintenance",
+      "training",
+      "financing",
+    ];
+    if (known.includes(category)) {
+      return tServices(`categories.${category}` as "categories.consulting");
+    }
+  }
+  return category.replace(/_/g, " ");
+}
+
+export function EquipmentLineup({ items }: EquipmentLineupProps) {
   const t = useTranslations("home.equipment");
+  const tCatalog = useTranslations("catalog");
+  const tServices = useTranslations("services");
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   function scrollBy(dir: -1 | 1) {
@@ -59,6 +58,8 @@ export function EquipmentLineup() {
     if (!el) return;
     el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.8, 360), behavior: "smooth" });
   }
+
+  if (items.length === 0) return null;
 
   return (
     <section className="bg-basalt-deep py-16 md:py-24">
@@ -96,39 +97,33 @@ export function EquipmentLineup() {
           ref={scrollerRef}
           className="equipment-scroll flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
         >
-          {ITEMS.map((item) => (
+          {items.map((item) => (
             <article
-              key={item.key}
+              key={`${item.kind}-${item.id}`}
               className="relative w-[min(85vw,300px)] shrink-0 snap-start overflow-hidden rounded-sm border border-white/8 bg-basalt-elevated"
             >
               <div className="relative aspect-[4/3] bg-basalt-muted">
                 <Image
                   src={item.image}
-                  alt={t(`items.${item.key}.name`)}
+                  alt={item.name}
                   fill
-                  className={
-                    item.fit === "contain"
-                      ? "object-contain object-center p-3"
-                      : "object-cover object-center"
-                  }
+                  className="object-contain object-center p-3"
                   sizes="300px"
                 />
-                {item.featured ? (
-                  <span className="absolute left-3 top-3 rounded-sm bg-amber px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-basalt-deep">
-                    {t("featured")}
-                  </span>
-                ) : null}
+                <span className="absolute left-3 top-3 rounded-sm bg-amber px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-basalt-deep">
+                  {item.kind === "product" ? t("badgeProduct") : t("badgeService")}
+                </span>
               </div>
               <div className="p-5">
-                <h3 className="font-display text-lg font-bold text-white">
-                  {t(`items.${item.key}.name`)}
-                </h3>
+                <h3 className="font-display text-lg font-bold text-white">{item.name}</h3>
                 <p className="mt-1 text-sm font-medium text-amber">
-                  {t(`items.${item.key}.series`)}
+                  {categoryLabel(tCatalog, tServices, item.kind, item.category)}
                 </p>
-                <p className="mt-3 font-mono-tech text-xs leading-relaxed text-text-secondary">
-                  {t(`items.${item.key}.specs`)}
-                </p>
+                {item.summary ? (
+                  <p className="mt-3 font-mono-tech text-xs leading-relaxed text-text-secondary">
+                    {item.summary}
+                  </p>
+                ) : null}
                 <Link
                   href={item.href}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-amber"

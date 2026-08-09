@@ -27,6 +27,16 @@ export type StoreService = {
   sort_order: number;
 };
 
+export type LineupItem = {
+  id: string;
+  kind: "product" | "service";
+  name: string;
+  category: string;
+  summary: string;
+  image: string;
+  href: string;
+};
+
 const PRODUCT_CATEGORY_ORDER = [
   "all",
   "metal_detectors",

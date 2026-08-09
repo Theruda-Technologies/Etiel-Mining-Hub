@@ -78,41 +78,10 @@
     },
     "equipment": {
       "title": "Products and Services",
-      "subtitle": "Metal detectors, gold wash plants, and processing equipment for Ethiopian prospectors and commercial operators.",
+      "subtitle": "Metal detectors, gold wash plants, processing gear, and field services for Ethiopian prospectors and commercial operators.",
       "viewDetails": "View Details",
-      "featured": "Featured",
-      "items": {
-        "magnetar9000": {
-          "name": "Nokta Magnetar 9000",
-          "series": "Pulse Induction Detector",
-          "specs": "DRC dual-receiver coil · Deep gold and micro nuggets · IP68 to 3 m"
-        },
-        "goldWasher": {
-          "name": "Gold Wash Plant",
-          "series": "Alluvial Processing",
-          "specs": "Trommel scrub and screen · Clay breakup · Placer gold recovery"
-        },
-        "goldWasherMobile": {
-          "name": "Mobile Gold Washer",
-          "series": "Field Portable",
-          "specs": "Trailer-ready wash plant · Hopper to sluice flow · Artisanal sites"
-        },
-        "goldWasherMini": {
-          "name": "Mini Gold Washer",
-          "series": "Compact Recovery",
-          "specs": "Small-crew wash unit · Low water demand · Rapid setup"
-        },
-        "jawCrusher": {
-          "name": "Jaw Crusher",
-          "series": "Primary Crushing",
-          "specs": "Hard rock feed reduction · High-force jaws · Rock gold prep"
-        },
-        "ballMill": {
-          "name": "Ball Mill",
-          "series": "Fine Grinding",
-          "specs": "Ore to powder liberate gold · Closed-circuit grind · Mid-tier plants"
-        }
-      }
+      "badgeProduct": "Product",
+      "badgeService": "Service"
     },
     "support": {
       "title": "Support Built for Ethiopian Operations",
