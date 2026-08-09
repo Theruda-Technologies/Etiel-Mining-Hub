@@ -71,14 +71,10 @@
       "failuresLabel": "Device Counseling"
     },
     "fieldTested": {
-      "eyebrow": "Featured Detector",
-      "title": "Nokta Magnetar 9000",
-      "body": "A professional pulse induction gold detector built for deep gold and micro nuggets in mineralized ground. Dual Receiver Coil (DRC) technology with the MG37 search coil balances extreme depth and fine sensitivity in one platform. Fully waterproof to 3 meters, with Easy and Expert menus for both first-time and advanced prospectors. Available through Etiel Mining Hub in Addis Ababa with local device selection and field guidance.",
-      "point1": "Advanced pulse induction for mineralized soil",
-      "point2": "MG37 DRC coil for depth and small gold",
-      "point3": "IP68 waterproof, up to 3 m submersion",
+      "eyebrowProduct": "Featured Product",
+      "eyebrowService": "Featured Service",
       "cta": "Order Now",
-      "imageAlt": "Nokta Magnetar 9000 with MG37 DRC search coil"
+      "viewDetails": "View Details"
     },
     "equipment": {
       "title": "Products and Services",
@@ -163,6 +159,9 @@
     },
     "categories": {
       "all": "All",
+      "metal_detectors": "Metal Detectors",
+      "mining_supplies": "Mining Supplies",
+      "ground_scanners": "Ground Scanners",
       "excavators": "Excavators",
       "drilling": "Drilling",
       "material_handling": "Material Handling",

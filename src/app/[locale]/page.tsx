@@ -6,6 +6,8 @@ import { Partners } from "@/components/home/Partners";
 import { StatsBar } from "@/components/home/StatsBar";
 import { SupportGrid } from "@/components/home/SupportGrid";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage({
   params,
 }: {
@@ -18,7 +20,7 @@ export default async function HomePage({
     <>
       <Hero />
       <StatsBar />
-      <FieldTested />
+      <FieldTested locale={locale} />
       <EquipmentLineup />
       <SupportGrid />
       <Partners />

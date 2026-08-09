@@ -1,20 +1,30 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
+import { fetchFeaturedAdItem } from "@/lib/catalog/fetch-featured";
 
-const AD_IMAGE =
-  "/images/etiel-site-images/Nokta-9000-Magnetar%20MG37-DRC%201.png";
+type FieldTestedProps = {
+  locale: string;
+};
 
-export async function FieldTested() {
+export async function FieldTested({ locale }: FieldTestedProps) {
   const t = await getTranslations("home.fieldTested");
+  const featured = await fetchFeaturedAdItem(locale);
+
+  if (!featured) return null;
+
+  const image =
+    featured.image_paths[0] ||
+    "/images/etiel-site-images/Nokta-9000.png";
+  const points = featured.specs.slice(0, 3);
 
   return (
     <section className="bg-basalt-deep">
       <div className="mx-auto grid max-w-7xl md:grid-cols-2">
         <div className="relative min-h-[320px] bg-basalt-muted md:min-h-[520px]">
           <Image
-            src={AD_IMAGE}
-            alt={t("imageAlt")}
+            src={image}
+            alt={featured.name}
             fill
             className="object-contain object-center p-6 md:p-10"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -23,37 +33,38 @@ export async function FieldTested() {
         </div>
         <div className="flex flex-col justify-center bg-basalt-elevated px-6 py-14 md:px-12 lg:px-16">
           <p className="font-mono-tech text-[11px] uppercase tracking-[0.18em] text-amber">
-            {t("eyebrow")}
+            {featured.kind === "product" ? t("eyebrowProduct") : t("eyebrowService")}
           </p>
           <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            {t("title")}
+            {featured.name}
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-text-secondary">
-            {t("body")}
+            {featured.description}
           </p>
-          <ul className="mt-6 space-y-2.5 font-mono-tech text-[11px] uppercase tracking-[0.12em] text-white/80">
-            <li className="flex gap-2">
-              <span className="text-amber" aria-hidden>
-                ▸
-              </span>
-              {t("point1")}
-            </li>
-            <li className="flex gap-2">
-              <span className="text-amber" aria-hidden>
-                ▸
-              </span>
-              {t("point2")}
-            </li>
-            <li className="flex gap-2">
-              <span className="text-amber" aria-hidden>
-                ▸
-              </span>
-              {t("point3")}
-            </li>
-          </ul>
-          <div className="mt-8">
+          {points.length > 0 ? (
+            <ul className="mt-6 space-y-2.5 font-mono-tech text-[11px] uppercase tracking-[0.12em] text-white/80">
+              {points.map((point) => (
+                <li key={`${point.label}-${point.value}`} className="flex gap-2">
+                  <span className="text-amber" aria-hidden>
+                    ▸
+                  </span>
+                  <span>
+                    {point.label}: {point.value}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/cart" className="uppercase tracking-[0.08em]">
               {t("cta")}
+            </Button>
+            <Button
+              href={featured.href}
+              variant="secondary"
+              className="uppercase tracking-[0.08em]"
+            >
+              {t("viewDetails")}
             </Button>
           </div>
         </div>

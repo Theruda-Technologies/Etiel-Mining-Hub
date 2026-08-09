@@ -3,25 +3,45 @@
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ProductCard } from "@/components/catalog/ProductCard";
-import {
-  CATALOG_CATEGORIES,
-  CATALOG_PRODUCTS,
-  type CatalogCategory,
-} from "@/lib/catalog/products";
+import type { StoreProduct } from "@/lib/catalog/types";
 
-export function ProductCatalog() {
+type ProductCatalogProps = {
+  products: StoreProduct[];
+  categories: string[];
+};
+
+function categoryLabel(t: ReturnType<typeof useTranslations<"catalog">>, key: string) {
+  const known = [
+    "all",
+    "metal_detectors",
+    "mining_supplies",
+    "ground_scanners",
+    "excavators",
+    "drilling",
+    "material_handling",
+    "drones",
+    "safety_gear",
+  ];
+  if (known.includes(key)) return t(`categories.${key}` as "categories.all");
+  return key.replace(/_/g, " ");
+}
+
+export function ProductCatalog({
+  products = [],
+  categories = ["all"],
+}: ProductCatalogProps) {
   const t = useTranslations("catalog");
-  const [category, setCategory] = useState<CatalogCategory>("all");
+  const [category, setCategory] = useState("all");
 
-  const products = useMemo(() => {
-    if (category === "all") return CATALOG_PRODUCTS;
-    return CATALOG_PRODUCTS.filter((p) => p.category === category);
-  }, [category]);
+  const filtered = useMemo(() => {
+    if (category === "all") return products;
+    return products.filter((p) => p.category === category);
+  }, [category, products]);
 
   return (
     <div>
       <div className="flex gap-1 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {CATALOG_CATEGORIES.map((key) => {
+        {categories.map((key) => {
           const active = category === key;
           return (
             <button
@@ -34,19 +54,19 @@ export function ProductCatalog() {
                   : "border-transparent text-white/55 hover:text-white"
               }`}
             >
-              {t(`categories.${key}`)}
+              {categoryLabel(t, key)}
             </button>
           );
         })}
       </div>
 
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
+        {filtered.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
-      {products.length === 0 ? (
+      {filtered.length === 0 ? (
         <p className="mt-12 text-center text-text-secondary">{t("empty")}</p>
       ) : null}
     </div>

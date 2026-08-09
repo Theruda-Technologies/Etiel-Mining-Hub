@@ -1,5 +1,11 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProductCatalog } from "@/components/catalog/ProductCatalog";
+import {
+  fetchActiveProducts,
+  productCategories,
+} from "@/lib/catalog/fetch-products";
+
+export const dynamic = "force-dynamic";
 
 export default async function ProductsPage({
   params,
@@ -9,6 +15,8 @@ export default async function ProductsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalog");
+  const products = await fetchActiveProducts(locale);
+  const categories = productCategories(products);
 
   return (
     <div className="bg-basalt-deep pt-24 md:pt-28">
@@ -24,7 +32,7 @@ export default async function ProductsPage({
         </header>
 
         <div className="mt-10 md:mt-12">
-          <ProductCatalog />
+          <ProductCatalog products={products} categories={categories} />
         </div>
       </div>
     </div>

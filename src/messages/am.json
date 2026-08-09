@@ -71,14 +71,10 @@
       "failuresLabel": "የመሳሪያ ምክክር"
     },
     "fieldTested": {
-      "eyebrow": "ተለይቶ የቀረበ መለያ",
-      "title": "Nokta Magnetar 9000",
-      "body": "ለጥልቅ ወርቅ እና ለትንንሽ ኑጌቶች በማዕድን የበዛ መሬት ላይ የተሰራ ሙያዊ pulse induction የብረት መለያ ነው። Dual Receiver Coil (DRC) ቴክኖሎጂ ከMG37 የፍለጋ ኮይል ጋር ጥልቀትን እና ትክክለኛ ስሜታዊነትን በአንድ መድረክ ያገናኛል። እስከ 3 ሜትር ሙሉ በሙሉ የውሃ መከላከያ ያለው ሲሆን ለጀማሪ እና ለላቀ አዳኞች Easy እና Expert ሜኑዎችን ያቀርባል። በአዲስ አበባ በኢቲየል ማይኒንግ ሃብ በአካባቢ የመሳሪያ ምርጫ እና የመስክ መመሪያ ጋር ይገኛል።",
-      "point1": "ለማዕድን መሬት የተሰራ pulse induction",
-      "point2": "ለጥልቀት እና ለትንሽ ወርቅ MG37 DRC ኮይል",
-      "point3": "IP68 የውሃ መከላከያ፣ እስከ 3 ሜትር",
+      "eyebrowProduct": "ተለይቶ የቀረበ ምርት",
+      "eyebrowService": "ተለይቶ የቀረበ አገልግሎት",
       "cta": "አሁን ይዘዙ",
-      "imageAlt": "Nokta Magnetar 9000 ከMG37 DRC የፍለጋ ኮይል ጋር"
+      "viewDetails": "ዝርዝር ይመልከቱ"
     },
     "equipment": {
       "title": "ምርቶች እና አገልግሎቶች",
@@ -163,6 +159,9 @@
     },
     "categories": {
       "all": "ሁሉም",
+      "metal_detectors": "የብረት መለያዎች",
+      "mining_supplies": "የማይኒንግ አቅርቦቶች",
+      "ground_scanners": "የመሬት ስካነሮች",
       "excavators": "ቁፋሮዎች",
       "drilling": "ቁፋሮ",
       "material_handling": "የቁሳቁስ አያያዝ",

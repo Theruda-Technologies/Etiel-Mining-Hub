@@ -1,0 +1,811 @@
+{
+  "_meta": {
+    "purpose": "Bilingual product seed for Etiel Mining Hub Supabase public.products",
+    "table": "public.products",
+    "schema_fields": [
+      "id",
+      "sku",
+      "name",
+      "slug",
+      "description",
+      "category",
+      "specs",
+      "image_paths",
+      "is_active",
+      "sort_order",
+      "is_advertisement"
+    ],
+    "allowed_categories": [
+      "metal_detectors",
+      "excavators",
+      "drilling",
+      "mining_supplies",
+      "ground_scanners",
+      "material_handling",
+      "drones",
+      "safety_gear"
+    ],
+    "notes": [
+      "Insert name/description/specs from the en object into Supabase (primary catalog language).",
+      "Keep am for next-intl / storefront localization.",
+      "specs must be a JSON array of {label, value} objects.",
+      "image_paths are public Next.js paths under /images/etiel-site-images/.",
+      "Do not send price; DB column defaults to 0 and is unused by the storefront.",
+      "Set is_advertisement true on one product OR one service for the homepage ad section."
+    ]
+  },
+  "products": [
+    {
+      "id": "c1000001-0001-4000-8000-000000000001",
+      "sku": "NOK-MAG-9000",
+      "slug": "nokta-magnetar-9000",
+      "category": "metal_detectors",
+      "is_active": true,
+      "sort_order": 10,
+      "image_paths": [
+        "/images/etiel-site-images/Nokta-9000.png",
+        "/images/etiel-site-images/Nokta-9000-1.png",
+        "/images/etiel-site-images/Nokta-9000-Magnetar MG37-DRC 1.png"
+      ],
+      "en": {
+        "name": "Nokta Magnetar 9000",
+        "description": "Professional pulse induction gold detector for deep gold and micro nuggets in mineralized ground. Dual Receiver Coil (DRC) technology with the MG37 search coil balances extreme depth and fine sensitivity. Fully waterproof to 3 meters, with Easy and Expert menus for prospectors and commercial operators. Available through Etiel Mining Hub in Addis Ababa with local device counseling.",
+        "specs": [
+          {
+            "label": "Technology",
+            "value": "Pulse Induction + DRC"
+          },
+          {
+            "label": "Coil",
+            "value": "MG37 Dual Receiver"
+          },
+          {
+            "label": "Waterproof",
+            "value": "IP68, up to 3 m"
+          },
+          {
+            "label": "Menus",
+            "value": "Easy and Expert"
+          },
+          {
+            "label": "Primary use",
+            "value": "Gold prospecting"
+          }
+        ]
+      },
+      "am": {
+        "name": "Nokta Magnetar 9000",
+        "description": "ለጥልቅ ወርቅ እና ለትንንሽ ኑጌቶች በማዕድን የበዛ መሬት ላይ የተሰራ ሙያዊ pulse induction የብረት መለያ። Dual Receiver Coil (DRC) ቴክኖሎጂ ከMG37 የፍለጋ ኮይል ጋር ጥልቀትን እና ትክክለኛ ስሜታዊነትን ያገናኛል። እስከ 3 ሜትር የውሃ መከላከያ ያለው ሲሆን Easy እና Expert ሜኑዎችን ያቀርባል። በአዲስ አበባ በኢቲየል ማይኒንግ ሃብ ከአካባቢ የመሳሪያ ምክክር ጋር ይገኛል።",
+        "specs": [
+          {
+            "label": "ቴክኖሎጂ",
+            "value": "Pulse Induction + DRC"
+          },
+          {
+            "label": "ኮይል",
+            "value": "MG37 Dual Receiver"
+          },
+          {
+            "label": "የውሃ መከላከያ",
+            "value": "IP68፣ እስከ 3 ሜትር"
+          },
+          {
+            "label": "ሜኑ",
+            "value": "Easy እና Expert"
+          },
+          {
+            "label": "ዋና አገልግሎት",
+            "value": "የወርቅ ፍለጋ"
+          }
+        ]
+      },
+      "is_advertisement": true
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000002",
+      "sku": "PIN-GP-POINTER",
+      "slug": "gp-pointer-pinpointer",
+      "category": "metal_detectors",
+      "is_active": true,
+      "sort_order": 20,
+      "image_paths": [
+        "/images/etiel-site-images/Gp-Pointer.png"
+      ],
+      "en": {
+        "name": "GP Pointer Pinpointer",
+        "description": "High-visibility handheld pinpointer for fast target recovery after a detector hit. Compact single-button operation with audio feedback helps locate small gold and metal targets in the dig hole. Ideal companion tool for Magnetar and other field detectors used by Ethiopian prospectors.",
+        "specs": [
+          {
+            "label": "Type",
+            "value": "Handheld pinpointer"
+          },
+          {
+            "label": "Alerts",
+            "value": "Audio feedback"
+          },
+          {
+            "label": "Body",
+            "value": "High-visibility orange"
+          },
+          {
+            "label": "Use",
+            "value": "Target recovery in dig holes"
+          },
+          {
+            "label": "Power",
+            "value": "Battery compartment with sealed cap"
+          }
+        ]
+      },
+      "am": {
+        "name": "GP Pointer ፒንፖይንተር",
+        "description": "ከመለያ ግኝት በኋላ ኢላማን በፍጥነት ለማግኘት የሚያገለግል በእጅ የሚያዝ ፒንፖይንተር። በአንድ አዝራር የሚሰራ እና የድምፅ ማንቂያ ያለው ሲሆን በጉድጓድ ውስጥ ትንሽ ወርቅ እና ብረት ለማግኘት ይረዳል። ከMagnetar እና ከሌሎች የመስክ መለያዎች ጋር ለኢትዮጵያ ፈላጊዎች ተስማሚ ነው።",
+        "specs": [
+          {
+            "label": "አይነት",
+            "value": "በእጅ የሚያዝ ፒንፖይንተር"
+          },
+          {
+            "label": "ማንቂያ",
+            "value": "የድምፅ ግብረመልስ"
+          },
+          {
+            "label": "አካል",
+            "value": "ደማቅ ብርቱካናማ"
+          },
+          {
+            "label": "አገልግሎት",
+            "value": "በጉድጓድ ውስጥ ኢላማ ማግኘት"
+          },
+          {
+            "label": "ኃይል",
+            "value": "ባትሪ ክፍል ከታሸገ ኮፍያ ጋር"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000003",
+      "sku": "GEM-DIA-SEL-II",
+      "slug": "diamond-selector-ii",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 30,
+      "image_paths": [
+        "/images/etiel-site-images/Diamond-selector-II.jpeg"
+      ],
+      "en": {
+        "name": "Diamond Selector II",
+        "description": "Handheld thermal conductivity tester for distinguishing diamond from common simulants. LED bar graph and status lamps give a clear ready and battery indication. Useful for traders, jewelry buyers, and field verification after recovery.",
+        "specs": [
+          {
+            "label": "Type",
+            "value": "Thermal diamond tester"
+          },
+          {
+            "label": "Display",
+            "value": "LED bar graph 1 to 8"
+          },
+          {
+            "label": "Controls",
+            "value": "Off / On / Volume thumbwheel"
+          },
+          {
+            "label": "Probe",
+            "value": "Metal tip contact test"
+          },
+          {
+            "label": "Indicators",
+            "value": "Battery OK and Ready OK lamps"
+          }
+        ]
+      },
+      "am": {
+        "name": "Diamond Selector II",
+        "description": "እውነተኛ አልማዝን ከተመሳሳይ ድንጋዮች ለመለየት የሚያገለግል በእጅ የሚያዝ የሙቀት ማስተላለፊያ ሙከሪያ። የLED ባር ግራፍ እና የሁኔታ መብራቶች ዝግጁነትን እና የባትሪ ሁኔታን በግልጽ ያሳያሉ። ለነጋዴዎች፣ ለጌጣጌጥ ገዢዎች እና ከመልሶ ማግኘት በኋላ የመስክ ማረጋገጫ ተስማሚ ነው።",
+        "specs": [
+          {
+            "label": "አይነት",
+            "value": "የሙቀት አልማዝ ሙከሪያ"
+          },
+          {
+            "label": "ማሳያ",
+            "value": "LED ባር ግራፍ 1 እስከ 8"
+          },
+          {
+            "label": "መቆጣጠሪያ",
+            "value": "Off / On / Volume"
+          },
+          {
+            "label": "ፕሮብ",
+            "value": "የብረት ጫፍ ሙከራ"
+          },
+          {
+            "label": "አመልካቾች",
+            "value": "Battery OK እና Ready OK"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000004",
+      "sku": "GWP-ALLUV-01",
+      "slug": "gold-wash-plant",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 40,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-washer-green.jpeg",
+        "/images/etiel-site-images/Gold-washer-grey.jpeg"
+      ],
+      "en": {
+        "name": "Gold Wash Plant",
+        "description": "Alluvial gold washing plant for scrubbing, screening, and concentrating placer material. Built for artisanal and small commercial crews that need reliable clay breakup and sluice-ready fines. Supported locally by Etiel Mining Hub with site-fit counseling.",
+        "specs": [
+          {
+            "label": "Process",
+            "value": "Wash, scrub, screen"
+          },
+          {
+            "label": "Feed",
+            "value": "Alluvial / placer material"
+          },
+          {
+            "label": "Recovery",
+            "value": "Sluice and concentrate path"
+          },
+          {
+            "label": "Crew fit",
+            "value": "Artisanal to mid-tier"
+          },
+          {
+            "label": "Support",
+            "value": "Addis Ababa based counseling"
+          }
+        ]
+      },
+      "am": {
+        "name": "የወርቅ ማጠቢያ ፋብሪካ",
+        "description": "የአሉቪያል ቁሳቁስን ለማጠብ፣ ለመፍረስ እና ለማጣራት የተሰራ የወርቅ ማጠቢያ ፋብሪካ። አስተማማኝ የሸክላ መፍረስ እና ለስሉስ ዝግጁ ቅርጾች ለሚፈልጉ አነስተኛ እና መካከለኛ ቡድኖች ተስማሚ ነው። በኢቲየል ማይኒንግ ሃብ በአካባቢ የጣቢያ ምክክር ይደገፋል።",
+        "specs": [
+          {
+            "label": "ሂደት",
+            "value": "ማጠብ፣ መፍረስ፣ ማጣራት"
+          },
+          {
+            "label": "ግቤት",
+            "value": "አሉቪያል / ፕሌሰር ቁሳቁስ"
+          },
+          {
+            "label": "መልሶ ማግኘት",
+            "value": "ስሉስ እና ኮንሰንትሬት"
+          },
+          {
+            "label": "ቡድን",
+            "value": "አነስተኛ እስከ መካከለኛ"
+          },
+          {
+            "label": "ድጋፍ",
+            "value": "በአዲስ አበባ ምክክር"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000005",
+      "sku": "GWP-MOB-01",
+      "slug": "mobile-gold-washer",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 50,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-washer-yellow.jpeg"
+      ],
+      "en": {
+        "name": "Mobile Gold Washer",
+        "description": "Field-portable gold washing unit for crews that move between prospects. Hopper-to-wash flow supports rapid setup on artisanal sites with limited infrastructure. A practical option when mobility matters as much as recovery.",
+        "specs": [
+          {
+            "label": "Form",
+            "value": "Mobile wash unit"
+          },
+          {
+            "label": "Setup",
+            "value": "Rapid field deployment"
+          },
+          {
+            "label": "Flow",
+            "value": "Hopper to wash circuit"
+          },
+          {
+            "label": "Best for",
+            "value": "Moving artisanal crews"
+          },
+          {
+            "label": "Environment",
+            "value": "Remote prospect sites"
+          }
+        ]
+      },
+      "am": {
+        "name": "ተንቀሳቃሽ የወርቅ ማጠቢያ",
+        "description": "ከጣቢያ ወደ ጣቢያ ለሚንቀሳቀሱ ቡድኖች የመስክ ተንቀሳቃሽ የወርቅ ማጠቢያ። ከሆፐር እስከ ማጠቢያ ያለ ፍሰት በአነስተኛ መሠረተ ልማት ቦታዎች ላይ ፈጣን ማቋቋምን ይደግፋል። ተንቀሳቃሽነት እንደ መልሶ ማግኘት አስፈላጊ በሚሆንበት ጊዜ ተግባራዊ አማራጭ ነው።",
+        "specs": [
+          {
+            "label": "ቅርጽ",
+            "value": "ተንቀሳቃሽ ማጠቢያ"
+          },
+          {
+            "label": "ማቋቋም",
+            "value": "ፈጣን የመስክ ማሰማራት"
+          },
+          {
+            "label": "ፍሰት",
+            "value": "ከሆፐር እስከ ማጠቢያ"
+          },
+          {
+            "label": "ተስማሚ",
+            "value": "ተንቀሳቃሽ አነስተኛ ቡድኖች"
+          },
+          {
+            "label": "አካባቢ",
+            "value": "የርቀት ፍለጋ ጣቢያዎች"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000006",
+      "sku": "GWP-MINI-CY",
+      "slug": "mini-gold-washer-cyan",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 60,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-Washer-mini-cyan.jpeg"
+      ],
+      "en": {
+        "name": "Mini Gold Washer",
+        "description": "Compact wash unit for small crews and trial prospects. Lower footprint and simpler handling than a full plant, while still supporting basic scrub and concentrate recovery. Useful for starter operations and side claims.",
+        "specs": [
+          {
+            "label": "Size",
+            "value": "Compact / mini plant"
+          },
+          {
+            "label": "Crew",
+            "value": "Small team"
+          },
+          {
+            "label": "Water",
+            "value": "Lower demand vs full plant"
+          },
+          {
+            "label": "Role",
+            "value": "Starter and trial sites"
+          },
+          {
+            "label": "Handling",
+            "value": "Easier to relocate"
+          }
+        ]
+      },
+      "am": {
+        "name": "ትንሽ የወርቅ ማጠቢያ",
+        "description": "ለትንሽ ቡድኖች እና ለሙከራ ጣቢያዎች የተሰራ ኮምፓክት ማጠቢያ። ከሙሉ ፋብሪካ ያነሰ ቦታ እና ቀላል አያያዝ ያለው ሲሆን መሰረታዊ ማጠብ እና ኮንሰንትሬት መልሶ ማግኘትን ይደግፋል። ለጀማሪ ስራዎች እና ለተጨማሪ ጣቢያዎች ጠቃሚ ነው።",
+        "specs": [
+          {
+            "label": "መጠን",
+            "value": "ኮምፓክት / ትንሽ"
+          },
+          {
+            "label": "ቡድን",
+            "value": "ትንሽ ቡድን"
+          },
+          {
+            "label": "ውሃ",
+            "value": "ከሙሉ ፋብሪካ ያነሰ ፍላጎት"
+          },
+          {
+            "label": "ሚና",
+            "value": "ጀማሪ እና ሙከራ ጣቢያዎች"
+          },
+          {
+            "label": "አያያዝ",
+            "value": "ለማንቀሳቀስ ቀላል"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000007",
+      "sku": "GWP-MINI-GR",
+      "slug": "mini-gold-washer-green",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 70,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-washer-mini-green.jpeg"
+      ],
+      "en": {
+        "name": "Mini Gold Washer Green",
+        "description": "Compact green gold washer configured for small-scale alluvial recovery. Designed for crews that need a lighter wash circuit without committing to a full stationary plant.",
+        "specs": [
+          {
+            "label": "Size",
+            "value": "Mini wash plant"
+          },
+          {
+            "label": "Colorway",
+            "value": "Green field unit"
+          },
+          {
+            "label": "Process",
+            "value": "Alluvial wash and screen"
+          },
+          {
+            "label": "Crew",
+            "value": "Small-scale operators"
+          },
+          {
+            "label": "Footprint",
+            "value": "Compact site layout"
+          }
+        ]
+      },
+      "am": {
+        "name": "ትንሽ አረንጓዴ የወርቅ ማጠቢያ",
+        "description": "ለአነስተኛ የአሉቪያል መልሶ ማግኘት የተዋቀረ ኮምፓክት አረንጓዴ የወርቅ ማጠቢያ። ሙሉ ቋሚ ፋብሪካ ሳይገዙ ቀላል የማጠቢያ ዑደት ለሚፈልጉ ቡድኖች የተሰራ ነው።",
+        "specs": [
+          {
+            "label": "መጠን",
+            "value": "ትንሽ ማጠቢያ"
+          },
+          {
+            "label": "ቀለም",
+            "value": "አረንጓዴ የመስክ ክፍል"
+          },
+          {
+            "label": "ሂደት",
+            "value": "አሉቪያል ማጠብ እና ማጣራት"
+          },
+          {
+            "label": "ቡድን",
+            "value": "አነስተኛ ኦፕሬተሮች"
+          },
+          {
+            "label": "ቦታ",
+            "value": "ኮምፓክት አቀማመጥ"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000008",
+      "sku": "MAT-DREAM-TURF",
+      "slug": "dreamturf-gold-recovery-mat",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 80,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-Mat-Dream-Turf.jpeg",
+        "/images/etiel-site-images/Gold-Mat-Dream-Turf-2.jpeg"
+      ],
+      "en": {
+        "name": "DreamTurf Gold Recovery Mat",
+        "description": "Specialized synthetic gold mining carpet for sluice boxes and wash circuits. Dense turf fibers are designed to trap fine gold. Packaging cites concentration recovery up to 98 percent for gold mining use.",
+        "specs": [
+          {
+            "label": "Brand",
+            "value": "DreamTurf"
+          },
+          {
+            "label": "Type",
+            "value": "Gold recovery carpet / turf"
+          },
+          {
+            "label": "Use",
+            "value": "Sluice and wash plant lining"
+          },
+          {
+            "label": "Claimed recovery",
+            "value": "Up to 98%"
+          },
+          {
+            "label": "Target",
+            "value": "Fine gold capture"
+          }
+        ]
+      },
+      "am": {
+        "name": "DreamTurf የወርቅ መልሶ ማግኛ ምንጣፍ",
+        "description": "ለስሉስ ሳጥኖች እና የማጠቢያ ዑደቶች የተሰራ ልዩ ሰው ሰራሽ የወርቅ ማዕድን ምንጣፍ። ጥቅጥቅ ያሉ የሳር ፋይበሮች ትንሽ ወርቅ ለመያዝ የተሰሩ ናቸው። ማሸጊያው ለወርቅ ማዕድን እስከ 98 በመቶ የመልሶ ማግኛ እንደሚደርስ ይጠቅሳል።",
+        "specs": [
+          {
+            "label": "ብራንድ",
+            "value": "DreamTurf"
+          },
+          {
+            "label": "አይነት",
+            "value": "የወርቅ መልሶ ማግኛ ምንጣፍ"
+          },
+          {
+            "label": "አገልግሎት",
+            "value": "ስሉስ እና ማጠቢያ ሽፋን"
+          },
+          {
+            "label": "የተጠቀሰ መልሶ ማግኘት",
+            "value": "እስከ 98%"
+          },
+          {
+            "label": "ዒላማ",
+            "value": "ትንሽ ወርቅ መያዝ"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000009",
+      "sku": "CRU-JAW-01",
+      "slug": "jaw-crusher",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 90,
+      "image_paths": [
+        "/images/etiel-site-images/Jaw-crusher.jpeg"
+      ],
+      "en": {
+        "name": "Jaw Crusher",
+        "description": "Primary jaw crusher for hard-rock gold preparation. High-force jaws reduce large ore feed to a size suitable for secondary crushing or milling. Built for small to mid-tier rock gold plants that need durable first-stage size reduction.",
+        "specs": [
+          {
+            "label": "Stage",
+            "value": "Primary crushing"
+          },
+          {
+            "label": "Feed",
+            "value": "Hard rock / ore"
+          },
+          {
+            "label": "Role",
+            "value": "Size reduction before mill"
+          },
+          {
+            "label": "Drive",
+            "value": "Flywheel belt drive"
+          },
+          {
+            "label": "Plant fit",
+            "value": "Small to mid-tier rock gold"
+          }
+        ]
+      },
+      "am": {
+        "name": "Jaw Crusher",
+        "description": "ለሮክ ወርቅ ዝግጅት የሚያገለግል ዋና jaw crusher። ከፍተኛ ኃይል ያላቸው መንጋጋዎች ትላልቅ ኦርን ለሁለተኛ መፍጨት ወይም ሚል ተስማሚ ወደሆነ መጠን ይቀንሳሉ። ጠንካራ የመጀመሪያ ደረጃ መቀነስ ለሚፈልጉ አነስተኛ እስከ መካከለኛ የሮክ ወርቅ ፋብሪካዎች የተሰራ ነው።",
+        "specs": [
+          {
+            "label": "ደረጃ",
+            "value": "ዋና መፍጨት"
+          },
+          {
+            "label": "ግቤት",
+            "value": "ጠንካራ ድንጋይ / ኦር"
+          },
+          {
+            "label": "ሚና",
+            "value": "ከሚል በፊት መጠን መቀነስ"
+          },
+          {
+            "label": "ድራይቭ",
+            "value": "Flywheel ቀበቶ"
+          },
+          {
+            "label": "ፋብሪካ",
+            "value": "አነስተኛ እስከ መካከለኛ ሮክ ወርቅ"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000010",
+      "sku": "MIL-BALL-01",
+      "slug": "ball-mill",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 100,
+      "image_paths": [
+        "/images/etiel-site-images/Ball-mill.jpeg"
+      ],
+      "en": {
+        "name": "Ball Mill",
+        "description": "Horizontal ball mill for grinding crushed ore to liberate fine gold ahead of concentration. Pair with a jaw crusher and gravity circuit for rock gold processing. Suitable for mid-tier plants seeking consistent grind size.",
+        "specs": [
+          {
+            "label": "Stage",
+            "value": "Fine grinding"
+          },
+          {
+            "label": "Feed",
+            "value": "Crushed ore"
+          },
+          {
+            "label": "Output",
+            "value": "Powder for gold liberation"
+          },
+          {
+            "label": "Drive",
+            "value": "Girth gear rotation"
+          },
+          {
+            "label": "Circuit",
+            "value": "Works with crusher + gravity"
+          }
+        ]
+      },
+      "am": {
+        "name": "Ball Mill",
+        "description": "የተፈጨ ኦርን ወደ ዱቄት በመፍጨት ትንሽ ወርቅ ለማውጣት የሚያገለግል አግድም ball mill። ለሮክ ወርቅ ማስኬጃ ከjaw crusher እና ከስበት ዑደት ጋር ይገናኛል። ወጥ የሆነ የመፍጨት መጠን ለሚፈልጉ መካከለኛ ፋብሪካዎች ተስማሚ ነው።",
+        "specs": [
+          {
+            "label": "ደረጃ",
+            "value": "ጥሩ መፍጨት"
+          },
+          {
+            "label": "ግቤት",
+            "value": "የተፈጨ ኦር"
+          },
+          {
+            "label": "ውጤት",
+            "value": "ወርቅ ለማውጣት ዱቄት"
+          },
+          {
+            "label": "ድራይቭ",
+            "value": "Girth gear ማሽከርከር"
+          },
+          {
+            "label": "ዑደት",
+            "value": "ከመፍጫ + ስበት ጋር"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000011",
+      "sku": "PMP-DSL-SET-01",
+      "slug": "diesel-water-pump-set",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 110,
+      "image_paths": [
+        "/images/etiel-site-images/Water-pump.png"
+      ],
+      "en": {
+        "name": "Diesel Water Pump Set",
+        "description": "Engine-driven centrifugal pump set for wash plants, site dewatering, and high-volume water transfer. Diesel power keeps wash circuits running where grid electricity is limited. Includes coupled engine and pump on a shared steel base.",
+        "specs": [
+          {
+            "label": "Drive",
+            "value": "Diesel engine"
+          },
+          {
+            "label": "Pump",
+            "value": "Centrifugal water / slurry duty"
+          },
+          {
+            "label": "Mount",
+            "value": "Shared steel skid base"
+          },
+          {
+            "label": "Use",
+            "value": "Wash plant and dewatering"
+          },
+          {
+            "label": "Site fit",
+            "value": "Off-grid field operations"
+          }
+        ]
+      },
+      "am": {
+        "name": "የናፍጣ የውሃ ፓምፕ ስብስብ",
+        "description": "ለማጠቢያ ፋብሪካዎች፣ የጣቢያ ውሃ ማስወገድ እና ከፍተኛ መጠን ውሃ ማስተላለፍ የሚያገለግል በሞተር የሚንቀሳቀስ ሴንትሪፉጋል ፓምፕ ስብስብ። የናፍጣ ኃይል የኤሌክትሪክ አውታር በሌለበት የማጠቢያ ዑደቶችን እንዲቀጥሉ ያደርጋል። በአንድ የብረት መሠረት ላይ የተገናኘ ሞተር እና ፓምፕ ያካትታል።",
+        "specs": [
+          {
+            "label": "ድራይቭ",
+            "value": "የናፍጣ ሞተር"
+          },
+          {
+            "label": "ፓምፕ",
+            "value": "ሴንትሪፉጋል ውሃ / ስሉሪ"
+          },
+          {
+            "label": "መጫኛ",
+            "value": "የጋራ የብረት መሠረት"
+          },
+          {
+            "label": "አገልግሎት",
+            "value": "ማጠቢያ እና ውሃ ማስወገድ"
+          },
+          {
+            "label": "ጣቢያ",
+            "value": "ከግሪድ ውጭ የመስክ ስራ"
+          }
+        ]
+      },
+      "is_advertisement": false
+    },
+    {
+      "id": "c1000001-0001-4000-8000-000000000012",
+      "sku": "MELT-CRUCIBLE-KIT",
+      "slug": "gold-melting-crucibles-kit",
+      "category": "mining_supplies",
+      "is_active": true,
+      "sort_order": 120,
+      "image_paths": [
+        "/images/etiel-site-images/Gold-Melting-pots.png"
+      ],
+      "en": {
+        "name": "Gold Melting Crucibles Kit",
+        "description": "Assorted graphite crucibles with pouring spouts, ingot molds, and assay ladles for melting and casting recovered gold. Sized for small refining and assay work after concentration. A practical finishing kit for field and workshop use.",
+        "specs": [
+          {
+            "label": "Contents",
+            "value": "Crucibles, ingot molds, ladles"
+          },
+          {
+            "label": "Material",
+            "value": "Graphite / clay-graphite pots"
+          },
+          {
+            "label": "Molds",
+            "value": "Multi-slot gold bar molds"
+          },
+          {
+            "label": "Use",
+            "value": "Melt, pour, and assay"
+          },
+          {
+            "label": "Scale",
+            "value": "Small refining / workshop"
+          }
+        ]
+      },
+      "am": {
+        "name": "የወርቅ ማቅለጫ ክሩሲብል ኪት",
+        "description": "የተገኘ ወርቅ ለማቅለጥ እና ለመቅረጽ የተለያዩ ግራፋይት ክሩሲብሎች ከማፍሰሻ አፍ ጋር፣ የኢንጎት ሻጋታዎች እና የአሳይ ማንኪያዎች። ከኮንሰንትሬሽን በኋላ ለአነስተኛ ማጣሪያ እና አሳይ ስራ የተመጣጠኑ ናቸው። ለመስክ እና ለአውደ ርዕይ ተግባራዊ የማጠናቀቂያ ኪት ነው።",
+        "specs": [
+          {
+            "label": "ይዘት",
+            "value": "ክሩሲብሎች፣ ሻጋታዎች፣ ማንኪያዎች"
+          },
+          {
+            "label": "ቁሳቁስ",
+            "value": "ግራፋይት / ክሌይ-ግራፋይት"
+          },
+          {
+            "label": "ሻጋታ",
+            "value": "ባለብዙ ማስገቢያ የወርቅ ባር"
+          },
+          {
+            "label": "አገልግሎት",
+            "value": "ማቅለጥ፣ ማፍሰስ፣ አሳይ"
+          },
+          {
+            "label": "መጠን",
+            "value": "አነስተኛ ማጣሪያ / አውደ ርዕይ"
+          }
+        ]
+      },
+      "is_advertisement": false
+    }
+  ]
+}

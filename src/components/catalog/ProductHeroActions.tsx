@@ -4,15 +4,9 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart/store";
 import { useAuthGate } from "@/lib/auth/useAuthGate";
-import type { CatalogProduct } from "@/lib/catalog/products";
+import { primaryImage, type StoreProduct } from "@/lib/catalog/types";
 
-export function ProductHeroActions({
-  product,
-  name,
-}: {
-  product: CatalogProduct;
-  name: string;
-}) {
+export function ProductHeroActions({ product }: { product: StoreProduct }) {
   const t = useTranslations("catalog");
   const { addItem } = useCart();
   const { requireAuth } = useAuthGate();
@@ -26,10 +20,10 @@ export function ProductHeroActions({
           addItem({
             id: product.id,
             slug: product.slug,
-            name,
+            name: product.name,
             sku: product.sku,
-            price: product.price,
-            image: product.image,
+            price: 0,
+            image: primaryImage(product),
             itemType: "product",
           });
         }}
