@@ -1,17 +1,23 @@
 /**
- * Wipe public.products and seed from supabase/data/products.bilingual.json
+ * Wipe stale products and seed from supabase/data/products.bilingual.json
  *
  * Usage:
- *   export $(grep -v '^#' .env.local | xargs) && node scripts/seed-products.mjs
+ *   set -a && source .env.local && set +a && npm run seed:products
  *
  * Uses the service role key. Inserts English name/description/specs into the DB.
  * Amharic copy stays in the JSON for app i18n.
+ *
+ * Local image paths in the JSON are uploaded to the public `product-images`
+ * Storage bucket; `image_paths` in the DB stores the resulting public URLs
+ * (not repo-relative paths, not base64).
+ *
  * Set `"is_advertisement": true` on at most one product for the homepage ad.
  */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createClient } from "@supabase/supabase-js";
+import { uploadLocalImagesToBucket } from "./lib/upload-catalog-images.mjs";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -22,6 +28,7 @@ if (!url || !key) {
 }
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const publicDir = join(root, "public");
 const dataPath = join(root, "supabase/data/products.bilingual.json");
 const data = JSON.parse(readFileSync(dataPath, "utf8"));
 
@@ -40,13 +47,27 @@ if (adSkus.length > 1) {
   process.exit(1);
 }
 
-const rows = data.products.map((product) => {
+console.log(`Uploading images + seeding ${data.products.length} products…`);
+
+const rows = [];
+for (const product of data.products) {
   const locale = product.en;
   if (!locale?.name || !locale?.description || !Array.isArray(locale.specs)) {
     throw new Error(`Product ${product.sku} is missing en.name/description/specs`);
   }
+  if (!Array.isArray(product.image_paths) || product.image_paths.length === 0) {
+    throw new Error(`Product ${product.sku} needs at least one local image_paths entry`);
+  }
 
-  return {
+  console.log(`  images ${product.sku} (${product.image_paths.length})…`);
+  const imageUrls = await uploadLocalImagesToBucket(supabase, {
+    bucket: "product-images",
+    publicDir,
+    localPaths: product.image_paths,
+    objectPrefix: product.sku.toLowerCase(),
+  });
+
+  rows.push({
     id: product.id,
     sku: product.sku,
     slug: product.slug,
@@ -54,14 +75,12 @@ const rows = data.products.map((product) => {
     name: locale.name,
     description: locale.description,
     specs: locale.specs,
-    image_paths: product.image_paths,
+    image_paths: imageUrls,
     is_active: product.is_active !== false,
     is_advertisement: product.is_advertisement === true,
     sort_order: product.sort_order ?? 0,
-  };
-});
-
-console.log(`Cleaning products table (${rows.length} to seed)…`);
+  });
+}
 
 const { data: existing, error: listError } = await supabase
   .from("products")
@@ -120,10 +139,12 @@ if (countError) {
   process.exit(1);
 }
 
-console.log(`Seeded ${seededCount} active products.`);
+console.log(`Seeded ${seededCount} active products (images in Storage bucket product-images).`);
 if (advertised) {
   console.log(`Homepage advertisement: ${advertised.sku}`);
 }
 for (const row of rows) {
-  console.log(`  - ${row.sku}  ${row.slug}${row.is_advertisement ? "  [ad]" : ""}`);
+  console.log(
+    `  - ${row.sku}  ${row.slug}${row.is_advertisement ? "  [ad]" : ""}  (${row.image_paths.length} img)`,
+  );
 }

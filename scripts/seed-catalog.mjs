@@ -1,8 +1,15 @@
 /**
- * Upserts storefront catalog into Supabase using the service role.
- * Run: export $(grep -v '^#' .env.local | xargs) && node scripts/seed-catalog.mjs
+ * Upserts legacy demo storefront catalog into Supabase using the service role.
+ * Prefer `npm run seed:products` for the live Etiel catalog.
+ *
+ * Run: set -a && source .env.local && set +a && node scripts/seed-catalog.mjs
+ *
+ * Local image paths are uploaded to Storage; DB rows store public URLs.
  */
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { createClient } from "@supabase/supabase-js";
+import { uploadLocalImagesToBucket } from "./lib/upload-catalog-images.mjs";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -11,6 +18,9 @@ if (!url || !key) {
   console.error("Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY");
   process.exit(1);
 }
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const publicDir = join(root, "public");
 
 const supabase = createClient(url, key, {
   auth: { persistSession: false, autoRefreshToken: false },
@@ -143,6 +153,16 @@ const services = [
   },
 ];
 
+async function withUploadedImages(row, bucket) {
+  const image_paths = await uploadLocalImagesToBucket(supabase, {
+    bucket,
+    publicDir,
+    localPaths: row.image_paths,
+    objectPrefix: row.sku.toLowerCase(),
+  });
+  return { ...row, image_paths };
+}
+
 async function upsertBySkuOrSlug(table, row) {
   const { id, ...fields } = row;
 
@@ -176,10 +196,12 @@ async function upsertBySkuOrSlug(table, row) {
 
 try {
   for (const product of products) {
-    await upsertBySkuOrSlug("products", product);
+    const row = await withUploadedImages(product, "product-images");
+    await upsertBySkuOrSlug("products", row);
   }
   for (const service of services) {
-    await upsertBySkuOrSlug("services", service);
+    const row = await withUploadedImages(service, "service-images");
+    await upsertBySkuOrSlug("services", row);
   }
 } catch (err) {
   console.error(err.message || err);

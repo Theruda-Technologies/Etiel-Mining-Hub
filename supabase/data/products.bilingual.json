@@ -29,7 +29,7 @@
       "Insert name/description/specs from the en object into Supabase (primary catalog language).",
       "Keep am for next-intl / storefront localization.",
       "specs must be a JSON array of {label, value} objects.",
-      "image_paths are public Next.js paths under /images/etiel-site-images/.",
+      "image_paths in this JSON are local public/ source files. The seed uploads them to the product-images Storage bucket and writes public Storage URLs into public.products.image_paths.",
       "Do not send price; DB column defaults to 0 and is unused by the storefront.",
       "Set is_advertisement true on one product OR one service for the homepage ad section."
     ]
