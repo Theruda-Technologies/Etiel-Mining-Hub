@@ -687,6 +687,10 @@
     "successTitle": "Inquiry received",
     "successBody": "Our team in Addis Ababa will respond within one business day.",
     "sendAnother": "Send another inquiry",
+    "errors": {
+      "generic": "We could not send your inquiry. Please try again or call us.",
+      "rateLimited": "Too many inquiries were sent recently. Please try again later."
+    },
     "hqTitle": "Our Offices",
     "hqLabel": "Addis Ababa",
     "hqAddress": "2PJW+895, Gobena Aba Tigu St, Addis Ababa\nNudo Market Center, 6th floor, Office No. 106",

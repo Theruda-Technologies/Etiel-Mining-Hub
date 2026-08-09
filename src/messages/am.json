@@ -582,6 +582,10 @@
     "successTitle": "ጥያቄ ተቀብሏል",
     "successBody": "ቡድናችን በአዲስ አበባ በአንድ የስራ ቀን ውስጥ ይመልሳል።",
     "sendAnother": "ሌላ ጥያቄ ይላኩ",
+    "errors": {
+      "generic": "ጥያቄዎን መላክ አልተቻለም። እንደገና ይሞክሩ ወይም ይደውሉልን።",
+      "rateLimited": "በቅርቡ ብዙ ጥያቄዎች ተልከዋል። ቆይተው እንደገና ይሞክሩ።"
+    },
     "hqTitle": "ቢሮዎቻችን",
     "hqLabel": "አዲስ አበባ",
     "hqAddress": "2PJW+895, Gobena Aba Tigu St, Addis Ababa\nNudo Market Center, 6ኛ ፎቅ, ቢሮ ቁጥር 106",

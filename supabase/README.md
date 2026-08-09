@@ -57,6 +57,17 @@ WHERE email = 'YOUR_EMAIL@example.com';
 | `create_order(...)` | anon | Place order + items; returns `{ id, order_number }` |
 | `lookup_order(order_number, contact)` | anon | Status lookup by order number + email/phone |
 | `update_order_status(order_id, status, note)` | staff | Enforced status transitions |
+| `create_contact_inquiry(...)` | anon | Contact form submit; returns `{ id, status }` |
+| `update_contact_inquiry_status(id, status, notes)` | staff | Update inquiry status / internal notes |
+
+## Contact inquiry statuses
+
+- `new` (default on submit)
+- `in_progress`
+- `resolved`
+- `closed`
+
+Staff can `SELECT` / `UPDATE` `contact_inquiries` via RLS (`is_staff()`), or call `update_contact_inquiry_status`.
 
 ## Order status transitions
 

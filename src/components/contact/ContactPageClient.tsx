@@ -12,13 +12,47 @@ export function ContactPageClient() {
   const t = useTranslations("contactPage");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 600));
-    setSubmitting(false);
-    setSent(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const fullName = String(data.get("fullName") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("specs") ?? "").trim();
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, phone, email, message }),
+      });
+      const payload = (await res.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+
+      if (!res.ok) {
+        setError(
+          payload?.error === "rate_limited"
+            ? t("errors.rateLimited")
+            : t("errors.generic"),
+        );
+        setSubmitting(false);
+        return;
+      }
+
+      form.reset();
+      setSent(true);
+      setSubmitting(false);
+    } catch {
+      setError(t("errors.generic"));
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -46,7 +80,10 @@ export function ContactPageClient() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSent(false)}
+                  onClick={() => {
+                    setSent(false);
+                    setError(null);
+                  }}
                   className="mt-8 w-fit rounded-sm border border-white/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:border-amber hover:text-amber"
                 >
                   {t("sendAnother")}
@@ -83,14 +120,24 @@ export function ContactPageClient() {
                 <label className="block">
                   <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-text-secondary">
                     {t("specs")}
+                    <span className="ml-1 text-amber" aria-hidden>
+                      *
+                    </span>
                   </span>
                   <textarea
                     name="specs"
                     rows={6}
+                    required
                     placeholder={t("specsPlaceholder")}
                     className="mt-3 w-full resize-y rounded-sm border border-white/20 bg-transparent px-3 py-3 text-sm text-white placeholder:text-white/35 outline-none transition-colors focus:border-amber"
                   />
                 </label>
+
+                {error ? (
+                  <p className="text-sm text-[#c45c4a]" role="alert">
+                    {error}
+                  </p>
+                ) : null}
 
                 <button
                   type="submit"

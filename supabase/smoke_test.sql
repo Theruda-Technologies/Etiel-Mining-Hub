@@ -66,7 +66,25 @@ BEGIN
 END;
 $$;
 
--- 4) Cleanup smoke catalog rows (orders may remain for inspection)
+-- 4) create_contact_inquiry via RPC
+DO $$
+DECLARE
+  v_result jsonb;
+BEGIN
+  v_result := public.create_contact_inquiry(
+    'Smoke Contact',
+    '+251911000001',
+    'smoke-contact@example.com',
+    'Smoke test enquiry about detectors'
+  );
+  RAISE NOTICE 'create_contact_inquiry result: %', v_result;
+  IF v_result->>'id' IS NULL OR v_result->>'status' <> 'new' THEN
+    RAISE EXCEPTION 'contact inquiry id/status missing or malformed';
+  END IF;
+END;
+$$;
+
+-- 5) Cleanup smoke catalog rows (orders / inquiries may remain for inspection)
 DELETE FROM public.products WHERE sku IN ('TEST-ACTIVE', 'TEST-INACTIVE');
 DELETE FROM public.services WHERE sku = 'SVC-TRAIN';
 
