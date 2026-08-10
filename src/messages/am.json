@@ -597,7 +597,14 @@
   "footer": {
     "privacy": "የግላዊነት ፖሊሲ",
     "terms": "የአገልግሎት ውል",
-    "copyright": "© {year} ኢትኤል ማይኒንግ ሃብ። ኢንዱስትሪያል ትክክለኛነት።"
+    "copyright": "© {year} ኢትኤል ማይኒንግ ሃብ። ኢንዱስትሪያል ትክክለኛነት።",
+    "socials": "ማህበራዊ አገናኞች",
+    "social": {
+      "tiktok": "ኢትኤል ማይኒንግ ሃብ በTikTok",
+      "whatsapp": "WhatsApp +251 922 056 074",
+      "telegram": "ቴሌግራም @Etiel23",
+      "telegramGroup": "የቴሌግራም ቡድን @Etiel_MiningSupply"
+    }
   },
   "legal": {
     "privacy": {

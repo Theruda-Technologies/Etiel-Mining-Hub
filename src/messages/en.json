@@ -702,7 +702,14 @@
   "footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© {year} Etiel Mining Hub. Industrial Precision."
+    "copyright": "© {year} Etiel Mining Hub. Industrial Precision.",
+    "socials": "Social links",
+    "social": {
+      "tiktok": "Etiel Mining Hub on TikTok",
+      "whatsapp": "WhatsApp +251 922 056 074",
+      "telegram": "Telegram @Etiel23",
+      "telegramGroup": "Telegram group @Etiel_MiningSupply"
+    }
   },
   "legal": {
     "privacy": {
