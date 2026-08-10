@@ -1,10 +1,11 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["am", "en"],
-  defaultLocale: "am",
-  localePrefix: "always",
-  // Always land on Amharic unless the user explicitly chooses English.
+  locales: ["en", "am"],
+  defaultLocale: "en",
+  // Default locale (English) has no URL prefix: `/`, `/products`, etc.
+  // Amharic keeps the `/am` prefix.
+  localePrefix: "as-needed",
   localeDetection: false,
 });
 

@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) — redirects to `/en`. Amharic: `/am`.
+Open [http://localhost:3000](http://localhost:3000) — English (default, no locale prefix). Amharic: `/am`.
 
 ## Supabase
 
