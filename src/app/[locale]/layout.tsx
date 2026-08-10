@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans, Noto_Sans_Ethiopic, Space_Grotesk } from 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { AppChrome } from "@/components/layout/AppChrome";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -10,6 +11,8 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
 import { CartProvider } from "@/lib/cart/store";
 import "../globals.css";
+
+const GA_MEASUREMENT_ID = "G-B0WYM9RY3Q";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -66,6 +69,18 @@ export default async function LocaleLayout({
       <body
         className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable} ${notoEthiopic.variable} locale-${locale} antialiased`}
       >
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
             <CartProvider>
