@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -7,8 +8,39 @@ import {
   fetchServiceBySlug,
   primaryImage,
 } from "@/lib/catalog/fetch-services";
+import { buildPageMetadata, truncateMetaDescription } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const service = await fetchServiceBySlug(slug);
+
+  if (!service) {
+    return {
+      title: t("services.title"),
+      description: t("services.description"),
+    };
+  }
+
+  const description =
+    truncateMetaDescription(service.description) ||
+    t("serviceDetail.descriptionFallback", { name: service.name });
+
+  return buildPageMetadata({
+    locale,
+    title: service.name,
+    description,
+    path: `/services/${service.slug}`,
+    siteName: t("siteName"),
+    image: primaryImage(service),
+  });
+}
 
 export default async function ServiceDetailPage({
   params,

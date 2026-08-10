@@ -1,7 +1,62 @@
 {
   "meta": {
     "siteName": "Etiel Mining Hub",
-    "tagline": "Industrial Precision."
+    "tagline": "Industrial Precision.",
+    "defaultDescription": "High-performance mining equipment and metal detectors for prospectors and commercial operators in Ethiopia.",
+    "home": {
+      "title": "Etiel Mining Hub | Mining Equipment & Metal Detectors in Ethiopia",
+      "description": "Buy metal detectors, gold wash plants, crushers, and mills in Ethiopia. Expert device selection and field support from Addis Ababa."
+    },
+    "products": {
+      "title": "Mining Products & Equipment",
+      "description": "Metal detectors, gold wash plants, crushers, mills, and mining supplies delivered across Ethiopia."
+    },
+    "services": {
+      "title": "Mining Services & Technical Support",
+      "description": "Mining counseling, on-site assembly, field support, training, and financing guidance from Etiel Mining Hub."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Contact Etiel Mining Hub in Addis Ababa for equipment, services, and mining support inquiries."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "How Etiel Mining Hub collects, uses, and protects your personal information."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Terms governing use of the Etiel Mining Hub website, orders, and related services."
+    },
+    "login": {
+      "title": "Sign In",
+      "description": "Sign in to your Etiel Mining Hub account."
+    },
+    "signup": {
+      "title": "Create Account",
+      "description": "Create an Etiel Mining Hub account to place equipment and service orders."
+    },
+    "cart": {
+      "title": "Cart",
+      "description": "Review items in your Etiel Mining Hub order cart."
+    },
+    "checkout": {
+      "title": "Checkout",
+      "description": "Complete your Etiel Mining Hub equipment or service order."
+    },
+    "orders": {
+      "title": "My Orders",
+      "description": "Look up and track your Etiel Mining Hub orders."
+    },
+    "orderConfirmed": {
+      "title": "Order Received",
+      "description": "Your Etiel Mining Hub order has been received."
+    },
+    "productDetail": {
+      "descriptionFallback": "View {name} specifications and order from Etiel Mining Hub in Ethiopia."
+    },
+    "serviceDetail": {
+      "descriptionFallback": "Request {name} from Etiel Mining Hub — mining support across Ethiopia."
+    }
   },
   "nav": {
     "home": "Home",

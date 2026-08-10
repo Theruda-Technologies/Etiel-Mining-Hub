@@ -1,11 +1,30 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProductCatalog } from "@/components/catalog/ProductCatalog";
 import {
   fetchActiveProducts,
   productCategories,
 } from "@/lib/catalog/fetch-products";
+import { buildPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return buildPageMetadata({
+    locale,
+    title: t("products.title"),
+    description: t("products.description"),
+    path: "/products",
+    siteName: t("siteName"),
+  });
+}
 
 export default async function ProductsPage({
   params,

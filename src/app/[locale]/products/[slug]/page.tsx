@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -7,8 +8,39 @@ import {
   fetchProductBySlug,
   primaryImage,
 } from "@/lib/catalog/fetch-products";
+import { buildPageMetadata, truncateMetaDescription } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const product = await fetchProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: t("products.title"),
+      description: t("products.description"),
+    };
+  }
+
+  const description =
+    truncateMetaDescription(product.description) ||
+    t("productDetail.descriptionFallback", { name: product.name });
+
+  return buildPageMetadata({
+    locale,
+    title: product.name,
+    description,
+    path: `/products/${product.slug}`,
+    siteName: t("siteName"),
+    image: primaryImage(product),
+  });
+}
 
 export default async function ProductDetailPage({
   params,

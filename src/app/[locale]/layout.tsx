@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Noto_Sans_Ethiopic, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
 import { CartProvider } from "@/lib/cart/store";
+import { SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
 const GA_MEASUREMENT_ID = "G-B0WYM9RY3Q";
@@ -38,14 +39,31 @@ const notoEthiopic = Noto_Sans_Ethiopic({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Etiel Mining Hub",
-  description:
-    "High-performance mining equipment and metal detectors for prospectors and commercial operators in Ethiopia.",
-};
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("siteName"),
+      template: `%s | ${t("siteName")}`,
+    },
+    description: t("defaultDescription"),
+    openGraph: {
+      type: "website",
+      siteName: t("siteName"),
+      locale: locale === "am" ? "am_ET" : "en_US",
+    },
+  };
 }
 
 export default async function LocaleLayout({

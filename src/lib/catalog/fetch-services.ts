@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createServerSupabase } from "@/lib/supabase/server";
 import {
   primaryImage,
@@ -65,20 +66,24 @@ export async function fetchActiveServices(): Promise<StoreService[]> {
   return (data ?? []).map((row) => mapRow(row as DbServiceRow));
 }
 
-export async function fetchServiceBySlug(slug: string): Promise<StoreService | null> {
-  const supabase = createServerSupabase();
-  const { data, error } = await supabase
-    .from("services")
-    .select("id, sku, slug, name, description, category, specs, image_paths, sort_order")
-    .eq("is_active", true)
-    .eq("slug", slug)
-    .maybeSingle();
+export const fetchServiceBySlug = cache(
+  async (slug: string): Promise<StoreService | null> => {
+    const supabase = createServerSupabase();
+    const { data, error } = await supabase
+      .from("services")
+      .select(
+        "id, sku, slug, name, description, category, specs, image_paths, sort_order",
+      )
+      .eq("is_active", true)
+      .eq("slug", slug)
+      .maybeSingle();
 
-  if (error) {
-    console.error("fetchServiceBySlug:", error.message);
-    return null;
-  }
-  if (!data) return null;
+    if (error) {
+      console.error("fetchServiceBySlug:", error.message);
+      return null;
+    }
+    if (!data) return null;
 
-  return mapRow(data as DbServiceRow);
-}
+    return mapRow(data as DbServiceRow);
+  },
+);
