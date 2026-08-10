@@ -16,13 +16,13 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const lineupItems = await fetchLineupMix(locale);
+  const lineupItems = await fetchLineupMix();
 
   return (
     <>
       <Hero />
       <StatsBar />
-      <FieldTested locale={locale} />
+      <FieldTested />
       <EquipmentLineup items={lineupItems} />
       <SupportGrid />
       <Partners />

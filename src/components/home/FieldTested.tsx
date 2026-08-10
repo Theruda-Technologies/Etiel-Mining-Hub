@@ -3,13 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/Button";
 import { fetchFeaturedAdItem } from "@/lib/catalog/fetch-featured";
 
-type FieldTestedProps = {
-  locale: string;
-};
-
-export async function FieldTested({ locale }: FieldTestedProps) {
+export async function FieldTested() {
   const t = await getTranslations("home.fieldTested");
-  const featured = await fetchFeaturedAdItem(locale);
+  const featured = await fetchFeaturedAdItem();
 
   if (!featured) return null;
 

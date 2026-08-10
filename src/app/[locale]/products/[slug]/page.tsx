@@ -18,7 +18,7 @@ export default async function ProductDetailPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const product = await fetchProductBySlug(slug, locale);
+  const product = await fetchProductBySlug(slug);
   if (!product) notFound();
 
   const t = await getTranslations("catalog");

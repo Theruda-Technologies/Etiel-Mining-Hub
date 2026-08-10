@@ -65,7 +65,9 @@ export function Hero() {
         <div className="max-w-2xl">
           <h1 className="font-display animate-fade-up text-4xl font-bold leading-[1.05] tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.55)] sm:text-5xl md:text-6xl lg:text-[4.25rem]">
             <span className="block">{t("titleLine1")}</span>
-            <span className="block">{t("titleLine2")}</span>
+            {t("titleLine2") ? (
+              <span className="block">{t("titleLine2")}</span>
+            ) : null}
           </h1>
           <p className="animate-fade-up-delay mt-5 max-w-xl text-base leading-relaxed text-white/95 [text-shadow:0_1px_14px_rgba(0,0,0,0.55)] md:text-lg">
             {t("subtitle")}

@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { createServerSupabase } from "@/lib/supabase/server";
 import {
   productCategories,
@@ -10,15 +8,6 @@ import {
 
 export type { ProductSpec, StoreProduct };
 export { productCategories, primaryImage };
-
-type BilingualEntry = {
-  sku: string;
-  am?: {
-    name?: string;
-    description?: string;
-    specs?: ProductSpec[];
-  };
-};
 
 type DbProductRow = {
   id: string;
@@ -60,38 +49,7 @@ function mapRow(row: DbProductRow): StoreProduct {
   };
 }
 
-function loadAmharicBySku(): Map<string, BilingualEntry["am"]> {
-  try {
-    const path = join(process.cwd(), "supabase/data/products.bilingual.json");
-    const data = JSON.parse(readFileSync(path, "utf8")) as {
-      products?: BilingualEntry[];
-    };
-    const map = new Map<string, BilingualEntry["am"]>();
-    for (const product of data.products ?? []) {
-      if (product.sku && product.am) map.set(product.sku, product.am);
-    }
-    return map;
-  } catch {
-    return new Map();
-  }
-}
-
-function applyLocale(products: StoreProduct[], locale: string): StoreProduct[] {
-  if (locale !== "am") return products;
-  const amBySku = loadAmharicBySku();
-  return products.map((product) => {
-    const am = amBySku.get(product.sku);
-    if (!am) return product;
-    return {
-      ...product,
-      name: am.name || product.name,
-      description: am.description || product.description,
-      specs: Array.isArray(am.specs) && am.specs.length > 0 ? am.specs : product.specs,
-    };
-  });
-}
-
-export async function fetchActiveProducts(locale = "am"): Promise<StoreProduct[]> {
+export async function fetchActiveProducts(): Promise<StoreProduct[]> {
   const supabase = createServerSupabase();
   const { data, error } = await supabase
     .from("products")
@@ -104,13 +62,10 @@ export async function fetchActiveProducts(locale = "am"): Promise<StoreProduct[]
     return [];
   }
 
-  return applyLocale((data ?? []).map((row) => mapRow(row as DbProductRow)), locale);
+  return (data ?? []).map((row) => mapRow(row as DbProductRow));
 }
 
-export async function fetchProductBySlug(
-  slug: string,
-  locale = "am",
-): Promise<StoreProduct | null> {
+export async function fetchProductBySlug(slug: string): Promise<StoreProduct | null> {
   const supabase = createServerSupabase();
   const { data, error } = await supabase
     .from("products")
@@ -125,6 +80,5 @@ export async function fetchProductBySlug(
   }
   if (!data) return null;
 
-  const [localized] = applyLocale([mapRow(data as DbProductRow)], locale);
-  return localized ?? null;
+  return mapRow(data as DbProductRow);
 }

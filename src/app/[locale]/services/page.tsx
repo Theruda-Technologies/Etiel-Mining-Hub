@@ -15,7 +15,7 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
-  const services = await fetchActiveServices(locale);
+  const services = await fetchActiveServices();
   const categories = serviceCategories(services);
 
   return (

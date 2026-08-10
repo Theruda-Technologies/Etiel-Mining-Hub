@@ -29,10 +29,10 @@ function summaryFromSpecs(
 }
 
 /** Four active products + four active services, shuffled together. */
-export async function fetchLineupMix(locale = "am"): Promise<LineupItem[]> {
+export async function fetchLineupMix(): Promise<LineupItem[]> {
   const [products, services] = await Promise.all([
-    fetchActiveProducts(locale),
-    fetchActiveServices(locale),
+    fetchActiveProducts(),
+    fetchActiveServices(),
   ]);
 
   const productItems = shuffle(products)

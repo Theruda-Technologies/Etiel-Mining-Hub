@@ -54,8 +54,8 @@
   },
   "home": {
     "hero": {
-      "titleLine1": "Mining Equipment & Detection.",
-      "titleLine2": "Rooted in Addis Ababa.",
+      "titleLine1": "State of The Art Mining Equipment & Detection.",
+      "titleLine2": "",
       "subtitle": "Etiel Mining Hub supplies high-performance metal detectors, ground scanners, and field-ready mining hardware for gold prospectors, commercial operators, and geological exploration across Ethiopia with expert device selection and local technical counseling.",
       "browseProducts": "Browse Products",
       "orderNow": "Order Now",
@@ -63,12 +63,12 @@
       "goToSlide": "Go to slide {n}"
     },
     "stats": {
-      "unitsValue": "10+",
+      "unitsValue": "5+",
       "unitsLabel": "Years in Addis Ababa",
-      "recoveryValue": "650+",
+      "recoveryValue": "1600+",
       "recoveryLabel": "Detectors Supplied",
-      "supportValue": "5",
-      "supportLabel": "Regions Served",
+      "supportValue": "Across Ethiopia",
+      "supportLabel": "Coverage",
       "failuresValue": "Same Day",
       "failuresLabel": "Device Counseling"
     },
@@ -87,7 +87,7 @@
     },
     "support": {
       "title": "Support Built for Ethiopian Operations",
-      "subtitle": "From device selection in Addis Ababa to setup guidance in the field, Etiel stays with prospectors and commercial crews.",
+      "subtitle": "From device selection to setup guidance in the field, Etiel stays with prospectors and commercial crews.",
       "items": {
         "sales": {
           "title": "Device Selection",
@@ -95,7 +95,7 @@
         },
         "global": {
           "title": "Local Technical Counseling",
-          "body": "Addis-based advice on settings, coils, wash circuits, and what works in Ethiopian mineralized soil."
+          "body": "Technical advice on settings, coils, wash circuits, and what works in Ethiopian mineralized soil."
         },
         "financing": {
           "title": "Flexible Procurement",
@@ -114,7 +114,7 @@
   },
   "catalog": {
     "title": "Products",
-    "subtitle": "Metal detectors, gold wash plants, crushers, and mills for gold prospectors and commercial operators across Ethiopia. Sourced and supported from Addis Ababa.",
+    "subtitle": "Metal detectors, gold wash plants, crushers, and mills for gold prospectors and commercial operators across Ethiopia. Delivered across all regions in Ethiopia.",
     "addToCart": "Add to Cart",
     "addToOrder": "Add to Order",
     "viewDetails": "View Details",
@@ -319,7 +319,7 @@
   },
   "services": {
     "title": "Services",
-    "subtitle": "Mining counseling, field support, training, and financing guidance for detectors, wash plants, crushers, and mills — from Etiel Mining Hub in Addis Ababa.",
+    "subtitle": "Mining counseling, field support, training, and financing guidance for detectors, wash plants, crushers, and mills from Etiel Mining Hub.",
     "addToCart": "Add to Cart",
     "viewDetails": "View Details",
     "backToServices": "Back to Services",
@@ -673,15 +673,15 @@
   },
   "contactPage": {
     "title": "Contact Us",
-    "subtitle": "Reach Etiel Mining Hub in Addis Ababa for detectors, wash plants, crushers, and field counseling. Tell us what you need and we will follow up quickly.",
+    "subtitle": "Reach Etiel Mining Hub about anything related to mining. Raise your questions about what you need and we will follow up quickly.",
     "fullName": "Full Name",
     "fullNamePlaceholder": "Enter your name",
     "phone": "Phone Number",
     "phonePlaceholder": "+251 ...",
     "email": "Email (optional)",
     "emailPlaceholder": "name@company.com",
-    "specs": "Order Specifications",
-    "specsPlaceholder": "Describe the equipment, quantity, and site requirements...",
+    "specs": "Your Questions",
+    "specsPlaceholder": "Ask anything about our equipment, services, or mining support...",
     "submit": "Send Inquiry",
     "submitting": "Sending…",
     "successTitle": "Inquiry received",
