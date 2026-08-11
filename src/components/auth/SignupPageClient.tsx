@@ -43,7 +43,9 @@ export function SignupPageClient() {
     setSubmitting(false);
 
     if (err) {
-      setError(t("errors.signupFailed"));
+      setError(
+        err === "email_taken" ? t("errors.emailTaken") : t("errors.signupFailed"),
+      );
       return;
     }
 

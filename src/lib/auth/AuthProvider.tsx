@@ -30,6 +30,15 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+async function readApiError(res: Response): Promise<string> {
+  try {
+    const body = (await res.json()) as { error?: string };
+    return body.error ?? "request_failed";
+  } catch {
+    return "request_failed";
+  }
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -65,21 +74,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       fullName: string;
       phone?: string;
     }) => {
-      const supabase = createClient();
-      const { data, error } = await supabase.auth.signUp({
-        email: input.email,
-        password: input.password,
-        options: {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: input.email,
+          password: input.password,
+          fullName: input.fullName,
+          phone: input.phone,
           emailRedirectTo: authRedirectUrl("/auth/callback"),
-          data: {
-            full_name: input.fullName,
-            phone: input.phone || null,
-          },
-        },
+        }),
       });
-      if (error) return { error: error.message };
-      const needsConfirmation = !data.session;
-      return { error: null, needsConfirmation };
+
+      if (!res.ok) {
+        const code = await readApiError(res);
+        return { error: code };
+      }
+
+      return { error: null, needsConfirmation: true };
     },
     [],
   );
@@ -90,11 +102,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const resetPassword = useCallback(async (email: string) => {
-    const supabase = createClient();
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: authRedirectUrl("/reset-password"),
+    const res = await fetch("/api/auth/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        redirectTo: authRedirectUrl("/reset-password"),
+      }),
     });
-    return { error: error?.message ?? null };
+
+    if (!res.ok) {
+      const code = await readApiError(res);
+      return { error: code };
+    }
+
+    return { error: null };
   }, []);
 
   const updatePassword = useCallback(async (password: string) => {

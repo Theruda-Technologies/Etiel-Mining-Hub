@@ -15,7 +15,9 @@
     "next": "^15.5.7",
     "next-intl": "^4.13.5",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "resend": "^6.4.2",
+    "standardwebhooks": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

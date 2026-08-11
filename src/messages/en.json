@@ -144,7 +144,8 @@
       "resetLinkInvalid": "This reset link is invalid or has expired.",
       "passwordTooShort": "Password must be at least 6 characters.",
       "passwordMismatch": "Passwords do not match.",
-      "updatePasswordFailed": "Could not update password. Try again."
+      "updatePasswordFailed": "Could not update password. Try again.",
+      "emailTaken": "An account with this email already exists. Sign in or reset your password."
     }
   },
   "home": {

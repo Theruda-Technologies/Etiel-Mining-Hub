@@ -144,7 +144,8 @@
       "resetLinkInvalid": "ይህ የዳግም ማስጀመሪያ አገናኝ ልክ አይደለም ወይም ጊዜው አልፏል።",
       "passwordTooShort": "የይለፍ ቃል ቢያንስ 6 ቁምፊዎች መሆን አለበት።",
       "passwordMismatch": "የይለፍ ቃላት አይዛመዱም።",
-      "updatePasswordFailed": "የይለፍ ቃል ማዘመን አልተቻለም። እንደገና ይሞክሩ።"
+      "updatePasswordFailed": "የይለፍ ቃል ማዘመን አልተቻለም። እንደገና ይሞክሩ።",
+      "emailTaken": "በዚህ ኢሜይል መለያ አለ። ይግቡ ወይም የይለፍ ቃልዎን ዳግም ያስጀምሩ።"
     }
   },
   "home": {

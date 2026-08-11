@@ -41,33 +41,38 @@ UPDATE public.profiles SET role = 'admin' WHERE email = 'staff@example.com';
 
 Only `super_admin` can change roles or delete other `admin` profiles (via RLS).
 
-## Production email (Resend SMTP)
+## Production email (Resend)
 
-Supabase’s built-in mailer is rate-limited and often fails in production. Point Auth SMTP at Resend:
+Signup and password-reset emails are sent by **this Next.js app** via Resend’s HTTP API (`/api/auth/signup`, `/api/auth/forgot-password`). That bypasses Supabase’s SMTP mailer, which was returning `Error sending confirmation email` even when Resend credentials were valid.
 
-1. Verify your domain in [Resend](https://resend.com) (e.g. `mail.etielmininghub.com`).
-2. Create an API key in Resend.
-3. Supabase Dashboard → **Project Settings → Authentication → SMTP Settings** (or Auth → Emails → SMTP):
-   - Host: `smtp.resend.com`
-   - Port: `465` (SSL) or `587` (STARTTLS)
-   - Username: `resend`
-   - Password: your Resend API key (`re_...`)
-   - Sender email: `noreply@mail.etielmininghub.com` (must be on a verified Resend domain)
-   - Sender name: `Etiel Mining Hub`
-4. Supabase Dashboard → **Authentication → URL Configuration**:
-   - **Site URL:** `https://etielmininghub.com`
-   - **Redirect URLs** (add all):
-     - `https://etielmininghub.com/auth/callback`
-     - `https://etielmininghub.com/reset-password`
-     - `https://etielmininghub.com/am/auth/callback`
-     - `https://etielmininghub.com/am/reset-password`
-     - Local (optional): `http://localhost:3000/auth/callback`, `http://localhost:3000/reset-password`, and the `/am/...` variants
-5. Deploy `NEXT_PUBLIC_SITE_URL=https://etielmininghub.com` with your host env vars.
+Required env vars on the host (and locally):
+
+- `SUPABASE_SERVICE_ROLE_KEY` — used only on the server to call `auth.admin.generateLink`
+- `RESEND_API_KEY` or `SMTP_PASS` — Resend API key
+- `SMTP_FROM` — e.g. `Etiel Mining Hub <noreply@mail.etielmininghub.com>`
+- `NEXT_PUBLIC_SITE_URL` — `https://etielmininghub.com`
+
+Optional: Supabase Custom SMTP can stay configured, but the app no longer depends on it for signup/reset.
+
+### URL Configuration
+
+Supabase Dashboard → **Authentication → URL Configuration**:
+
+- **Site URL:** `https://etielmininghub.com`
+- **Redirect URLs:**
+  - `https://etielmininghub.com/auth/callback`
+  - `https://etielmininghub.com/reset-password`
+  - `https://etielmininghub.com/am/auth/callback`
+  - `https://etielmininghub.com/am/reset-password`
+  - Local (optional): `http://localhost:3000/auth/callback`, `http://localhost:3000/reset-password`, and `/am/...` variants
 
 App routes:
 
 | Path | Purpose |
 |------|---------|
+| `/api/auth/signup` | Create user + send confirmation via Resend |
+| `/api/auth/forgot-password` | Send password reset via Resend |
+| `/api/auth/send-email` | Optional Supabase Send Email Hook endpoint |
 | `/auth/callback` | Completes email confirmation links |
 | `/forgot-password` | Request a password reset email |
 | `/reset-password` | Set a new password after opening the reset link |
