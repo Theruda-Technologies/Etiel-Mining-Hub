@@ -35,6 +35,18 @@
       "title": "Create Account",
       "description": "Create an Etiel Mining Hub account to place equipment and service orders."
     },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Request a password reset link for your Etiel Mining Hub account."
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Choose a new password for your Etiel Mining Hub account."
+    },
+    "authCallback": {
+      "title": "Confirming account",
+      "description": "Completing email confirmation for your Etiel Mining Hub account."
+    },
     "cart": {
       "title": "Cart",
       "description": "Review items in your Etiel Mining Hub order cart."
@@ -87,7 +99,8 @@
       "submit": "Login",
       "submitting": "Signing in…",
       "newOperator": "New operator?",
-      "createAccount": "Create an account"
+      "createAccount": "Create an account",
+      "emailConfirmed": "Email confirmed. You can sign in now."
     },
     "signup": {
       "title": "Create Account",
@@ -100,11 +113,38 @@
       "footerCopy": "© {year} Etiel Mining Hub. Industrial Grade Procurement.",
       "support": "Technical Support"
     },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "We will email you a reset link",
+      "submit": "Send reset link",
+      "submitting": "Sending…",
+      "backToLogin": "Back to sign in"
+    },
+    "resetPassword": {
+      "title": "Set New Password",
+      "subtitle": "Choose a strong password for your account",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "submit": "Update password",
+      "submitting": "Updating…",
+      "preparing": "Validating reset link…",
+      "success": "Password updated. Redirecting to sign in…",
+      "requestNewLink": "Request a new reset link"
+    },
+    "callback": {
+      "title": "Confirming",
+      "subtitle": "Completing email verification",
+      "working": "Please wait…"
+    },
     "errors": {
       "loginFailed": "Could not sign in. Check your email and password.",
       "signupFailed": "Could not create account. Try a different email.",
       "emailRequired": "Enter your email address first.",
-      "resetFailed": "Could not send reset email. Try again."
+      "resetFailed": "Could not send reset email. Try again.",
+      "resetLinkInvalid": "This reset link is invalid or has expired.",
+      "passwordTooShort": "Password must be at least 6 characters.",
+      "passwordMismatch": "Passwords do not match.",
+      "updatePasswordFailed": "Could not update password. Try again."
     }
   },
   "home": {

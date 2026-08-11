@@ -11,6 +11,7 @@ import {
 } from "react";
 import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
+import { authRedirectUrl } from "@/lib/auth/urls";
 
 type AuthContextValue = {
   user: User | null;
@@ -24,6 +25,7 @@ type AuthContextValue = {
   }) => Promise<{ error: string | null; needsConfirmation?: boolean }>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: string | null }>;
+  updatePassword: (password: string) => Promise<{ error: string | null }>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -68,6 +70,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email: input.email,
         password: input.password,
         options: {
+          emailRedirectTo: authRedirectUrl("/auth/callback"),
           data: {
             full_name: input.fullName,
             phone: input.phone || null,
@@ -88,23 +91,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const resetPassword = useCallback(async (email: string) => {
     const supabase = createClient();
-    const redirectTo =
-      typeof window !== "undefined"
-        ? (() => {
-            const segment = window.location.pathname.split("/")[1];
-            const locale = segment === "en" || segment === "am" ? segment : "am";
-            return `${window.location.origin}/${locale}/login`;
-          })()
-        : undefined;
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo,
+      redirectTo: authRedirectUrl("/reset-password"),
     });
     return { error: error?.message ?? null };
   }, []);
 
+  const updatePassword = useCallback(async (password: string) => {
+    const supabase = createClient();
+    const { error } = await supabase.auth.updateUser({ password });
+    return { error: error?.message ?? null };
+  }, []);
+
   const value = useMemo(
-    () => ({ user, loading, signIn, signUp, signOut, resetPassword }),
-    [user, loading, signIn, signUp, signOut, resetPassword],
+    () => ({
+      user,
+      loading,
+      signIn,
+      signUp,
+      signOut,
+      resetPassword,
+      updatePassword,
+    }),
+    [user, loading, signIn, signUp, signOut, resetPassword, updatePassword],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

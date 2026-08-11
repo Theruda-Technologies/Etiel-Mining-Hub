@@ -32,6 +32,7 @@ supabase login
 In the Supabase Dashboard → Authentication → Providers / Settings:
 
 - **Storefront customers:** enable Email provider + allow public sign-ups (signup page uses `auth.signUp`; new users get `customer` via `handle_new_user`).
+- **Confirm email:** enable if you want verification before sign-in. Confirmation and password-reset emails are sent by Supabase Auth (not by the Next.js app).
 - **Staff:** invite-only is still recommended for `admin` / `super_admin`. Promote staff with:
 
 ```sql
@@ -39,6 +40,37 @@ UPDATE public.profiles SET role = 'admin' WHERE email = 'staff@example.com';
 ```
 
 Only `super_admin` can change roles or delete other `admin` profiles (via RLS).
+
+## Production email (Resend SMTP)
+
+Supabase’s built-in mailer is rate-limited and often fails in production. Point Auth SMTP at Resend:
+
+1. Verify your domain in [Resend](https://resend.com) (e.g. `mail.etielmininghub.com`).
+2. Create an API key in Resend.
+3. Supabase Dashboard → **Project Settings → Authentication → SMTP Settings** (or Auth → Emails → SMTP):
+   - Host: `smtp.resend.com`
+   - Port: `465` (SSL) or `587` (STARTTLS)
+   - Username: `resend`
+   - Password: your Resend API key (`re_...`)
+   - Sender email: `noreply@mail.etielmininghub.com` (must be on a verified Resend domain)
+   - Sender name: `Etiel Mining Hub`
+4. Supabase Dashboard → **Authentication → URL Configuration**:
+   - **Site URL:** `https://etielmininghub.com`
+   - **Redirect URLs** (add all):
+     - `https://etielmininghub.com/auth/callback`
+     - `https://etielmininghub.com/reset-password`
+     - `https://etielmininghub.com/am/auth/callback`
+     - `https://etielmininghub.com/am/reset-password`
+     - Local (optional): `http://localhost:3000/auth/callback`, `http://localhost:3000/reset-password`, and the `/am/...` variants
+5. Deploy `NEXT_PUBLIC_SITE_URL=https://etielmininghub.com` with your host env vars.
+
+App routes:
+
+| Path | Purpose |
+|------|---------|
+| `/auth/callback` | Completes email confirmation links |
+| `/forgot-password` | Request a password reset email |
+| `/reset-password` | Set a new password after opening the reset link |
 
 ## Bootstrap the first `super_admin`
 

@@ -35,6 +35,18 @@
       "title": "መለያ ፍጠር",
       "description": "የመሣሪያ እና አገልግሎት ትዕዛዞችን ለማስገባት የኢትኤል ማይኒንግ ሃብ መለያ ይፍጠሩ።"
     },
+    "forgotPassword": {
+      "title": "የይለፍ ቃል ረሳኽ",
+      "description": "ለኢትኤል ማይኒንግ ሃብ መለያዎ የይለፍ ቃል ዳግም ማስጀመሪያ አገናኝ ይጠይቁ።"
+    },
+    "resetPassword": {
+      "title": "የይለፍ ቃል ዳግም ያስጀምሩ",
+      "description": "ለኢትኤል ማይኒንግ ሃብ መለያዎ አዲስ የይለፍ ቃል ይምረጡ።"
+    },
+    "authCallback": {
+      "title": "መለያ በማረጋገጥ ላይ",
+      "description": "የኢትኤል ማይኒንግ ሃብ ኢሜይል ማረጋገጫን በማጠናቀቅ ላይ።"
+    },
     "cart": {
       "title": "ጋሪ",
       "description": "በኢትኤል ማይኒንግ ሃብ የትዕዛዝ ጋሪዎ ውስጥ ያሉትን ንጥሎች ይመልከቱ።"
@@ -87,7 +99,8 @@
       "submit": "ግባ",
       "submitting": "በመግባት ላይ…",
       "newOperator": "አዲስ ኦፕሬተር?",
-      "createAccount": "መለያ ይፍጠሩ"
+      "createAccount": "መለያ ይፍጠሩ",
+      "emailConfirmed": "ኢሜይል ተረጋግጧል። አሁን መግባት ይችላሉ።"
     },
     "signup": {
       "title": "መለያ ፍጠር",
@@ -100,11 +113,38 @@
       "footerCopy": "© {year} ኢትኤል ማይኒንግ ሃብ። ኢንዱስትሪያል ደረጃ ግዢ።",
       "support": "ቴክኒካል ድጋፍ"
     },
+    "forgotPassword": {
+      "title": "የይለፍ ቃል ረሳኽ",
+      "subtitle": "የዳግም ማስጀመሪያ አገናኝ በኢሜይል እንልክልዎታለን",
+      "submit": "የዳግም ማስጀመሪያ አገናኝ ላክ",
+      "submitting": "በመላክ ላይ…",
+      "backToLogin": "ወደ መግቢያ ተመለስ"
+    },
+    "resetPassword": {
+      "title": "አዲስ የይለፍ ቃል አዘጋጅ",
+      "subtitle": "ለመለያዎ ጠንካራ የይለፍ ቃል ይምረጡ",
+      "newPassword": "አዲስ የይለፍ ቃል",
+      "confirmPassword": "የይለፍ ቃል አረጋግጥ",
+      "submit": "የይለፍ ቃል አዘምን",
+      "submitting": "በማዘመን ላይ…",
+      "preparing": "የዳግም ማስጀመሪያ አገናኝ በማረጋገጥ ላይ…",
+      "success": "የይለፍ ቃል ተዘምኗል። ወደ መግቢያ በመሄድ ላይ…",
+      "requestNewLink": "አዲስ የዳግም ማስጀመሪያ አገናኝ ጠይቅ"
+    },
+    "callback": {
+      "title": "በማረጋገጥ ላይ",
+      "subtitle": "የኢሜይል ማረጋገጫን በማጠናቀቅ ላይ",
+      "working": "እባክዎ ይጠብቁ…"
+    },
     "errors": {
       "loginFailed": "መግባት አልተቻለም። ኢሜይል እና የይለፍ ቃልዎን ያረጋግጡ።",
       "signupFailed": "መለያ መፍጠር አልተቻለም። ሌላ ኢሜይል ይሞክሩ።",
       "emailRequired": "መጀመሪያ ኢሜይል አድራሻዎን ያስገቡ።",
-      "resetFailed": "ዳግም ማስጀመሪያ ኢሜይል መላክ አልተቻለም። እንደገና ይሞክሩ።"
+      "resetFailed": "ዳግም ማስጀመሪያ ኢሜይል መላክ አልተቻለም። እንደገና ይሞክሩ።",
+      "resetLinkInvalid": "ይህ የዳግም ማስጀመሪያ አገናኝ ልክ አይደለም ወይም ጊዜው አልፏል።",
+      "passwordTooShort": "የይለፍ ቃል ቢያንስ 6 ቁምፊዎች መሆን አለበት።",
+      "passwordMismatch": "የይለፍ ቃላት አይዛመዱም።",
+      "updatePasswordFailed": "የይለፍ ቃል ማዘመን አልተቻለም። እንደገና ይሞክሩ።"
     }
   },
   "home": {

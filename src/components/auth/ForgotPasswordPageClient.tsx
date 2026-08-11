@@ -1,61 +1,53 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link, useRouter } from "@/i18n/navigation";
-import { useSearchParams } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { AuthCard } from "@/components/auth/AuthCard";
-import { PasswordInput } from "@/components/auth/PasswordInput";
 
-export function LoginPageClient() {
+export function ForgotPasswordPageClient() {
   const t = useTranslations("auth");
-  const { signIn } = useAuth();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const next = useMemo(() => {
-    const value = searchParams.get("next");
-    return value && value.startsWith("/") ? value : "/";
-  }, [searchParams]);
-
+  const { resetPassword } = useAuth();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => {
-    if (searchParams.get("confirmed") === "1") {
-      setInfo(t("login.emailConfirmed"));
-    }
-  }, [searchParams, t]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
     setInfo(null);
-    const { error: err } = await signIn(email.trim(), password);
-    setSubmitting(false);
-    if (err) {
-      setError(t("errors.loginFailed"));
+
+    if (!email.trim()) {
+      setError(t("errors.emailRequired"));
+      setSubmitting(false);
       return;
     }
-    router.replace(next);
+
+    const { error: err } = await resetPassword(email.trim());
+    setSubmitting(false);
+
+    if (err) {
+      setError(t("errors.resetFailed"));
+      return;
+    }
+
+    setInfo(t("resetSent"));
   }
 
   return (
     <AuthCard
-      title={t("login.title")}
-      subtitle={t("login.subtitle")}
+      title={t("forgotPassword.title")}
+      subtitle={t("forgotPassword.subtitle")}
       footer={
         <p className="font-mono-tech text-[11px] text-white/60">
-          {t("login.newOperator")}{" "}
           <Link
-            href={`/signup?next=${encodeURIComponent(next)}`}
+            href="/login"
             className="text-amber underline underline-offset-2 transition-colors hover:text-amber-bright"
           >
-            {t("login.createAccount")}
+            {t("forgotPassword.backToLogin")}
           </Link>
         </p>
       }
@@ -76,27 +68,6 @@ export function LoginPageClient() {
           />
         </label>
 
-        <label className="block">
-          <span className="flex items-center justify-between gap-3">
-            <span className="font-mono-tech text-[10px] uppercase tracking-[0.16em] text-white/70">
-              {t("password")}
-            </span>
-            <Link
-              href="/forgot-password"
-              className="font-mono-tech text-[10px] uppercase tracking-[0.12em] text-amber transition-colors hover:text-amber-bright"
-            >
-              {t("forgot")}
-            </Link>
-          </span>
-          <PasswordInput
-            required
-            autoComplete="current-password"
-            value={password}
-            onChange={setPassword}
-            placeholder="••••••••"
-          />
-        </label>
-
         {error ? (
           <p className="text-sm text-[#c45c4a]" role="alert">
             {error}
@@ -113,7 +84,7 @@ export function LoginPageClient() {
           disabled={submitting}
           className="w-full rounded-sm bg-amber py-3 text-sm font-bold text-basalt-deep transition-colors hover:bg-amber-bright disabled:opacity-60"
         >
-          {submitting ? t("login.submitting") : t("login.submit")}
+          {submitting ? t("forgotPassword.submitting") : t("forgotPassword.submit")}
         </button>
       </form>
     </AuthCard>

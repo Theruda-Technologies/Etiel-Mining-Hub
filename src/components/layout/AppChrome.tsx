@@ -2,7 +2,13 @@
 
 import { usePathname } from "@/i18n/navigation";
 
-const AUTH_PATHS = new Set(["/login", "/signup"]);
+const AUTH_PATHS = new Set([
+  "/login",
+  "/signup",
+  "/forgot-password",
+  "/reset-password",
+  "/auth/callback",
+]);
 
 export function AppChrome({
   header,
